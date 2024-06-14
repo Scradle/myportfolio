@@ -1,8 +1,6 @@
-</div> <!-- #content -->
-
 <footer>
     
-</footer> <!-- #colophon -->
+</footer>
 
 <?php wp_footer(); ?>
 

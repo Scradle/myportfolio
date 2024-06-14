@@ -9,7 +9,9 @@
 <body <?php body_class(); ?>>
 
 <header>
-    
+<nav id="vertical-menu">
+        <a href="#presentation">Présentation</a>
+        <a href="#competences">Compétences</a>
+        <a href="#realisations">Réalisations</a>
+    </nav>
 </header> 
-
-<div id="content" class="site-content">

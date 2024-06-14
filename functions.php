@@ -26,19 +26,6 @@ function theme_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
-//Enregistrer les menus wordpress
-function register_my_menus() {
-    register_nav_menus(
-        array(
-            'menu-principal' => __( 'Menu Principal' ),
-            'menu-secondaire' => __( 'Menu Secondaire' ),
-            'mini-menu' => __( 'Mini  menu' ),
-            // Ajoutez d'autres emplacements de menu si nécessaire
-        )
-    );
-}
-add_action( 'after_setup_theme', 'register_my_menus' );
-
 // Ajoute la prise en charge des modèles de page personnalisés
 add_theme_support('custom-page-templates');
 add_theme_support('post-thumbnails');
