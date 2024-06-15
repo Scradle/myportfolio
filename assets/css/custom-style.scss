@@ -7,6 +7,12 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Philosopher';
+    src: url('../fonts/Philosopher-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /*animation****************************************************************************************************************************************/
 
 @keyframes bg1 {
@@ -34,28 +40,50 @@
         border-radius: 90%;
     }
 }
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 20px #bdbdbd;
+    }
+    to {
+      text-shadow: 0 0 30px #dedede, 0 0 10px #fcfcfc;
+    }
+}
+
+@keyframes loop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+}
+  
+
+
 /*site*******************************************************************************************************************************************/
 body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
     height: 100%;
+    /*header*********************************************************/
     header {
-        /*menu vertical*****************************************/
         #vertical-menu {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            z-index: 1;
+            z-index: 10;
             a {
+                font-family: 'ZenDots';
                 text-decoration: none;
                 color: white;
                 text-transform: uppercase;
                 writing-mode: vertical-rl; // Écrit le texte en vertical, orienté vers la gauche
                 transform: rotate(180deg); // Rotation pour ajuster l'orientation du texte
-                padding: 20px; 
+                padding: 10px; 
                 margin: 0.5vh 0;
                 border: 2px solid white; 
                 background-color: transparent;
@@ -83,8 +111,7 @@ body, html {
         align-items: center;
         .background1 {
             position: absolute;
-            background: #4e54c8;  
-            background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+            background: linear-gradient(to bottom, #8f94fb, #4e54c8);  
             width: 100%;
             height:100%;
             z-index: -1;
@@ -184,7 +211,7 @@ body, html {
                 animation-duration: 11s;
             }
         }
-
+        /*bloc text img***************************************************/
         .container {
             z-index: 1;
             display: flex;
@@ -206,26 +233,28 @@ body, html {
                 color: white;
                 .hello-world {
                     font-family: 'ZenDots';
-                    font-size: clamp(2vw,4vw,7vw);
+                    font-size: clamp(2em,4em,7em);
                     margin: 0;
                     font-weight: bold;
+                    animation: glow 4s ease-in-out infinite alternate;
                 }
                 p {
+                    font-family: 'Philosopher';
                     font-size: 1.5em;
                 }
                 .highlight {
                     font-family: 'ZenDots';
-                    font-weight: bold;
                     color: #6c92ff;
                 }
                 .contact-button {
+                    font-family: 'Philosopher';
                     display: inline-block;
                     margin-top: 20px;
                     padding: 10px 20px;
                     font-size: 1em;
-                    color: #fff;
-                    background-color: #6c92ff;
-                    border: none;
+                    color: white;
+                    backface-visibility: visible;
+                    background-color: rgba(108,146,255,0.5);
                     border-radius: 5px;
                     text-align: center;
                     text-decoration: none;
@@ -254,17 +283,79 @@ body, html {
     }
     /*section 2***************************************************/
     #competences { 
-        background: #66ff66;
-        z-index: -1;
- 
+        background: #4e54c8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /*bloc skills***************************************************/
+        .skill-list {
+            z-index: 1;
+            width: 80vw;
+            max-width: 90vw;
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            gap: 0.5rem 0;
+            position: relative;
+            padding: 1.5rem 0;
+            overflow:hidden;
+            .loop-slider {
+                .inner {
+                    display: flex;
+                    width: max-content;
+                    animation: loop linear infinite;
+                    z-index: 1; 
+                    .skill {
+                        z-index: 2;
+                        display: flex;
+                        align-items: center;
+                        gap: 0 0.2rem;
+                        border-radius: 0.4rem;
+                        padding: 0.7rem 1rem;
+                        box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 20%),0 0.1rem 0.5rem rgb(0 0 0 / 30%),0 0.2rem 1.5rem rgb(0 0 0 / 40%);
+                        margin-right: 0.5rem; // Must use margin-right instead of gap for the loop to be smooth
+                        img {
+                            z-index: 3; 
+                            width: 180px; 
+                            height: 180px; 
+                            border-radius: 0.4rem;
+                            object-fit: cover;
+                            transition: transform 0.3s, filter 0.3s; // Smooth transition for hover effects
+                            cursor: pointer;
+                            &:hover {
+                                transform: rotate(5deg); 
+                                filter: brightness(1.5); 
+                            }
+                        }
+                    }  
+                }
+            }
+            /* Specific animation settings for each slider */
+            .slider-1 .inner {
+                animation-duration: 30s;
+                animation-direction: normal;
+            }    
+            .slider-2 .inner {
+            animation-duration: 20s;
+            animation-direction: reverse;
+            }
+            .slider-3 .inner {
+            animation-duration: 15s;
+            animation-direction: normal;
+            }
+            .slider-4 .inner {
+            animation-duration: 35s;
+            animation-direction: reverse;
+            }
+        }
     }
     /*section 3***************************************************/
     #realisations { 
         position: relative;
         z-index: -1;
         .background3 {
-            background: #4e54c8;  
-            background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);  
+            background: linear-gradient(to top, #8f94fb, #4e54c8);  
             width: 100%;
             height:100%;
             .circles3 {
@@ -364,6 +455,25 @@ body, html {
             }
         }
     }
-
+    /*footer***************************************************************/
+    footer {
+        .contact-icons {
+            position: fixed;
+            bottom: 0;
+            right: 1vw;
+            display: flex;
+            gap: 2vw;
+            padding: 10px;
+            a {
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        
+        
+    }
 }
 

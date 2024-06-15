@@ -134,3 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Met à jour les liens du menu de navigation lors du chargement initial de la page
     updateNavLinks();
 });
+
+/*memory game****************************************************************************************************************************************************************/
+

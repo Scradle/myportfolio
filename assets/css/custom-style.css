@@ -5,6 +5,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Philosopher";
+  src: url("../fonts/Philosopher-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 /*animation****************************************************************************************************************************************/
 @keyframes bg1 {
   0% {
@@ -30,18 +36,33 @@
     border-radius: 90%;
   }
 }
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px #bdbdbd;
+  }
+  to {
+    text-shadow: 0 0 30px #dedede, 0 0 10px #fcfcfc;
+  }
+}
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 /*site*******************************************************************************************************************************************/
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 100%;
+  /*header*********************************************************/
   /*section 1***************************************************/
   /*section 2***************************************************/
   /*section 3***************************************************/
-}
-body header, html header {
-  /*menu vertical*****************************************/
+  /*footer***************************************************************/
 }
 body header #vertical-menu, html header #vertical-menu {
   position: absolute;
@@ -49,15 +70,16 @@ body header #vertical-menu, html header #vertical-menu {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 10;
 }
 body header #vertical-menu a, html header #vertical-menu a {
+  font-family: "ZenDots";
   text-decoration: none;
   color: white;
   text-transform: uppercase;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  padding: 20px;
+  padding: 10px;
   margin: 0.5vh 0;
   border: 2px solid white;
   background-color: transparent;
@@ -80,11 +102,11 @@ body #presentation, html #presentation {
   display: flex;
   justify-content: center;
   align-items: center;
+  /*bloc text img***************************************************/
 }
 body #presentation .background1, html #presentation .background1 {
   position: absolute;
-  background: #4e54c8;
-  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  background: linear-gradient(to bottom, #8f94fb, #4e54c8);
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -193,26 +215,28 @@ body #presentation .container .text-block, html #presentation .container .text-b
 }
 body #presentation .container .text-block .hello-world, html #presentation .container .text-block .hello-world {
   font-family: "ZenDots";
-  font-size: 4vw;
+  font-size: 4em;
   margin: 0;
   font-weight: bold;
+  animation: glow 4s ease-in-out infinite alternate;
 }
 body #presentation .container .text-block p, html #presentation .container .text-block p {
+  font-family: "Philosopher";
   font-size: 1.5em;
 }
 body #presentation .container .text-block .highlight, html #presentation .container .text-block .highlight {
   font-family: "ZenDots";
-  font-weight: bold;
   color: #6c92ff;
 }
 body #presentation .container .text-block .contact-button, html #presentation .container .text-block .contact-button {
+  font-family: "Philosopher";
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 1em;
-  color: #fff;
-  background-color: #6c92ff;
-  border: none;
+  color: white;
+  backface-visibility: visible;
+  background-color: rgba(108, 146, 255, 0.5);
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
@@ -234,16 +258,79 @@ body #presentation .container .image-block img, html #presentation .container .i
      object-fit: contain;
 }
 body #competences, html #competences {
-  background: #66ff66;
-  z-index: -1;
+  background: #4e54c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*bloc skills***************************************************/
+}
+body #competences .skill-list, html #competences .skill-list {
+  z-index: 1;
+  width: 80vw;
+  max-width: 90vw;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.5rem 0;
+  position: relative;
+  padding: 1.5rem 0;
+  overflow: hidden;
+  /* Specific animation settings for each slider */
+}
+body #competences .skill-list .loop-slider .inner, html #competences .skill-list .loop-slider .inner {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: loop linear infinite;
+  z-index: 1;
+}
+body #competences .skill-list .loop-slider .inner .skill, html #competences .skill-list .loop-slider .inner .skill {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+  border-radius: 0.4rem;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2), 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.2rem 1.5rem rgba(0, 0, 0, 0.4);
+  margin-right: 0.5rem;
+}
+body #competences .skill-list .loop-slider .inner .skill img, html #competences .skill-list .loop-slider .inner .skill img {
+  z-index: 3;
+  width: 180px;
+  height: 180px;
+  border-radius: 0.4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s, filter 0.3s;
+  cursor: pointer;
+}
+body #competences .skill-list .loop-slider .inner .skill img:hover, html #competences .skill-list .loop-slider .inner .skill img:hover {
+  transform: rotate(5deg);
+  filter: brightness(1.5);
+}
+body #competences .skill-list .slider-1 .inner, html #competences .skill-list .slider-1 .inner {
+  animation-duration: 30s;
+  animation-direction: normal;
+}
+body #competences .skill-list .slider-2 .inner, html #competences .skill-list .slider-2 .inner {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+body #competences .skill-list .slider-3 .inner, html #competences .skill-list .slider-3 .inner {
+  animation-duration: 15s;
+  animation-direction: normal;
+}
+body #competences .skill-list .slider-4 .inner, html #competences .skill-list .slider-4 .inner {
+  animation-duration: 35s;
+  animation-direction: reverse;
 }
 body #realisations, html #realisations {
   position: relative;
   z-index: -1;
 }
 body #realisations .background3, html #realisations .background3 {
-  background: #4e54c8;
-  background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);
+  background: linear-gradient(to top, #8f94fb, #4e54c8);
   width: 100%;
   height: 100%;
 }
@@ -328,4 +415,17 @@ body #realisations .background3 .circles3 li:nth-child(10), html #realisations .
   height: 150px;
   animation-delay: 0s;
   animation-duration: 11s;
+}
+body footer .contact-icons, html footer .contact-icons {
+  position: fixed;
+  bottom: 0;
+  right: 1vw;
+  display: flex;
+  gap: 2vw;
+  padding: 10px;
+}
+body footer .contact-icons a .icon, html footer .contact-icons a .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=custom-style.css.map */
