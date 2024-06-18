@@ -32,7 +32,7 @@ get_header();
                  et ma <span class="highlight">curiosité</span> pour repousser les limites du 
                 <span class="highlight">design</span> et du développement web.
             </p>
-            <a href="mailto:contact@votresite.com" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
+            <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
         </div>
         <div class="image-block">
             <img src="<?php echo get_template_directory_uri() . './assets/images/logodev1.webp'; ?>" alt="illustration de la présentation">
@@ -41,97 +41,62 @@ get_header();
 </section>
 
 <section id="competences" class="section">
+    <div class="text-area">
+        <div class="logo-container">
+        </div>
+        <div class="text-content">
+            <!-- Texte de base -->
+            <p class="base-text">Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
+            <p class="competence-title"></p>
+            <p class="competence-description"></p>
+        </div>
+    </div>
+    <?php
+
+    // Récupérer toutes les compétences
+    $args = array(
+        'post_type' => 'competence',
+        'posts_per_page' => -1
+    );
+    $competences_query = new WP_Query($args);
+
+    $competences = array();
+    // Tableau avec toutes les compétences et leurs champs acf
+    if ($competences_query->have_posts()) {
+        while ($competences_query->have_posts()) {
+            $competences_query->the_post();
+            $logo = get_field('logo'); 
+            $description = get_field('description'); 
+            $competences[] = array(
+                'title' => get_the_title(),
+                'logo' => $logo,
+                'description' => $description,
+            );
+        }
+        wp_reset_postdata();
+    }
+    ?>
+
+    <div class="skill-list">
+        <?php for ($i = 0; $i < 4; $i++) : 
+          // Mélanger les compétences avant de remplir chaque inner
+          $shuffled_competences = $competences;
+          shuffle($shuffled_competences);
+        ?>
+            <div class="loop-slider slider-<?php echo $i + 1; ?>">
+                <!--4 sliders crées et remplis dynamiquements-->
+                <div class="inner">
+                    <?php foreach ($shuffled_competences as $competence) : ?>
+                        <div class="skill" data-title="<?php echo esc_attr($competence['title']); ?>" data-logo="<?php echo esc_url($competence['logo']); ?>" data-description="<?php echo esc_attr($competence['description']); ?>">
+                            <img src="<?php echo esc_url($competence['logo']); ?>" alt="logo de <?php echo esc_attr($competence['title']); ?>">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endfor; ?>
+        <div class="fade"></div>
+    </div>
     
-<div class="skill-list">
-    <div class="loop-slider slider-1">
-      <div class="inner">
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/canva.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/css3.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/figma.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/filezilla.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/git.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/github.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/html5.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/local.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/canva.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/css3.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/figma.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/filezilla.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/git.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/github.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/html5.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/local.webp'; ?>" alt="logo de "></div>
-      </div>
-    </div>
-    <div class="loop-slider slider-2">
-      <div class="inner">
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/mysql.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/node-js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/notion.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/npm.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/photoshop.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/php.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/sass.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/visual-studio.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/wordpress.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/mysql.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/node-js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/notion.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/npm.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/photoshop.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/php.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/sass.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/visual-studio.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/wordpress.webp'; ?>" alt="logo de "></div>
-      </div>
-    </div>
-    <div class="loop-slider slider-3">
-      <div class="inner">
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/local.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/html5.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/github.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/git.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/filezilla.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/figma.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/css3.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/canva.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/local.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/html5.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/github.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/git.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/filezilla.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/figma.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/css3.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/canva.webp'; ?>" alt="logo de "></div>
-      </div>
-    </div>
-    <div class="loop-slider slider-4">
-      <div class="inner">
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/wordpress.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/visual-studio.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/sass.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/php.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/photoshop.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/npm.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/notion.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/node-js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/mysql.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/wordpress.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/visual-studio.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/sass.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/php.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/photoshop.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/npm.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/notion.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/node-js.webp'; ?>" alt="logo de "></div>
-        <div class="skill"><img src="<?php echo get_template_directory_uri() . '/assets/images/mysql.webp'; ?>" alt="logo de "></div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="realisations" class="section">

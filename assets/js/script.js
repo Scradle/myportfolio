@@ -135,5 +135,77 @@ document.addEventListener('DOMContentLoaded', function () {
     updateNavLinks();
 });
 
-/*memory game****************************************************************************************************************************************************************/
+/*boucles compétences****************************************************************************************************************************************************************/
+
+// Duplique les éléments de chaque boucle 
+document.addEventListener('DOMContentLoaded', function() {
+    const sliders = document.querySelectorAll('.loop-slider .inner');
+    sliders.forEach(slider => {
+        const clone = slider.innerHTML;
+        slider.innerHTML += clone;
+    });
+});
+
+
+// Affichage de la compétence sélectionnée
+document.addEventListener('DOMContentLoaded', function() {
+    const skills = document.querySelectorAll('.skill');
+    const baseText = document.querySelector('.base-text');
+    const logoContainer = document.querySelector('.text-area .logo-container');
+    const competenceTitle = document.querySelector('.text-area .competence-title');
+    const competenceDescription = document.querySelector('.text-area .competence-description');
+
+    skills.forEach(skill => {
+        skill.addEventListener('click', function() {
+            const title = skill.getAttribute('data-title');
+            const logo = skill.getAttribute('data-logo');
+            const description = skill.getAttribute('data-description');
+
+            // Effacer ou cacher le texte de base
+            baseText.style.display = 'none';
+
+            // Mettre à jour la zone de texte
+            logoContainer.innerHTML = `<img src="${logo}" alt="logo de ${title}">`;
+            competenceTitle.textContent = title;
+            competenceDescription.textContent = description;
+        });
+    });
+});
+
+/*modale de contact****************************************************************************************************************************************************************/
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Sélectionner les éléments
+    var contactButton = document.querySelector('.contact-button');
+    var contactIcon = document.querySelector('.contact-icon');
+    var contactModal = document.querySelector('.contact-modal');
+    var modalContent = document.querySelector('.modal-content');
+
+    // Fonction pour afficher la modal
+    function showModal() {
+        contactModal.style.display = 'flex';
+    }
+
+    // Fonction pour masquer la modal
+    function hideModal(event) {
+        if (!modalContent.contains(event.target)) {
+            contactModal.style.display = 'none';
+        }
+    }
+
+    // Ajouter les événements de clic pour afficher la modal
+    if (contactButton) {
+        contactButton.addEventListener('click', showModal);
+    }
+
+    if (contactIcon) {
+        contactIcon.addEventListener('click', showModal);
+    }
+
+    // Ajouter l'événement de clic pour masquer la modal
+    if (contactModal) {
+        contactModal.addEventListener('click', hideModal);
+    }
+});
+
 

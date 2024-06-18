@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*Local fonts************************************************************************/
 @font-face {
   font-family: "ZenDots";
@@ -52,6 +53,7 @@
     transform: translateX(-50%);
   }
 }
+/*mixin****************************************************************************************************************************************/
 /*site*******************************************************************************************************************************************/
 body, html {
   margin: 0;
@@ -97,8 +99,6 @@ body .section, html .section {
   overflow: hidden;
 }
 body #presentation, html #presentation {
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,6 +223,7 @@ body #presentation .container .text-block .hello-world, html #presentation .cont
 body #presentation .container .text-block p, html #presentation .container .text-block p {
   font-family: "Philosopher";
   font-size: 1.5em;
+  line-height: 1.5;
 }
 body #presentation .container .text-block .highlight, html #presentation .container .text-block .highlight {
   font-family: "ZenDots";
@@ -262,17 +263,62 @@ body #competences, html #competences {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 2vw;
+  /*bloc text-skills***************************************************/
   /*bloc skills***************************************************/
+}
+body #competences .text-area, html #competences .text-area {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+body #competences .text-area .logo-container, html #competences .text-area .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+body #competences .text-area .logo-container img, html #competences .text-area .logo-container img {
+  max-width: 300px;
+  height: auto;
+}
+body #competences .text-area .text-content, html #competences .text-area .text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #competences .text-area .text-content .competence-title, html #competences .text-area .text-content .competence-title {
+  font-size: 2em;
+  line-height: 1.5;
+  margin: 0;
+  font-family: "Zendots";
+  color: white;
+}
+body #competences .text-area .text-content .competence-description, html #competences .text-area .text-content .competence-description {
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin: 1rem 0 0;
+  font-family: "Philosopher";
+  color: white;
+}
+body #competences .text-area .text-content .base-text, html #competences .text-area .text-content .base-text {
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin: 0;
+  font-family: "Philosopher";
+  color: white;
 }
 body #competences .skill-list, html #competences .skill-list {
   z-index: 1;
-  width: 80vw;
-  max-width: 90vw;
-  display: flex;
+  width: 50vw;
   flex-shrink: 0;
   flex-direction: column;
-  gap: 0.5rem 0;
+  gap: 0.5rem 0.5rem;
   position: relative;
   padding: 1.5rem 0;
   overflow: hidden;
@@ -289,10 +335,9 @@ body #competences .skill-list .loop-slider .inner .skill, html #competences .ski
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 0 0.2rem;
+  gap: 0.4rem 0.2rem;
   border-radius: 0.4rem;
   padding: 0.7rem 1rem;
-  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2), 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.2rem 1.5rem rgba(0, 0, 0, 0.4);
   margin-right: 0.5rem;
 }
 body #competences .skill-list .loop-slider .inner .skill img, html #competences .skill-list .loop-slider .inner .skill img {
@@ -314,16 +359,22 @@ body #competences .skill-list .slider-1 .inner, html #competences .skill-list .s
   animation-direction: normal;
 }
 body #competences .skill-list .slider-2 .inner, html #competences .skill-list .slider-2 .inner {
-  animation-duration: 20s;
+  animation-duration: 45s;
   animation-direction: reverse;
 }
 body #competences .skill-list .slider-3 .inner, html #competences .skill-list .slider-3 .inner {
-  animation-duration: 15s;
+  animation-duration: 35s;
   animation-direction: normal;
 }
 body #competences .skill-list .slider-4 .inner, html #competences .skill-list .slider-4 .inner {
-  animation-duration: 35s;
+  animation-duration: 40s;
   animation-direction: reverse;
+}
+body #competences .fade, html #competences .fade {
+  pointer-events: none;
+  background: linear-gradient(90deg, #4e54c8, transparent 30%, transparent 70%, #4e54c8);
+  position: absolute;
+  inset: 0;
 }
 body #realisations, html #realisations {
   position: relative;
@@ -428,4 +479,112 @@ body footer .contact-icons a .icon, html footer .contact-icons a .icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 1s;
+}
+body footer .contact-icons a:hover, html footer .contact-icons a:hover {
+  transform: scale(1.5);
+}
+body footer .contact-modal, html footer .contact-modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body footer .contact-modal .modal-veil, html footer .contact-modal .modal-veil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+body footer .contact-modal .modal-veil.fadeOut, html footer .contact-modal .modal-veil.fadeOut {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+body footer .contact-modal .modal-content, html footer .contact-modal .modal-content {
+  z-index: 3000;
+  border: 3px solid white;
+  width: 80%;
+  max-width: 600px;
+  min-width: 270px;
+  height: auto;
+  overflow: hidden;
+  background: conic-gradient(from 0deg, #8f94fb, #4e54c8); /* Dégradé conique */
+}
+body footer .contact-modal .modal-content .contact-form-modal, html footer .contact-modal .modal-content .contact-form-modal {
+  display: flex;
+  justify-content: center;
+  padding: 4%;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7.js, html footer .contact-modal .modal-content .contact-form-modal .wpcf7.js {
+  font-family: "Zendots";
+  font-size: 1em;
+  line-height: 15px;
+  text-align: center;
+  color: white;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=text],
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=email],
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form textarea, html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=text],
+html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=email],
+html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form textarea {
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid grey;
+  resize: none;
+  margin: 10px 0 20px 0;
+  position: relative;
+  z-index: 2;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=text],
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=email], html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=text],
+html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=email] {
+  height: 40px;
+  width: 250px;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form textarea, html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form textarea {
+  height: 260px;
+  width: 250px;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=submit], html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=submit] {
+  background-color: #6c92ff;
+  font-family: "Philosopher";
+  font-size: 0.8em;
+  line-height: 17px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 50px;
+  width: 100%;
+  z-index: 3;
+  position: relative;
+  transition: background-color 1s ease;
+  text-align: center;
+}
+body footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=submit]:hover, html footer .contact-modal .modal-content .contact-form-modal .wpcf7-form input[type=submit]:hover {
+  background-color: #8f94fb;
+  color: white;
+}
+body footer .contact-modal .modal-content.fadeIn, html footer .contact-modal .modal-content.fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+body footer .contact-modal .modal-content.slideIn, html footer .contact-modal .modal-content.slideIn {
+  animation: slideInRight 1s ease forwards;
+}
+body footer .contact-modal .modal-content.fadeOut, html footer .contact-modal .modal-content.fadeOut {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+body footer .contact-modal .modal-content.slideOut, html footer .contact-modal .modal-content.slideOut {
+  animation: slideInLeft 1s ease forwards;
 }/*# sourceMappingURL=custom-style.css.map */
