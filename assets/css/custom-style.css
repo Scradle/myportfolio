@@ -125,7 +125,7 @@ body #presentation .background1 .circles li, html #presentation .background1 .ci
   width: 20px;
   height: 20px;
   background: rgba(255, 255, 255, 0.2);
-  animation: bg1 30s linear infinite;
+  animation: bg1 20s linear infinite;
   bottom: -200px;
 }
 body #presentation .background1 .circles li:nth-child(1), html #presentation .background1 .circles li:nth-child(1) {
@@ -259,7 +259,6 @@ body #presentation .container .image-block img, html #presentation .container .i
      object-fit: contain;
 }
 body #competences, html #competences {
-  background: #4e54c8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,6 +266,111 @@ body #competences, html #competences {
   gap: 2vw;
   /*bloc text-skills***************************************************/
   /*bloc skills***************************************************/
+}
+body #competences .background2, html #competences .background2 {
+  position: absolute;
+  background: #4e54c8;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+body #competences .background2 .circles2a, html #competences .background2 .circles2a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+body #competences .background2 .circles2a li, html #competences .background2 .circles2a li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: bg1 20s linear infinite;
+  bottom: -200px;
+}
+body #competences .background2 .circles2a li:nth-child(1), html #competences .background2 .circles2a li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+body #competences .background2 .circles2a li:nth-child(2), html #competences .background2 .circles2a li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+body #competences .background2 .circles2a li:nth-child(3), html #competences .background2 .circles2a li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+body #competences .background2 .circles2a li:nth-child(4), html #competences .background2 .circles2a li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+body #competences .background2 .circles2a li:nth-child(5), html #competences .background2 .circles2a li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+body #competences .background2 .circles2b, html #competences .background2 .circles2b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+body #competences .background2 .circles2b li, html #competences .background2 .circles2b li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: bg3 20s linear infinite;
+  top: -200px;
+}
+body #competences .background2 .circles2b li:nth-child(1), html #competences .background2 .circles2b li:nth-child(1) {
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+body #competences .background2 .circles2b li:nth-child(2), html #competences .background2 .circles2b li:nth-child(2) {
+  left: 90%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+body #competences .background2 .circles2b li:nth-child(3), html #competences .background2 .circles2b li:nth-child(3) {
+  left: 75%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+body #competences .background2 .circles2b li:nth-child(4), html #competences .background2 .circles2b li:nth-child(4) {
+  left: 55%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+body #competences .background2 .circles2b li:nth-child(5), html #competences .background2 .circles2b li:nth-child(5) {
+  left: 35%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
 }
 body #competences .text-area, html #competences .text-area {
   width: 30vw;
@@ -298,6 +402,7 @@ body #competences .text-area .text-content .competence-title, html #competences 
   margin: 0;
   font-family: "Zendots";
   color: white;
+  animation: glow 4s ease-in-out infinite alternate;
 }
 body #competences .text-area .text-content .competence-description, html #competences .text-area .text-content .competence-description {
   font-size: 1.5em;
@@ -377,13 +482,17 @@ body #competences .fade, html #competences .fade {
   inset: 0;
 }
 body #realisations, html #realisations {
-  position: relative;
-  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* bloc réalisation******************************************************************/
 }
 body #realisations .background3, html #realisations .background3 {
   background: linear-gradient(to top, #8f94fb, #4e54c8);
   width: 100%;
   height: 100%;
+  z-index: -1;
+  position: absolute;
 }
 body #realisations .background3 .circles3, html #realisations .background3 .circles3 {
   position: absolute;
@@ -399,7 +508,7 @@ body #realisations .background3 .circles3 li, html #realisations .background3 .c
   width: 20px;
   height: 20px;
   background: rgba(255, 255, 255, 0.2);
-  animation: bg3 30s linear infinite;
+  animation: bg3 20s linear infinite;
   top: -200px;
 }
 body #realisations .background3 .circles3 li:nth-child(1), html #realisations .background3 .circles3 li:nth-child(1) {
@@ -467,7 +576,82 @@ body #realisations .background3 .circles3 li:nth-child(10), html #realisations .
   animation-delay: 0s;
   animation-duration: 11s;
 }
+body #realisations .bloc-realisation, html #realisations .bloc-realisation {
+  display: flex;
+  height: 80vh;
+  overflow: hidden;
+  z-index: 2;
+  width: 80vw;
+  gap: 2vw;
+  justify-content: center;
+}
+body #realisations .bloc-realisation .left-block, html #realisations .bloc-realisation .left-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body #realisations .bloc-realisation .left-block a, html #realisations .bloc-realisation .left-block a {
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+body #realisations .bloc-realisation .left-block a img, html #realisations .bloc-realisation .left-block a img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body #realisations .bloc-realisation .left-block a:hover, html #realisations .bloc-realisation .left-block a:hover {
+  opacity: 0.8;
+}
+body #realisations .bloc-realisation .right-block, html #realisations .bloc-realisation .right-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  gap: 2vh;
+}
+body #realisations .bloc-realisation .right-block .info-block, html #realisations .bloc-realisation .right-block .info-block {
+  width: 100%;
+  text-align: center;
+}
+body #realisations .bloc-realisation .right-block .info-block .realisation-title, html #realisations .bloc-realisation .right-block .info-block .realisation-title {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-family: "ZenDots";
+  color: white;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+body #realisations .bloc-realisation .right-block .info-block p, html #realisations .bloc-realisation .right-block .info-block p {
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 10px;
+  font-family: "Philosopher";
+  line-height: 1.5;
+}
+body #realisations .bloc-realisation .right-block .info-block p:nth-of-type(1), html #realisations .bloc-realisation .right-block .info-block p:nth-of-type(1) {
+  color: #6c92ff;
+}
+body #realisations .bloc-realisation .right-block .bloc-nav, html #realisations .bloc-realisation .right-block .bloc-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body #realisations .bloc-realisation .right-block .bloc-nav .previous-btn, body #realisations .bloc-realisation .right-block .bloc-nav .next-btn, html #realisations .bloc-realisation .right-block .bloc-nav .previous-btn, html #realisations .bloc-realisation .right-block .bloc-nav .next-btn {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+body #realisations .bloc-realisation .right-block .bloc-nav .previous-btn:hover, body #realisations .bloc-realisation .right-block .bloc-nav .next-btn:hover, html #realisations .bloc-realisation .right-block .bloc-nav .previous-btn:hover, html #realisations .bloc-realisation .right-block .bloc-nav .next-btn:hover {
+  opacity: 0.8;
+}
 body footer .contact-icons, html footer .contact-icons {
+  z-index: 10;
   position: fixed;
   bottom: 0;
   right: 1vw;

@@ -207,5 +207,3 @@ document.addEventListener('DOMContentLoaded', function () {
         contactModal.addEventListener('click', hideModal);
     }
 });
-
-

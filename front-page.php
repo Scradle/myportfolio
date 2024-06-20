@@ -6,16 +6,16 @@ get_header();
 <section id="presentation" class="section">
     <div class="background1" >  <!--background1-->
         <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
     </div >
     <div class="container">
@@ -41,18 +41,35 @@ get_header();
 </section>
 
 <section id="competences" class="section">
+
+    <div class="background2" >  <!--background2-->
+        <ul class="circles2a">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="circles2b">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div >
+
     <div class="text-area">
         <div class="logo-container">
         </div>
         <div class="text-content">
-            <!-- Texte de base -->
             <p class="base-text">Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
-            <p class="competence-title"></p>
+            <div class="competence-title"></div>
             <p class="competence-description"></p>
         </div>
     </div>
-    <?php
 
+    <?php
     // Récupérer toutes les compétences
     $args = array(
         'post_type' => 'competence',
@@ -102,18 +119,68 @@ get_header();
 <section id="realisations" class="section">
     <div class="background3" >  <!--background3-->
         <ul class="circles3">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
     </div >
+
+    
+    <?php
+    $args = array(
+        'post_type' => 'realisation',
+        'posts_per_page' => 1, // Un seul article par page, pour la navigation
+        'orderby' => 'date',
+        'order' => 'DESC', // Afficher l'article le plus récent en premier
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            // Récupération des champs ACF nécessaires
+            $screenshot = get_field('screenshot');
+            $techno = get_field('techno');
+            $objectif = get_field('objectif');
+            $permalink = get_permalink();
+            ?>
+
+            <div class="bloc-realisation" id="portfolio-realisation" data-current-post-id="<?php the_ID(); ?>">
+                <div class="left-block">
+                    <a href="<?php echo esc_url($permalink); ?>">
+                        <img src="<?php echo esc_url($screenshot); ?>" alt="Screenshot">
+                    </a>
+                </div>
+                <div class="right-block">
+                    <div class="info-block">
+                        <div class="realisation-title"><?php the_title(); ?></div>
+                        <p>Date de publication: <?php echo get_the_date(); ?></p>
+                        <p><?php echo $techno; ?></p>
+                        <p><?php echo $objectif; ?></p>
+                    </div>
+                    <div class="bloc-nav">
+                        <div class="previous-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-left-solid.svg'; ?>" alt="Flêche de gauche"></div>
+                        <div class="next-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-right-solid.svg'; ?>" alt="flêche de droite"></div>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+        endwhile;
+        wp_reset_postdata();
+        else :
+            ?>
+            <p><?php _e('Aucune réalisation trouvée'); ?></p>
+        <?php endif; ?>
+    
+
 </section>
 
 
