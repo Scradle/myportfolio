@@ -59,116 +59,6 @@
     }
 }
 
-/*mixin****************************************************************************************************************************************/
-
-
-@mixin contact-modal {
-    //contact-modal.php
-    .contact-modal {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        .modal-veil {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); 
-            animation: fadeIn 1s ease-in-out forwards;
-        }
-        .modal-veil.fadeOut {
-            animation: fadeOut 1s ease-in-out forwards; // Animation pour fermeture en fade out 
-        }
-        .modal-content {
-            z-index: 3000;
-            border: 3px solid white;
-            width: 80%;
-            max-width:600px;
-            min-width: 270px;
-            height: auto;
-            overflow: hidden;
-            background: conic-gradient(from 0deg, #8f94fb, #4e54c8); /* Dégradé conique */
-
-            .contact-form-modal {
-                display: flex;
-                justify-content: center;
-                padding: 4%;
-                .wpcf7.js {
-                    font-family: 'Zendots';
-                    font-size: 1em;
-                    line-height: 15px;
-                    text-align: center;
-                    color: white;
-                }
-                .wpcf7-form input[type="text"],
-                .wpcf7-form input[type="email"],
-                .wpcf7-form textarea {
-                    box-sizing: border-box;
-                    border-radius: 6px;
-                    border: 1px solid grey;
-                    resize: none;
-                    margin: 10px 0 20px 0;
-                    position: relative;
-                    z-index: 2;
-                    font-family: 'Poppins';
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 18px;
-                }
-                .wpcf7-form input[type="text"],
-                .wpcf7-form input[type="email"] {
-                    height: 40px;
-                    width: 250px;
-                }
-                .wpcf7-form textarea {
-                    height: 260px;
-                    width: 250px;
-                }
-                .wpcf7-form input[type="submit"] {
-                    background-color: #6c92ff;
-                    font-family: 'Philosopher';
-                    font-size: 0.8em;
-                    line-height: 17px;
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    height: 50px;
-                    width: 100%;
-                    z-index: 3;
-                    position: relative;
-                    transition: background-color 1s ease;
-                    text-align: center;
-                }
-                .wpcf7-form input[type="submit"]:hover {
-                    background-color: #8f94fb;
-                    color: white;
-                }                 
-            } // contact-form-modal
-            
-        }
-        .modal-content.fadeIn {
-            animation: fadeIn 1s ease-in-out forwards;
-        }
-        .modal-content.slideIn {
-            animation: slideInRight 1s ease forwards;
-        }
-        .modal-content.fadeOut {
-            animation: fadeOut 1s ease-in-out forwards; 
-        }
-        .modal-content.slideOut {
-            animation: slideInLeft 1s ease forwards;
-        }
-    }
-}
-
 
 /*site*******************************************************************************************************************************************/
 body, html {
@@ -211,7 +101,7 @@ body, html {
         height: 100vh;
         overflow: hidden;
     }
-    /*section 1***************************************************/
+    /*section 1******************************************************************************************************************************************/
     #presentation {
         display: flex;
         justify-content: center;
@@ -230,7 +120,7 @@ body, html {
                 height: 100vh;
             }
             
-            .circles li {
+            .circles span {
                 position: absolute;
                 display: block;
                 list-style: none;
@@ -242,7 +132,7 @@ body, html {
                 
             }
             
-            .circles li:nth-child(1) {
+            .circles span:nth-child(1) {
                 left: 25%;
                 width: 80px;
                 height: 80px;
@@ -250,7 +140,7 @@ body, html {
             }
             
             
-            .circles li:nth-child(2) {
+            .circles span:nth-child(2) {
                 left: 10%;
                 width: 20px;
                 height: 20px;
@@ -258,14 +148,14 @@ body, html {
                 animation-duration: 12s;
             }
             
-            .circles li:nth-child(3) {
+            .circles span:nth-child(3) {
                 left: 70%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 4s;
             }
             
-            .circles li:nth-child(4) {
+            .circles span:nth-child(4) {
                 left: 40%;
                 width: 60px;
                 height: 60px;
@@ -273,28 +163,28 @@ body, html {
                 animation-duration: 18s;
             }
             
-            .circles li:nth-child(5) {
+            .circles span:nth-child(5) {
                 left: 65%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 0s;
             }
             
-            .circles li:nth-child(6) {
+            .circles span:nth-child(6) {
                 left: 75%;
                 width: 110px;
                 height: 110px;
                 animation-delay: 3s;
             }
             
-            .circles li:nth-child(7) {
+            .circles span:nth-child(7) {
                 left: 35%;
                 width: 150px;
                 height: 150px;
                 animation-delay: 7s;
             }
             
-            .circles li:nth-child(8) {
+            .circles span:nth-child(8) {
                 left: 50%;
                 width: 25px;
                 height: 25px;
@@ -302,7 +192,7 @@ body, html {
                 animation-duration: 45s;
             }
             
-            .circles li:nth-child(9) {
+            .circles span:nth-child(9) {
                 left: 20%;
                 width: 15px;
                 height: 15px;
@@ -310,7 +200,7 @@ body, html {
                 animation-duration: 35s;
             }
             
-            .circles li:nth-child(10) {
+            .circles span:nth-child(10) {
                 left: 85%;
                 width: 150px;
                 height: 150px;
@@ -332,13 +222,14 @@ body, html {
                 padding: 10px;
             }
             .text-block {
-
                 z-index: 2;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 color: white;
                 .hello-world {
+                    display: flex;
+                    justify-content: center;
                     font-family: 'ZenDots';
                     font-size: clamp(2em,4em,7em);
                     margin: 0;
@@ -349,25 +240,44 @@ body, html {
                     font-family: 'Philosopher';
                     font-size: 1.5em;
                     line-height: 1.5;
-
+                    text-align: center;
                 }
                 .highlight {
                     font-family: 'ZenDots';
-                    color: #6c92ff;
+                    color: #98ff98 ;
+                }
+                .contact-icons {
+                    display: flex;
+                    justify-content:center;
+                    gap: 2vw;
+                    padding: 30px;
+                    transform: scale(2);
+                    a {
+                        .icon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transition: transform 1s;
+                        }
+                        &:hover {
+                            transform: scale(1.5);
+                        } 
+                    }
                 }
                 .contact-button {
+                    z-index: 5;
                     font-family: 'Philosopher';
-                    display: inline-block;
                     margin-top: 20px;
-                    padding: 10px 20px;
-                    font-size: 1em;
-                    color: white;
-                    backface-visibility: visible;
-                    background-color: rgba(108,146,255,0.5);
+                    padding: 15px 20px;
+                    font-size: 1.2em;
+                    color: #4e54c8;
+                    background-color: #98ff98;
                     border-radius: 5px;
                     text-align: center;
                     text-decoration: none;
                     cursor: pointer;
+                    width:75%;
+                    align-self: center;
                 }
             }
             .image-block {
@@ -390,7 +300,7 @@ body, html {
 
 
     }
-    /*section 2***************************************************/
+    /*section 2************************************************************************************************************************/
     #competences { 
         display: flex;
         align-items: center;
@@ -411,7 +321,7 @@ body, html {
                 height: 100vh;
             }
             
-            .circles2a li {
+            .circles2a span {
                 position: absolute;
                 display: block;
                 list-style: none;
@@ -423,7 +333,7 @@ body, html {
                 
             }
             
-            .circles2a li:nth-child(1) {
+            .circles2a span:nth-child(1) {
                 left: 25%;
                 width: 80px;
                 height: 80px;
@@ -431,7 +341,7 @@ body, html {
             }
             
             
-            .circles2a li:nth-child(2) {
+            .circles2a span:nth-child(2) {
                 left: 10%;
                 width: 20px;
                 height: 20px;
@@ -439,14 +349,14 @@ body, html {
                 animation-duration: 12s;
             }
             
-            .circles2a li:nth-child(3) {
+            .circles2a span:nth-child(3) {
                 left: 70%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 4s;
             }
             
-            .circles2a li:nth-child(4) {
+            .circles2a span:nth-child(4) {
                 left: 40%;
                 width: 60px;
                 height: 60px;
@@ -454,7 +364,7 @@ body, html {
                 animation-duration: 18s;
             }
             
-            .circles2a li:nth-child(5) {
+            .circles2a span:nth-child(5) {
                 left: 65%;
                 width: 20px;
                 height: 20px;
@@ -469,7 +379,7 @@ body, html {
                 height: 100vh;
             }
             
-            .circles2b li {
+            .circles2b span {
                 position: absolute;
                 display: block;
                 list-style: none;
@@ -481,7 +391,7 @@ body, html {
                 
             }
             
-            .circles2b li:nth-child(1) {
+            .circles2b span:nth-child(1) {
                 left: 5%;
                 width: 80px;
                 height: 80px;
@@ -489,7 +399,7 @@ body, html {
             }
             
             
-            .circles2b li:nth-child(2) {
+            .circles2b span:nth-child(2) {
                 left: 90%;
                 width: 20px;
                 height: 20px;
@@ -497,14 +407,14 @@ body, html {
                 animation-duration: 12s;
             }
             
-            .circles2b li:nth-child(3) {
+            .circles2b span:nth-child(3) {
                 left: 75%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 4s;
             }
             
-            .circles2b li:nth-child(4) {
+            .circles2b span:nth-child(4) {
                 left: 55%;
                 width: 60px;
                 height: 60px;
@@ -512,7 +422,7 @@ body, html {
                 animation-duration: 18s;
             }
             
-            .circles2b li:nth-child(5) {
+            .circles2b span:nth-child(5) {
                 left: 35%;
                 width: 20px;
                 height: 20px;
@@ -596,7 +506,7 @@ body, html {
                         align-items: center;
                         gap: 0.4rem 0.2rem;
                         border-radius: 0.4rem;
-                        padding: 0.7rem 1rem;
+                        padding: 2.2rem 2.2rem;
                         margin-right: 0.5rem; // Must use margin-right instead of gap for the loop to be smooth
                         img {
                             z-index: 3; 
@@ -604,17 +514,18 @@ body, html {
                             height: 180px; 
                             border-radius: 0.4rem;
                             object-fit: cover;
+                            filter: grayscale(100%);
                             transition: transform 0.3s, filter 0.3s; 
                             cursor: pointer;
                             &:hover {
+                                filter: grayscale(0%);
                                 transform: rotate(5deg); 
-                                filter: brightness(1.5); 
                             }
                         }
                     }  
                 }
             }
-            /* Specific animation settings for each slider */
+            // Animations pour chaque slider
             .slider-1 .inner {
                 animation-duration: 30s;
                 animation-direction: normal;
@@ -640,7 +551,7 @@ body, html {
         }
         
     }
-    /*section 3***************************************************/
+    /*section 3*******************************************************************************************************************************/
     #realisations { 
         display: flex;
         align-items: center;
@@ -651,7 +562,7 @@ body, html {
             height:100%;
             z-index: -1;
             position: absolute;
-            .circles3 {
+            .circles3a {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -659,7 +570,7 @@ body, html {
                 height: 100vh;
             }
             
-            .circles3 li {
+            .circles3a span {
                 position: absolute;
                 display: block;
                 list-style: none;
@@ -667,84 +578,104 @@ body, html {
                 height: 20px;
                 background: rgba(255, 255, 255, 0.2);
                 animation: bg3 20s linear infinite;
-                top: -200px;
+                bottom: -200px;
                 
             }
             
-            .circles3 li:nth-child(1) {
-                left: 10%;
+            .circles3a span:nth-child(1) {
+                left: 25%;
                 width: 80px;
                 height: 80px;
                 animation-delay: 0s;
             }
             
             
-            .circles3 li:nth-child(2) {
-                left: 25%;
+            .circles3a span:nth-child(2) {
+                left: 10%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 2s;
                 animation-duration: 12s;
             }
             
-            .circles3 li:nth-child(3) {
-                left: 40%;
+            .circles3a span:nth-child(3) {
+                left: 70%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 4s;
             }
             
-            .circles3 li:nth-child(4) {
-                left: 70%;
+            .circles3a span:nth-child(4) {
+                left: 40%;
                 width: 60px;
                 height: 60px;
                 animation-delay: 0s;
                 animation-duration: 18s;
             }
             
-            .circles3 li:nth-child(5) {
-                left: 55%;
+            .circles3a span:nth-child(5) {
+                left: 65%;
                 width: 20px;
                 height: 20px;
                 animation-delay: 0s;
             }
-            
-            .circles3 li:nth-child(6) {
-                left: 75%;
-                width: 110px;
-                height: 110px;
-                animation-delay: 3s;
+
+            .circles3b {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
             }
             
-            .circles3 li:nth-child(7) {
-                left: 30%;
-                width: 150px;
-                height: 150px;
-                animation-delay: 7s;
+            .circles3b span {
+                position: absolute;
+                display: block;
+                list-style: none;
+                width: 20px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                animation: bg1 20s linear infinite;
+                top: -200px;
+                
             }
             
-            .circles3 li:nth-child(8) {
-                left: 45%;
-                width: 25px;
-                height: 25px;
-                animation-delay: 15s;
-                animation-duration: 45s;
-            }
-            
-            .circles3 li:nth-child(9) {
-                left: 15%;
-                width: 15px;
-                height: 15px;
-                animation-delay: 2s;
-                animation-duration: 35s;
-            }
-            
-            .circles3 li:nth-child(10) {
-                left: 90%;
-                width: 150px;
-                height: 150px;
+            .circles3b span:nth-child(1) {
+                left: 5%;
+                width: 80px;
+                height: 80px;
                 animation-delay: 0s;
-                animation-duration: 11s;
+            }
+            
+            
+            .circles3b span:nth-child(2) {
+                left: 90%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 2s;
+                animation-duration: 12s;
+            }
+            
+            .circles3b span:nth-child(3) {
+                left: 75%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 4s;
+            }
+            
+            .circles3b span:nth-child(4) {
+                left: 55%;
+                width: 60px;
+                height: 60px;
+                animation-delay: 0s;
+                animation-duration: 18s;
+            }
+            
+            .circles3b span:nth-child(5) {
+                left: 35%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 0s;
             }
         }
         /* bloc réalisation******************************************************************/
@@ -808,9 +739,13 @@ body, html {
                     line-height: 1.5;
                     }
                     p:nth-of-type(1) {
-                        color: #6c92ff;
+                        color: #98ff98;
+                        font-weight: bold;
                     }
-            
+                    p:nth-of-type(2) {
+                        font-family: 'ZenDots';
+                        font-size: 1.2em;
+                    }
                 }
           
                 .bloc-nav {
@@ -832,29 +767,220 @@ body, html {
           
         
     }
-    /*footer***************************************************************/
-    footer {
-        .contact-icons {
-            z-index: 10;
-            position: fixed;
-            bottom: 0;
-            right: 1vw;
-            display: flex;
-            gap: 2vw;
-            padding: 10px;
-            a {
-                .icon {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: transform 1s;
-                }
-                &:hover {
-                    transform: scale(1.5); // Agrandit légèrement la taille du texte
-                } 
+
+
+    /*section 4*******************************************************************************************************************************/
+    #contact { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .background4 {
+            background: linear-gradient(to top, #4e54c8, #8f94fb);  
+            width: 100%;
+            height:100%;
+            z-index: -1;
+            position: absolute;
+            .circles4 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+            }
+            
+            .circles4 span {
+                position: absolute;
+                display: block;
+                list-style: none;
+                width: 20px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                animation: bg3 20s linear infinite;
+                top: -200px;
+                
+            }
+            
+            .circles4 span:nth-child(1) {
+                left: 10%;
+                width: 80px;
+                height: 80px;
+                animation-delay: 0s;
+            }
+            
+            
+            .circles4 span:nth-child(2) {
+                left: 25%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 2s;
+                animation-duration: 12s;
+            }
+            
+            .circles4 span:nth-child(3) {
+                left: 40%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 4s;
+            }
+            
+            .circles4 span:nth-child(4) {
+                left: 70%;
+                width: 60px;
+                height: 60px;
+                animation-delay: 0s;
+                animation-duration: 18s;
+            }
+            
+            .circles4 span:nth-child(5) {
+                left: 55%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 0s;
+            }
+            
+            .circles4 span:nth-child(6) {
+                left: 75%;
+                width: 110px;
+                height: 110px;
+                animation-delay: 3s;
+            }
+            
+            .circles4 span:nth-child(7) {
+                left: 30%;
+                width: 150px;
+                height: 150px;
+                animation-delay: 7s;
+            }
+            
+            .circles4 span:nth-child(8) {
+                left: 45%;
+                width: 25px;
+                height: 25px;
+                animation-delay: 15s;
+                animation-duration: 45s;
+            }
+            
+            .circles4 span:nth-child(9) {
+                left: 15%;
+                width: 15px;
+                height: 15px;
+                animation-delay: 2s;
+                animation-duration: 35s;
+            }
+            
+            .circles4 span:nth-child(10) {
+                left: 90%;
+                width: 150px;
+                height: 150px;
+                animation-delay: 0s;
+                animation-duration: 11s;
             }
         }
-        @include contact-modal; //mixin
+
+        /*formulaire******************************************************************/
+        .contact-form {    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 80%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+
+            .wpcf7-form {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                gap: 5vw;
+                align-items: center;
+                .left-block,
+                .right-block {
+                    box-sizing: border-box;
+                    width: 48%;
+                    flex-direction: column;
+                }
+        
+                .left-block {
+                    display: flex;
+                    justify-content: space-between;
+                }
+        
+                .right-block {
+                    display: flex;
+                }
+                
+                label {
+                    color: white;
+                    font-family: 'Zendots';
+                }
+
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    box-sizing: border-box;
+                    border-radius: 6px;
+                    border: 1px solid white;
+                    color: white;
+                    resize: none;
+                    margin: 10px 0;
+                    font-family: 'Philosopher';
+                    font-size: 2rem;
+                    line-height: 1.5rem;
+                    background: #4e54c8;
+                    transition: border-color 0.3s ease;
+                }
+        
+                input[type="text"]:focus,
+                input[type="email"]:focus,
+                textarea:focus {
+                    border-color: white;
+                    outline: none;
+                }
+        
+                input[type="text"],
+                input[type="email"] {
+                    height: 5rem;
+                    width: 100%;
+                }
+        
+                textarea {
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                input[type="submit"] {
+                    background-color: #8f94fb;
+                    font-family: 'Zendots';
+                    font-size: 1rem;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    height: 3rem;
+                    transition: background-color 1s ease;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+        
+                input[type="submit"]:hover {
+                    background-color: #98ff98;
+                    color: #4e54c8;
+                } 
+                
+                .wpcf7-not-valid-tip {
+                    color: #98ff98;
+                    position: absolute;
+                }
+                .wpcf7-response-output {
+                    border: none;
+                    display: none;
+
+                }                
+            }
+        }
+        
     }
+    /*footer**********************************************************************************************************************************/
+    
 }
 

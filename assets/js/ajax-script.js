@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Appeler la fonction pour récupérer toutes les informations des articles
     fetchAllPortfolioItems();
 
-    // Écouteurs d'événements pour les images des boutons "Précédent" et "Suivant"
+    // Écouteurs d'événements pour les icones Précédent et Suivant
     document.addEventListener('click', function(e) {
         if (e.target.closest('.previous-btn img')) {
             e.preventDefault();
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updatePortfolioRealisation(item) {
         portfolioRealisation.setAttribute('data-current-post-id', item.id);
         portfolioRealisation.querySelector('.left-block img').src = item.screenshot;
-        // portfolioRealisation.querySelector('.left-block a').href = item.permalink; // Ne pas définir href car il n'y a pas de lien
         portfolioRealisation.querySelector('.info-block .realisation-title').textContent = item.title;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(1)').textContent = item.date;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(2)').textContent = item.techno;

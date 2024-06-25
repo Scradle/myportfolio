@@ -13,5 +13,6 @@
         <a href="#presentation">Présentation</a>
         <a href="#competences">Compétences</a>
         <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contactez moi</a>
     </nav>
 </header> 

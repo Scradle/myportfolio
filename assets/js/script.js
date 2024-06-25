@@ -54,16 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*menu vertical****************************************************************************************************************************************************************/
 
-// Déclaration des liens du menu de navigation en dehors de la fonction DOMContentLoaded pour être accessible dans toute la portée du script
-let navLinks;
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Sélection de toutes les sections de la page
+    // Sélection de toutes les sections de la page et du bouton du cta
     let sections = document.querySelectorAll('.section');
+    let contactButton = document.querySelector('.contact-button');
 
     // Sélection des liens du menu de navigation
-    navLinks = document.querySelectorAll('#vertical-menu a');
+    let navLinks = document.querySelectorAll('#vertical-menu a');
 
     // Index de la section actuellement visible
     let currentSectionIndex = 0;
@@ -131,6 +129,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Ajout d'un écouteur d'événement pour les clics sur le call to action
+    contactButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        currentSectionIndex = 3;
+        scrollToSection(currentSectionIndex);
+    });
+
     // Met à jour les liens du menu de navigation lors du chargement initial de la page
     updateNavLinks();
 });
@@ -170,40 +175,4 @@ document.addEventListener('DOMContentLoaded', function() {
             competenceDescription.textContent = description;
         });
     });
-});
-
-/*modale de contact****************************************************************************************************************************************************************/
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Sélectionner les éléments
-    var contactButton = document.querySelector('.contact-button');
-    var contactIcon = document.querySelector('.contact-icon');
-    var contactModal = document.querySelector('.contact-modal');
-    var modalContent = document.querySelector('.modal-content');
-
-    // Fonction pour afficher la modal
-    function showModal() {
-        contactModal.style.display = 'flex';
-    }
-
-    // Fonction pour masquer la modal
-    function hideModal(event) {
-        if (!modalContent.contains(event.target)) {
-            contactModal.style.display = 'none';
-        }
-    }
-
-    // Ajouter les événements de clic pour afficher la modal
-    if (contactButton) {
-        contactButton.addEventListener('click', showModal);
-    }
-
-    if (contactIcon) {
-        contactIcon.addEventListener('click', showModal);
-    }
-
-    // Ajouter l'événement de clic pour masquer la modal
-    if (contactModal) {
-        contactModal.addEventListener('click', hideModal);
-    }
 });

@@ -5,33 +5,41 @@ get_header();
 
 <section id="presentation" class="section">
     <div class="background1" >  <!--background1-->
-        <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div >
     <div class="container">
         <div class="text-block">
             <div class="hello-world">Hello world!</div>            
             <p>
                 Je m'appelle <span class="highlight">Guillaume</span>, développeur web spécialisé 
-                <span class="highlight">WordPress</span>. Passionné par la <span class="highlight">création</span>, 
+                <span class="highlight">WordPress</span>.<br> Passionné par la <span class="highlight">création</span>, 
                 l'<span class="highlight">exploration</span> et l'<span class="highlight">innovation</span>, 
-                j'ai choisi de me reconvertir dans le développement web pour donner vie à vos idées. 
+                j'ai choisi de me reconvertir dans le développement web pour donner vie à vos idées.<br> 
                 Mon expertise me permet de concevoir des sites <span class="highlight">performants</span>, 
-                <span class="highlight">élégants</span> et <span class="highlight">sur-mesure</span>. 
+                <span class="highlight">élégants</span> et <span class="highlight">sur-mesure</span>.<br> 
                 Chaque projet est pour moi une nouvelle aventure, où je mets à profit ma <span class="highlight">créativité</span>
                  et ma <span class="highlight">curiosité</span> pour repousser les limites du 
                 <span class="highlight">design</span> et du développement web.
             </p>
+            <div class="contact-icons">
+                <a href="#" class="icon">
+                    <img src="<?php echo get_template_directory_uri() . './assets/images/linkedin.svg'; ?>" class="icon-svg" alt="Mon LinkedIn">
+                </a>
+                <a href="https://github.com/Scradle" class="icon" target="_blank">
+                    <img src="<?php echo get_template_directory_uri() . './assets/images/github.svg'; ?>" class="icon-svg" alt="Mon GitHub">
+                </a>
+            </div>
             <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
         </div>
         <div class="image-block">
@@ -41,22 +49,21 @@ get_header();
 </section>
 
 <section id="competences" class="section">
-
     <div class="background2" >  <!--background2-->
-        <ul class="circles2a">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        <ul class="circles2b">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="circles2a">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="circles2b">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div >
 
     <div class="text-area">
@@ -97,13 +104,13 @@ get_header();
     <div class="skill-list">
         <?php for ($i = 0; $i < 4; $i++) : 
           // Mélanger les compétences avant de remplir chaque inner
-          $shuffled_competences = $competences;
-          shuffle($shuffled_competences);
+         
+          shuffle($competences);
         ?>
             <div class="loop-slider slider-<?php echo $i + 1; ?>">
                 <!--4 sliders crées et remplis dynamiquements-->
                 <div class="inner">
-                    <?php foreach ($shuffled_competences as $competence) : ?>
+                    <?php foreach ($competences as $competence) : ?>
                         <div class="skill" data-title="<?php echo esc_attr($competence['title']); ?>" data-logo="<?php echo esc_url($competence['logo']); ?>" data-description="<?php echo esc_attr($competence['description']); ?>">
                             <img src="<?php echo esc_url($competence['logo']); ?>" alt="logo de <?php echo esc_attr($competence['title']); ?>">
                         </div>
@@ -113,26 +120,26 @@ get_header();
         <?php endfor; ?>
         <div class="fade"></div>
     </div>
-    
 </section>
 
 <section id="realisations" class="section">
     <div class="background3" >  <!--background3-->
-        <ul class="circles3">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="circles3a">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="circles3b">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div >
 
-    
     <?php
     $args = array(
         'post_type' => 'realisation',
@@ -161,7 +168,7 @@ get_header();
                 <div class="right-block">
                     <div class="info-block">
                         <div class="realisation-title"><?php the_title(); ?></div>
-                        <p>Date de publication: <?php echo get_the_date(); ?></p>
+                        <p><?php echo get_the_date('F Y'); ?></p>
                         <p><?php echo $techno; ?></p>
                         <p><?php echo $objectif; ?></p>
                     </div>
@@ -176,11 +183,29 @@ get_header();
         endwhile;
         wp_reset_postdata();
         else :
-            ?>
-            <p><?php _e('Aucune réalisation trouvée'); ?></p>
-        <?php endif; ?>
-    
+        ?>
+        <p><?php _e('Aucune réalisation trouvée'); ?></p>
+    <?php endif; ?>
+</section>
 
+<section id="contact" class="section">
+    <div class="background4" >  <!--background4-->
+        <div class="circles4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="contact-form">
+        <?php echo do_shortcode('[contact-form-7 id="d9be59c" title="Form-contact"]'); ?> <!-- insertion du formulaire de demande de renseignements -->
+    </div>
 </section>
 
 
