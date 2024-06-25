@@ -154,16 +154,21 @@ get_header();
         while ($query->have_posts()) : $query->the_post();
             // Récupération des champs ACF nécessaires
             $screenshot = get_field('screenshot');
+            $video = get_field('video'); // Nouveau champ vidéo
             $techno = get_field('techno');
             $objectif = get_field('objectif');
-            $permalink = get_permalink();
             ?>
 
             <div class="bloc-realisation" id="portfolio-realisation" data-current-post-id="<?php the_ID(); ?>">
                 <div class="left-block">
-                    <a href="<?php echo esc_url($permalink); ?>">
+                    <?php if ($video) : ?>
+                        <video controls>
+                            <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    <?php else : ?>
                         <img src="<?php echo esc_url($screenshot); ?>" alt="Screenshot">
-                    </a>
+                    <?php endif; ?>
                 </div>
                 <div class="right-block">
                     <div class="info-block">
@@ -182,10 +187,11 @@ get_header();
         <?php
         endwhile;
         wp_reset_postdata();
-        else :
+    else :
         ?>
         <p><?php _e('Aucune réalisation trouvée'); ?></p>
     <?php endif; ?>
+
 </section>
 
 <section id="contact" class="section">

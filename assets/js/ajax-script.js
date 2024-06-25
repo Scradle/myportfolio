@@ -78,7 +78,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour mettre à jour la section portfolio avec les informations d'un nouvel article
     function updatePortfolioRealisation(item) {
         portfolioRealisation.setAttribute('data-current-post-id', item.id);
-        portfolioRealisation.querySelector('.left-block img').src = item.screenshot;
+        var leftBlock = portfolioRealisation.querySelector('.left-block');
+        leftBlock.innerHTML = '';
+
+        if (item.video) {
+            var videoElement = document.createElement('video');
+            videoElement.autoplay = true;
+            videoElement.loop = true;
+            videoElement.muted = true;
+            videoElement.playsinline = true;
+            var sourceElement = document.createElement('source');
+            sourceElement.src = item.video;
+            sourceElement.type = 'video/mp4';
+            videoElement.appendChild(sourceElement);
+            leftBlock.appendChild(videoElement);
+        } else {
+            var imgElement = document.createElement('img');
+            imgElement.src = item.screenshot;
+            imgElement.alt = 'Screenshot';
+            leftBlock.appendChild(imgElement);
+        }
+
         portfolioRealisation.querySelector('.info-block .realisation-title').textContent = item.title;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(1)').textContent = item.date;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(2)').textContent = item.techno;

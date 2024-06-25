@@ -146,17 +146,17 @@ function fetch_portfolio_items() {
             $query->the_post();
             // Récupérer les champs ACF ou autres champs nécessaires
             $screenshot = get_field('screenshot');
+            $video = get_field('video'); // Nouveau champ vidéo
             $techno = get_field('techno');
             $objectif = get_field('objectif');
-            $permalink = get_permalink();
             $item = array(
                 'id' => get_the_ID(),
                 'title' => get_the_title(),
-                'date' => get_the_date(),
+                'date' => get_the_date('F Y'),
                 'screenshot' => $screenshot,
+                'video' => $video,
                 'techno' => $techno,
                 'objectif' => $objectif,
-                'permalink' => $permalink,
             );
             $portfolio_items[] = $item;
         }
