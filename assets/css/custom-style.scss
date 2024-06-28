@@ -83,15 +83,15 @@ body, html {
                 writing-mode: vertical-rl; // Écrit le texte en vertical, orienté vers la gauche
                 transform: rotate(180deg); // Rotation pour ajuster l'orientation du texte
                 padding: 10px; 
-                margin: 0.5vh 0;
                 border: 2px solid white; 
                 background-color: transparent;
-                transition: transform 0.3s;
+                transition: background-color 0.3s ease, color 0.3s ease;
                 &:hover {
-                    transform: rotate(180deg) scale(1.1); // Agrandit légèrement la taille du texte
+                    color:#98ff98;
                 } 
                 &.active {
-                    transform: rotate(180deg) translateX(-20px); // Déplace légèrement le lien actif vers la gauche pour créer un effet d'onglet
+                    color:#4e54c8;
+                    background-color: white;
                 }
             }
         }
@@ -227,7 +227,7 @@ body, html {
                 flex-direction: column;
                 justify-content: center;
                 color: white;
-                .hello-world {
+                h1 {
                     display: flex;
                     justify-content: center;
                     font-family: 'ZenDots';
@@ -249,15 +249,14 @@ body, html {
                 .contact-icons {
                     display: flex;
                     justify-content:center;
-                    gap: 2vw;
-                    padding: 30px;
-                    transform: scale(2);
+                    gap: 150px;
+                    padding: 5%;
                     a {
                         .icon {
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            transition: transform 1s;
+                            transition: transform 1s ease;
                         }
                         &:hover {
                             transform: scale(1.5);
@@ -267,7 +266,6 @@ body, html {
                 .contact-button {
                     z-index: 5;
                     font-family: 'Philosopher';
-                    margin-top: 20px;
                     padding: 15px 20px;
                     font-size: 1.2em;
                     color: #4e54c8;
@@ -276,8 +274,12 @@ body, html {
                     text-align: center;
                     text-decoration: none;
                     cursor: pointer;
-                    width:75%;
                     align-self: center;
+                    transition: background-color 1s ease, color 1s ease;
+                    &:hover {
+                        color: white;
+                        background-color: #4e54c8;
+                    }
                 }
             }
             .image-block {
@@ -458,7 +460,7 @@ body, html {
                 align-items: center;
         
                 .competence-title {
-                    font-size: 2em;
+                    font-size: 1.5em;
                     line-height: 1.5;
                     margin: 0;
                     font-family: 'Zendots';
@@ -475,11 +477,22 @@ body, html {
                 }
         
                 .base-text {
-                    font-size: 1.5em;
-                    line-height: 1.5;
-                    margin: 0;
-                    font-family: 'Philosopher';
-                    color: white;
+                    h2 {
+                        font-size: 2em;
+                        line-height: 1.5;
+                        margin: 0;
+                        padding: 3%;
+                        font-family: 'Zendots';
+                        color: white;
+                        animation: glow 4s ease-in-out infinite alternate;
+                    }
+                    p {
+                        font-size: 1.5em;
+                        line-height: 1.5;
+                        margin: 0;
+                        font-family: 'Philosopher';
+                        color: white;
+                    }
                 }
             }
         }
@@ -681,91 +694,101 @@ body, html {
         /* bloc réalisation******************************************************************/
         .bloc-realisation {
             display: flex;
+            flex-direction: column;
             height: 80vh;
             overflow: hidden;
             z-index: 2;
             width: 80vw;
             gap: 2vw;
-            justify-content: center;
-        
-            .left-block {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-        
-                img, video {
-                    max-width: 100%;
-                    height: auto;
-                    display: block;
-                    object-fit: contain;
-                }
-        
-                video {
-                    max-height: 100%;
-                    /* Masquer la barre de contrôle */
-                    &::-webkit-media-controls {
-                        display: none !important;
-                    }
-                    &::-moz-media-controls {
-                        display: none !important;
-                    }
-                    &::-ms-media-controls {
-                        display: none !important;
-                    }
-                }
+            h2 {
+                font-size: 2em;
+                font-family: 'Zendots';
+                color: white;
+                animation: glow 4s ease-in-out infinite alternate;
             }
-        
-            .right-block {
+            .blocks {
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
-                width: 40vw;
-                gap: 2vh;
-        
-                .info-block {
-                    width: 100%;
-                    text-align: center;
-        
-                    .realisation-title {
-                        font-size: 3em;
-                        margin-bottom: 10px;
-                        font-family: 'ZenDots';
-                        color: white;
-                        animation: glow 4s ease-in-out infinite alternate;
+                .left-block {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+            
+                    img, video {
+                        max-width: 100%;
+                        height: auto;
+                        display: block;
+                        object-fit: contain;
                     }
-        
-                    p {
-                        font-size: 1.5em;
-                        color: white;
-                        margin-bottom: 10px;
-                        font-family: 'Philosopher';
-                        line-height: 1.5;
-                    }
-        
-                    p:nth-of-type(1) {
-                        color: #98ff98;
-                        font-weight: bold;
-                    }
-        
-                    p:nth-of-type(2) {
-                        font-family: 'ZenDots';
-                        font-size: 1.2em;
+            
+                    video {
+                        max-height: 100%;
+                        /* Masquer la barre de contrôle */
+                        &::-webkit-media-controls {
+                            display: none !important;
+                        }
+                        &::-moz-media-controls {
+                            display: none !important;
+                        }
+                        &::-ms-media-controls {
+                            display: none !important;
+                        }
                     }
                 }
-        
-                .bloc-nav {
-                    width: 100%;
+            
+                .right-block {
                     display: flex;
-                    justify-content: space-between;
-        
-                    .previous-btn, .next-btn {
-                        flex: 1;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40vw;
+                    gap: 2vh;
+            
+                    .info-block {
+                        width: 100%;
                         text-align: center;
-                        cursor: pointer;
-        
-                        &:hover {
-                            opacity: 0.8;
+            
+                        .realisation-title {
+                            font-size: 1.5em;
+                            margin-bottom: 10px;
+                            font-family: 'ZenDots';
+                            color: white;
+                            animation: glow 4s ease-in-out infinite alternate;
+                        }
+            
+                        p {
+                            font-size: 1.5em;
+                            color: white;
+                            margin-bottom: 10px;
+                            font-family: 'Philosopher';
+                            line-height: 1.5;
+                        }
+            
+                        p:nth-of-type(1) {
+                            color: #98ff98;
+                            font-weight: bold;
+                        }
+            
+                        p:nth-of-type(2) {
+                            font-family: 'ZenDots';
+                            font-size: 1.2em;
+                        }
+                    }
+            
+                    .bloc-nav {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+            
+                        .previous-btn, .next-btn {
+                            flex: 1;
+                            text-align: center;
+                            cursor: pointer;
+            
+                            &:hover {
+                                opacity: 0.8;
+                            }
                         }
                     }
                 }
@@ -887,109 +910,136 @@ body, html {
         }
 
         /*formulaire******************************************************************/
-        .contact-form {    
+        .contact-bloc {
             display: flex;
             flex-direction: column;
-            align-items: center;
             max-width: 80%;
-            margin: 0 auto;
-            flex-wrap: wrap;
-
-            .wpcf7-form {
+            h2 {
+                font-size: 2em;
+                font-family: 'Zendots';
+                text-align: end;
+                color: white;
+                animation: glow 4s ease-in-out infinite alternate;
+            }
+            .contact-form {    
                 display: flex;
-                justify-content: space-between;
-                width: 100%;
-                gap: 5vw;
+                flex-direction: column;
                 align-items: center;
-                .left-block,
-                .right-block {
-                    box-sizing: border-box;
-                    width: 48%;
-                    flex-direction: column;
-                }
-        
-                .left-block {
+                margin: 0 auto;
+                flex-wrap: wrap;
+
+                .wpcf7-form {
                     display: flex;
                     justify-content: space-between;
-                }
-        
-                .right-block {
-                    display: flex;
-                }
-                
-                label {
-                    color: white;
-                    font-family: 'Zendots';
-                }
+                    width: 100%;
+                    gap: 5vw;
+                    align-items: center;
+                    .left-block,
+                    .right-block {
+                        box-sizing: border-box;
+                        width: 48%;
+                        flex-direction: column;
+                    }
+            
+                    .left-block {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+            
+                    .right-block {
+                        display: flex;
+                    }
+                    
+                    label {
+                        color: white;
+                        font-family: 'Zendots';
+                    }
 
-                input[type="text"],
-                input[type="email"],
-                textarea {
-                    box-sizing: border-box;
-                    border-radius: 6px;
-                    border: 1px solid white;
-                    color: white;
-                    resize: none;
-                    margin: 10px 0;
-                    font-family: 'Philosopher';
-                    font-size: 2rem;
-                    line-height: 1.5rem;
-                    background: #4e54c8;
-                    transition: border-color 0.3s ease;
-                }
-        
-                input[type="text"]:focus,
-                input[type="email"]:focus,
-                textarea:focus {
-                    border-color: white;
-                    outline: none;
-                }
-        
-                input[type="text"],
-                input[type="email"] {
-                    height: 5rem;
-                    width: 100%;
-                }
-        
-                textarea {
-                    height: 100%;
-                    width: 100%;
-                }
-                
-                input[type="submit"] {
-                    background-color: #8f94fb;
-                    font-family: 'Zendots';
-                    font-size: 1rem;
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    height: 3rem;
-                    transition: background-color 1s ease;
-                    text-align: center;
-                    width: 100%;
-                    margin-top: 20px;
-                }
-        
-                input[type="submit"]:hover {
-                    background-color: #98ff98;
-                    color: #4e54c8;
-                } 
-                
-                .wpcf7-not-valid-tip {
-                    color: #98ff98;
-                    position: absolute;
-                }
-                .wpcf7-response-output {
-                    border: none;
-                    display: none;
+                    input[type="text"],
+                    input[type="email"],
+                    textarea {
+                        box-sizing: border-box;
+                        border-radius: 6px;
+                        border: 1px solid white;
+                        color: white;
+                        resize: none;
+                        margin: 10px 0;
+                        font-family: 'Philosopher';
+                        font-size: 2rem;
+                        line-height: 1.5rem;
+                        background: #4e54c8;
+                        transition: border-color 0.3s ease;
+                    }
+            
+                    input[type="text"]:focus,
+                    input[type="email"]:focus,
+                    textarea:focus {
+                        border-color: white;
+                        outline: none;
+                    }
+            
+                    input[type="text"],
+                    input[type="email"] {
+                        height: 5rem;
+                        width: 100%;
+                    }
+            
+                    textarea {
+                        height: 100%;
+                        width: 100%;
+                    }
+                    
+                    input[type="submit"] {
+                        color: #4e54c8;
+                        background-color: #98ff98;
+                        font-family: 'Zendots';
+                        font-size: 1rem;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        height: 3rem;
+                        transition: background-color 1s ease, color 1s ease;
+                        text-align: center;
+                        width: 100%;
+                        margin-top: 20px;
+                    }
+            
+                    input[type="submit"]:hover {
+                        color: white;
+                        background-color: #4e54c8;
+                    } 
+                    
+                    .wpcf7-not-valid-tip {
+                        color: #98ff98;
+                        position: absolute;
+                    }
+                    .wpcf7-response-output {
+                        border: none;
+                        display: none;
 
-                }                
+                    }                
+                }
             }
         }
-        
     }
     /*footer**********************************************************************************************************************************/
-    
+    footer {
+        position: absolute;
+        z-index: 1000;
+        bottom: 0;
+        right: 1%;
+        display: flex;
+        gap: 5vw;
+        a,p {
+            font-family: 'Zendots';
+            font-size: 1rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+        a {
+            align-self: center;
+        }
+    }
 }
 

@@ -7,6 +7,9 @@ define('THEME_DIR', get_template_directory());
 $assets_version = wp_get_theme()['Version'];
 define('ASSETS_VERSION', $assets_version);
 
+// Ajoutez cette ligne pour activer le support des balises de titre
+add_theme_support('title-tag');
+
 // Enregistrer les scripts et les styles
 function theme_enqueue_scripts() {
     // Enregistrer les scripts
@@ -146,7 +149,8 @@ function fetch_portfolio_items() {
             $query->the_post();
             // Récupérer les champs ACF ou autres champs nécessaires
             $screenshot = get_field('screenshot');
-            $video = get_field('video'); // Nouveau champ vidéo
+            $video = get_field('video'); 
+            $link = get_field('link');
             $techno = get_field('techno');
             $objectif = get_field('objectif');
             $item = array(
@@ -155,6 +159,7 @@ function fetch_portfolio_items() {
                 'date' => get_the_date('F Y'),
                 'screenshot' => $screenshot,
                 'video' => $video,
+                'link' => $link,
                 'techno' => $techno,
                 'objectif' => $objectif,
             );

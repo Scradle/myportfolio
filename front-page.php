@@ -20,7 +20,7 @@ get_header();
     </div >
     <div class="container">
         <div class="text-block">
-            <div class="hello-world">Hello world!</div>            
+            <h1>Hello world!</h1>            
             <p>
                 Je m'appelle <span class="highlight">Guillaume</span>, développeur web spécialisé 
                 <span class="highlight">WordPress</span>.<br> Passionné par la <span class="highlight">création</span>, 
@@ -33,11 +33,11 @@ get_header();
                 <span class="highlight">design</span> et du développement web.
             </p>
             <div class="contact-icons">
-                <a href="#" class="icon">
-                    <img src="<?php echo get_template_directory_uri() . './assets/images/linkedin.svg'; ?>" class="icon-svg" alt="Mon LinkedIn">
+                <a href="https://www.linkedin.com/in/guillaume-dufour-9a4758316/" class="icon" target="_blank">
+                    <img src="<?php echo get_template_directory_uri() . './assets/images/linkedin-me.webp'; ?>" class="icon-svg" alt="Mon LinkedIn">
                 </a>
                 <a href="https://github.com/Scradle" class="icon" target="_blank">
-                    <img src="<?php echo get_template_directory_uri() . './assets/images/github.svg'; ?>" class="icon-svg" alt="Mon GitHub">
+                    <img src="<?php echo get_template_directory_uri() . './assets/images/github-me.webp'; ?>" class="icon-svg" alt="Mon GitHub">
                 </a>
             </div>
             <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
@@ -70,8 +70,11 @@ get_header();
         <div class="logo-container">
         </div>
         <div class="text-content">
-            <p class="base-text">Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
-            <div class="competence-title"></div>
+            <div class="base-text">
+                <h2>Mes Compétences en Développement Web</h2>
+                <p>Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
+            </div>
+            <h3 class="competence-title"></h3>
             <p class="competence-description"></p>
         </div>
     </div>
@@ -139,7 +142,7 @@ get_header();
             <span></span>
         </div>
     </div >
-
+    
     <?php
     $args = array(
         'post_type' => 'realisation',
@@ -154,32 +157,39 @@ get_header();
         while ($query->have_posts()) : $query->the_post();
             // Récupération des champs ACF nécessaires
             $screenshot = get_field('screenshot');
-            $video = get_field('video'); // Nouveau champ vidéo
+            $video = get_field('video');
+            $link = get_field('link');
             $techno = get_field('techno');
             $objectif = get_field('objectif');
             ?>
 
             <div class="bloc-realisation" id="portfolio-realisation" data-current-post-id="<?php the_ID(); ?>">
-                <div class="left-block">
-                    <?php if ($video) : ?>
-                        <video controls>
-                            <source src="<?php echo esc_url($video); ?>" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    <?php else : ?>
-                        <img src="<?php echo esc_url($screenshot); ?>" alt="Screenshot">
-                    <?php endif; ?>
-                </div>
-                <div class="right-block">
-                    <div class="info-block">
-                        <div class="realisation-title"><?php the_title(); ?></div>
-                        <p><?php echo get_the_date('F Y'); ?></p>
-                        <p><?php echo $techno; ?></p>
-                        <p><?php echo $objectif; ?></p>
+                <h2>Mes Projets et Réalisations</h2>
+                <div class="blocks">
+                    <div class="left-block">
+                        <?php if ($video) : ?>
+                            <video autoplay loop muted playsinline>
+                                <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        <?php else : ?>
+                            <img src="<?php echo esc_url($screenshot); ?>" alt="Screenshot">
+                        <?php endif; ?>
                     </div>
-                    <div class="bloc-nav">
-                        <div class="previous-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-left-solid.svg'; ?>" alt="Flêche de gauche"></div>
-                        <div class="next-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-right-solid.svg'; ?>" alt="flêche de droite"></div>
+                    <div class="right-block">
+                        <div class="info-block">
+                            <h3 class="realisation-title"><?php the_title(); ?></h3>
+                            <p><?php echo get_the_date('F Y'); ?></p>
+                            <a href="<?php echo $link; ?>" class="icon" target="_blank">
+                                <img src="<?php echo get_template_directory_uri() . './assets/images/github-me.webp'; ?>" class="icon-svg" alt="Mon GitHub">
+                            </a>
+                            <p><?php echo $techno; ?></p>
+                            <p><?php echo $objectif; ?></p>
+                        </div>
+                        <div class="bloc-nav">
+                            <div class="previous-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-left-solid.svg'; ?>" alt="Flêche de gauche"></div>
+                            <div class="next-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-right-solid.svg'; ?>" alt="flêche de droite"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -191,6 +201,7 @@ get_header();
         ?>
         <p><?php _e('Aucune réalisation trouvée'); ?></p>
     <?php endif; ?>
+
 
 </section>
 
@@ -209,8 +220,11 @@ get_header();
             <span></span>
         </div>
     </div>
-    <div class="contact-form">
-        <?php echo do_shortcode('[contact-form-7 id="d9be59c" title="Form-contact"]'); ?> <!-- insertion du formulaire de demande de renseignements -->
+    <div class="contact-bloc">
+        <h2>Contactez-moi pour vos Projets Web</h2>
+        <div class="contact-form">
+            <?php echo do_shortcode('[contact-form-7 id="d9be59c" title="Form-contact"]'); ?> <!-- insertion du formulaire de demande de renseignements -->
+        </div>
     </div>
 </section>
 

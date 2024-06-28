@@ -82,16 +82,16 @@ body header #vertical-menu a, html header #vertical-menu a {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   padding: 10px;
-  margin: 0.5vh 0;
   border: 2px solid white;
   background-color: transparent;
-  transition: transform 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 body header #vertical-menu a:hover, html header #vertical-menu a:hover {
-  transform: rotate(180deg) scale(1.1);
+  color: #98ff98;
 }
 body header #vertical-menu a.active, html header #vertical-menu a.active {
-  transform: rotate(180deg) translateX(-20px);
+  color: #4e54c8;
+  background-color: white;
 }
 body .section, html .section {
   position: relative;
@@ -213,7 +213,7 @@ body #presentation .container .text-block, html #presentation .container .text-b
   justify-content: center;
   color: white;
 }
-body #presentation .container .text-block .hello-world, html #presentation .container .text-block .hello-world {
+body #presentation .container .text-block h1, html #presentation .container .text-block h1 {
   display: flex;
   justify-content: center;
   font-family: "ZenDots";
@@ -235,15 +235,14 @@ body #presentation .container .text-block .highlight, html #presentation .contai
 body #presentation .container .text-block .contact-icons, html #presentation .container .text-block .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 2vw;
-  padding: 30px;
-  transform: scale(2);
+  gap: 150px;
+  padding: 5%;
 }
 body #presentation .container .text-block .contact-icons a .icon, html #presentation .container .text-block .contact-icons a .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 1s;
+  transition: transform 1s ease;
 }
 body #presentation .container .text-block .contact-icons a:hover, html #presentation .container .text-block .contact-icons a:hover {
   transform: scale(1.5);
@@ -251,7 +250,6 @@ body #presentation .container .text-block .contact-icons a:hover, html #presenta
 body #presentation .container .text-block .contact-button, html #presentation .container .text-block .contact-button {
   z-index: 5;
   font-family: "Philosopher";
-  margin-top: 20px;
   padding: 15px 20px;
   font-size: 1.2em;
   color: #4e54c8;
@@ -260,8 +258,12 @@ body #presentation .container .text-block .contact-button, html #presentation .c
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  width: 75%;
   align-self: center;
+  transition: background-color 1s ease, color 1s ease;
+}
+body #presentation .container .text-block .contact-button:hover, html #presentation .container .text-block .contact-button:hover {
+  color: white;
+  background-color: #4e54c8;
 }
 body #presentation .container .image-block, html #presentation .container .image-block {
   display: flex;
@@ -417,7 +419,7 @@ body #competences .text-area .text-content, html #competences .text-area .text-c
   align-items: center;
 }
 body #competences .text-area .text-content .competence-title, html #competences .text-area .text-content .competence-title {
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.5;
   margin: 0;
   font-family: "Zendots";
@@ -431,7 +433,16 @@ body #competences .text-area .text-content .competence-description, html #compet
   font-family: "Philosopher";
   color: white;
 }
-body #competences .text-area .text-content .base-text, html #competences .text-area .text-content .base-text {
+body #competences .text-area .text-content .base-text h2, html #competences .text-area .text-content .base-text h2 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin: 0;
+  padding: 3%;
+  font-family: "Zendots";
+  color: white;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+body #competences .text-area .text-content .base-text p, html #competences .text-area .text-content .base-text p {
   font-size: 1.5em;
   line-height: 1.5;
   margin: 0;
@@ -614,39 +625,50 @@ body #realisations .background3 .circles3b span:nth-child(5), html #realisations
 }
 body #realisations .bloc-realisation, html #realisations .bloc-realisation {
   display: flex;
+  flex-direction: column;
   height: 80vh;
   overflow: hidden;
   z-index: 2;
   width: 80vw;
   gap: 2vw;
-  justify-content: center;
 }
-body #realisations .bloc-realisation .left-block, html #realisations .bloc-realisation .left-block {
+body #realisations .bloc-realisation h2, html #realisations .bloc-realisation h2 {
+  font-size: 2em;
+  font-family: "Zendots";
+  color: white;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+body #realisations .bloc-realisation .blocks, html #realisations .bloc-realisation .blocks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body #realisations .bloc-realisation .blocks .left-block, html #realisations .bloc-realisation .blocks .left-block {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-body #realisations .bloc-realisation .left-block img, body #realisations .bloc-realisation .left-block video, html #realisations .bloc-realisation .left-block img, html #realisations .bloc-realisation .left-block video {
+body #realisations .bloc-realisation .blocks .left-block img, body #realisations .bloc-realisation .blocks .left-block video, html #realisations .bloc-realisation .blocks .left-block img, html #realisations .bloc-realisation .blocks .left-block video {
   max-width: 100%;
   height: auto;
   display: block;
   -o-object-fit: contain;
      object-fit: contain;
 }
-body #realisations .bloc-realisation .left-block video, html #realisations .bloc-realisation .left-block video {
+body #realisations .bloc-realisation .blocks .left-block video, html #realisations .bloc-realisation .blocks .left-block video {
   max-height: 100%;
   /* Masquer la barre de contrôle */
 }
-body #realisations .bloc-realisation .left-block video::-webkit-media-controls, html #realisations .bloc-realisation .left-block video::-webkit-media-controls {
+body #realisations .bloc-realisation .blocks .left-block video::-webkit-media-controls, html #realisations .bloc-realisation .blocks .left-block video::-webkit-media-controls {
   display: none !important;
 }
-body #realisations .bloc-realisation .left-block video::-moz-media-controls, html #realisations .bloc-realisation .left-block video::-moz-media-controls {
+body #realisations .bloc-realisation .blocks .left-block video::-moz-media-controls, html #realisations .bloc-realisation .blocks .left-block video::-moz-media-controls {
   display: none !important;
 }
-body #realisations .bloc-realisation .left-block video::-ms-media-controls, html #realisations .bloc-realisation .left-block video::-ms-media-controls {
+body #realisations .bloc-realisation .blocks .left-block video::-ms-media-controls, html #realisations .bloc-realisation .blocks .left-block video::-ms-media-controls {
   display: none !important;
 }
-body #realisations .bloc-realisation .right-block, html #realisations .bloc-realisation .right-block {
+body #realisations .bloc-realisation .blocks .right-block, html #realisations .bloc-realisation .blocks .right-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -654,43 +676,43 @@ body #realisations .bloc-realisation .right-block, html #realisations .bloc-real
   width: 40vw;
   gap: 2vh;
 }
-body #realisations .bloc-realisation .right-block .info-block, html #realisations .bloc-realisation .right-block .info-block {
+body #realisations .bloc-realisation .blocks .right-block .info-block, html #realisations .bloc-realisation .blocks .right-block .info-block {
   width: 100%;
   text-align: center;
 }
-body #realisations .bloc-realisation .right-block .info-block .realisation-title, html #realisations .bloc-realisation .right-block .info-block .realisation-title {
-  font-size: 3em;
+body #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title, html #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title {
+  font-size: 1.5em;
   margin-bottom: 10px;
   font-family: "ZenDots";
   color: white;
   animation: glow 4s ease-in-out infinite alternate;
 }
-body #realisations .bloc-realisation .right-block .info-block p, html #realisations .bloc-realisation .right-block .info-block p {
+body #realisations .bloc-realisation .blocks .right-block .info-block p, html #realisations .bloc-realisation .blocks .right-block .info-block p {
   font-size: 1.5em;
   color: white;
   margin-bottom: 10px;
   font-family: "Philosopher";
   line-height: 1.5;
 }
-body #realisations .bloc-realisation .right-block .info-block p:nth-of-type(1), html #realisations .bloc-realisation .right-block .info-block p:nth-of-type(1) {
+body #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(1), html #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(1) {
   color: #98ff98;
   font-weight: bold;
 }
-body #realisations .bloc-realisation .right-block .info-block p:nth-of-type(2), html #realisations .bloc-realisation .right-block .info-block p:nth-of-type(2) {
+body #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(2), html #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(2) {
   font-family: "ZenDots";
   font-size: 1.2em;
 }
-body #realisations .bloc-realisation .right-block .bloc-nav, html #realisations .bloc-realisation .right-block .bloc-nav {
+body #realisations .bloc-realisation .blocks .right-block .bloc-nav, html #realisations .bloc-realisation .blocks .right-block .bloc-nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-body #realisations .bloc-realisation .right-block .bloc-nav .previous-btn, body #realisations .bloc-realisation .right-block .bloc-nav .next-btn, html #realisations .bloc-realisation .right-block .bloc-nav .previous-btn, html #realisations .bloc-realisation .right-block .bloc-nav .next-btn {
+body #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, body #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn, html #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, html #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
   flex: 1;
   text-align: center;
   cursor: pointer;
 }
-body #realisations .bloc-realisation .right-block .bloc-nav .previous-btn:hover, body #realisations .bloc-realisation .right-block .bloc-nav .next-btn:hover, html #realisations .bloc-realisation .right-block .bloc-nav .previous-btn:hover, html #realisations .bloc-realisation .right-block .bloc-nav .next-btn:hover {
+body #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn:hover, body #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn:hover, html #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn:hover, html #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn:hover {
   opacity: 0.8;
 }
 body #contact, html #contact {
@@ -788,44 +810,55 @@ body #contact .background4 .circles4 span:nth-child(10), html #contact .backgrou
   animation-delay: 0s;
   animation-duration: 11s;
 }
-body #contact .contact-form, html #contact .contact-form {
+body #contact .contact-bloc, html #contact .contact-bloc {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+body #contact .contact-bloc h2, html #contact .contact-bloc h2 {
+  font-size: 2em;
+  font-family: "Zendots";
+  text-align: end;
+  color: white;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+body #contact .contact-bloc .contact-form, html #contact .contact-bloc .contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 80%;
   margin: 0 auto;
   flex-wrap: wrap;
 }
-body #contact .contact-form .wpcf7-form, html #contact .contact-form .wpcf7-form {
+body #contact .contact-bloc .contact-form .wpcf7-form, html #contact .contact-bloc .contact-form .wpcf7-form {
   display: flex;
   justify-content: space-between;
   width: 100%;
   gap: 5vw;
   align-items: center;
 }
-body #contact .contact-form .wpcf7-form .left-block,
-body #contact .contact-form .wpcf7-form .right-block, html #contact .contact-form .wpcf7-form .left-block,
-html #contact .contact-form .wpcf7-form .right-block {
+body #contact .contact-bloc .contact-form .wpcf7-form .left-block,
+body #contact .contact-bloc .contact-form .wpcf7-form .right-block, html #contact .contact-bloc .contact-form .wpcf7-form .left-block,
+html #contact .contact-bloc .contact-form .wpcf7-form .right-block {
   box-sizing: border-box;
   width: 48%;
   flex-direction: column;
 }
-body #contact .contact-form .wpcf7-form .left-block, html #contact .contact-form .wpcf7-form .left-block {
+body #contact .contact-bloc .contact-form .wpcf7-form .left-block, html #contact .contact-bloc .contact-form .wpcf7-form .left-block {
   display: flex;
   justify-content: space-between;
 }
-body #contact .contact-form .wpcf7-form .right-block, html #contact .contact-form .wpcf7-form .right-block {
+body #contact .contact-bloc .contact-form .wpcf7-form .right-block, html #contact .contact-bloc .contact-form .wpcf7-form .right-block {
   display: flex;
 }
-body #contact .contact-form .wpcf7-form label, html #contact .contact-form .wpcf7-form label {
+body #contact .contact-bloc .contact-form .wpcf7-form label, html #contact .contact-bloc .contact-form .wpcf7-form label {
   color: white;
   font-family: "Zendots";
 }
-body #contact .contact-form .wpcf7-form input[type=text],
-body #contact .contact-form .wpcf7-form input[type=email],
-body #contact .contact-form .wpcf7-form textarea, html #contact .contact-form .wpcf7-form input[type=text],
-html #contact .contact-form .wpcf7-form input[type=email],
-html #contact .contact-form .wpcf7-form textarea {
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=text],
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=email],
+body #contact .contact-bloc .contact-form .wpcf7-form textarea, html #contact .contact-bloc .contact-form .wpcf7-form input[type=text],
+html #contact .contact-bloc .contact-form .wpcf7-form input[type=email],
+html #contact .contact-bloc .contact-form .wpcf7-form textarea {
   box-sizing: border-box;
   border-radius: 6px;
   border: 1px solid white;
@@ -838,47 +871,65 @@ html #contact .contact-form .wpcf7-form textarea {
   background: #4e54c8;
   transition: border-color 0.3s ease;
 }
-body #contact .contact-form .wpcf7-form input[type=text]:focus,
-body #contact .contact-form .wpcf7-form input[type=email]:focus,
-body #contact .contact-form .wpcf7-form textarea:focus, html #contact .contact-form .wpcf7-form input[type=text]:focus,
-html #contact .contact-form .wpcf7-form input[type=email]:focus,
-html #contact .contact-form .wpcf7-form textarea:focus {
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=text]:focus,
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=email]:focus,
+body #contact .contact-bloc .contact-form .wpcf7-form textarea:focus, html #contact .contact-bloc .contact-form .wpcf7-form input[type=text]:focus,
+html #contact .contact-bloc .contact-form .wpcf7-form input[type=email]:focus,
+html #contact .contact-bloc .contact-form .wpcf7-form textarea:focus {
   border-color: white;
   outline: none;
 }
-body #contact .contact-form .wpcf7-form input[type=text],
-body #contact .contact-form .wpcf7-form input[type=email], html #contact .contact-form .wpcf7-form input[type=text],
-html #contact .contact-form .wpcf7-form input[type=email] {
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=text],
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=email], html #contact .contact-bloc .contact-form .wpcf7-form input[type=text],
+html #contact .contact-bloc .contact-form .wpcf7-form input[type=email] {
   height: 5rem;
   width: 100%;
 }
-body #contact .contact-form .wpcf7-form textarea, html #contact .contact-form .wpcf7-form textarea {
+body #contact .contact-bloc .contact-form .wpcf7-form textarea, html #contact .contact-bloc .contact-form .wpcf7-form textarea {
   height: 100%;
   width: 100%;
 }
-body #contact .contact-form .wpcf7-form input[type=submit], html #contact .contact-form .wpcf7-form input[type=submit] {
-  background-color: #8f94fb;
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=submit], html #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
+  color: #4e54c8;
+  background-color: #98ff98;
   font-family: "Zendots";
   font-size: 1rem;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   height: 3rem;
-  transition: background-color 1s ease;
+  transition: background-color 1s ease, color 1s ease;
   text-align: center;
   width: 100%;
   margin-top: 20px;
 }
-body #contact .contact-form .wpcf7-form input[type=submit]:hover, html #contact .contact-form .wpcf7-form input[type=submit]:hover {
-  background-color: #98ff98;
-  color: #4e54c8;
+body #contact .contact-bloc .contact-form .wpcf7-form input[type=submit]:hover, html #contact .contact-bloc .contact-form .wpcf7-form input[type=submit]:hover {
+  color: white;
+  background-color: #4e54c8;
 }
-body #contact .contact-form .wpcf7-form .wpcf7-not-valid-tip, html #contact .contact-form .wpcf7-form .wpcf7-not-valid-tip {
+body #contact .contact-bloc .contact-form .wpcf7-form .wpcf7-not-valid-tip, html #contact .contact-bloc .contact-form .wpcf7-form .wpcf7-not-valid-tip {
   color: #98ff98;
   position: absolute;
 }
-body #contact .contact-form .wpcf7-form .wpcf7-response-output, html #contact .contact-form .wpcf7-form .wpcf7-response-output {
+body #contact .contact-bloc .contact-form .wpcf7-form .wpcf7-response-output, html #contact .contact-bloc .contact-form .wpcf7-form .wpcf7-response-output {
   border: none;
   display: none;
+}
+body footer, html footer {
+  position: absolute;
+  z-index: 1000;
+  bottom: 0;
+  right: 1%;
+  display: flex;
+  gap: 5vw;
+}
+body footer a, body footer p, html footer a, html footer p {
+  font-family: "Zendots";
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+body footer a, html footer a {
+  align-self: center;
 }/*# sourceMappingURL=custom-style.css.map */

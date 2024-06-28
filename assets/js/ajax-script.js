@@ -1,3 +1,6 @@
+/*Changement de réalisation  dans section 3******************************************************************************/
+
+// Ajout d'un écouteur d'événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', function() {
     var portfolioRealisation = document.getElementById('portfolio-realisation');
     var portfolioItems = []; // Tableau pour stocker les informations des articles
@@ -101,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         portfolioRealisation.querySelector('.info-block .realisation-title').textContent = item.title;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(1)').textContent = item.date;
+        portfolioRealisation.querySelector('.info-block a.icon').href = item.link;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(2)').textContent = item.techno;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(3)').textContent = item.objectif;
     }
