@@ -42,6 +42,7 @@ function disabled_gutenberg_cpt( $use_block_editor, $post_type ) {
 add_filter( 'use_block_editor_for_post_type', 'disabled_gutenberg_cpt', 10, 2 );
 
 
+
 /******************************************************************************************************************/
 
 // Création d'un custom post type pour les compétences
@@ -66,7 +67,7 @@ function create_custom_competence_post() {
     $args = array(
         'labels'             => $labels,
         'public'             => true,
-        'publicly_queryable' => true,
+        'publicly_queryable' => false,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
@@ -110,7 +111,7 @@ function create_custom_realisation_post() {
     $args = array(
         'labels'             => $labels,
         'public'             => true,
-        'publicly_queryable' => true,
+        'publicly_queryable' => false,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
@@ -156,7 +157,7 @@ function fetch_portfolio_items() {
             $item = array(
                 'id' => get_the_ID(),
                 'title' => get_the_title(),
-                'date' => get_the_date('F Y'),
+                'date' => ucfirst(get_the_date('F Y')),
                 'screenshot' => $screenshot,
                 'video' => $video,
                 'link' => $link,

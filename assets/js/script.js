@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*menu vertical****************************************************************************************************************************************************************/
 
+// Ajout d'un écouteur d'événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', function () {
 
     // Sélection de toutes les sections de la page et du bouton du cta
@@ -175,4 +176,179 @@ document.addEventListener('DOMContentLoaded', function() {
             competenceDescription.textContent = description;
         });
     });
+});
+
+/*videos****************************************************************************************************************************************************************/
+
+// Sélectionnez la vidéo et définissez les options pour l'intersection observer
+const video = document.getElementById('myVideo');
+const options = {
+    root: null, // utilise le viewport comme la zone d'observation
+    rootMargin: '0px', // marge autour de l'élément observé
+    threshold: 1.0 // déclenche lorsque l'élément est entièrement visible
+};
+
+// Créer un observer avec une fonction de callback
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // L'élément est complètement visible, démarrer la vidéo
+            video.play();
+        } else {
+            // L'élément n'est pas visible, mettre en pause la vidéo
+            video.pause();
+        }
+    });
+}, options);
+
+// Observer la vidéo
+observer.observe(video);
+
+
+/*animations****************************************************************************************************************************************************************/
+
+// Attendre que le contenu du DOM soit complètement chargé avant d'exécuter le script et afficher le titre
+document.addEventListener("DOMContentLoaded", () => {
+    // Sélectionner l'élément du titre par son ID
+    const title = document.getElementById("animated-title");
+
+    // Récupérer le texte contenu dans l'élément du titre
+    const text = title.innerText;
+
+    // Effacer le texte initial dans l'élément du titre
+    title.innerHTML = "";
+
+    // Boucle à travers chaque caractère du texte
+    for (let i = 0; i < text.length; i++) {
+      // Créer un nouvel élément <span> pour chaque caractère
+      const span = document.createElement("span");
+
+      // Définir le texte du <span> au caractère courant
+      span.innerText = text[i];
+
+      // Ajouter la classe "title" au <span> pour appliquer les styles CSS
+      span.className = "title";
+
+      // Définir les délais d'animation pour le fade-in et glow
+      span.style.animationDelay = `${i * 0.25}s, 0s`;
+
+      // Ajouter le <span> au titre
+      title.appendChild(span);
+    }
+});
+
+
+// Attend que le DOM soit entièrement chargé pour gérer les bandes
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Sélection de toutes les sections de la page
+    let sections = document.querySelectorAll('.section');
+    
+    // Index de la section actuellement visible
+    let currentSectionIndex = 0;
+    
+    // Indicateur pour savoir si une opération de défilement est en cours
+    let isScrolling = false;
+
+    // Sélectionne les éléments des bandes verticales
+    const stripe1 = document.querySelector('.stripe1');
+    const stripe2 = document.querySelector('.stripe2');
+    const stripe3 = document.querySelector('.stripe3');
+
+    // Fonction pour mettre à jour la position des bandes verticales en fonction de l'index de section
+    function updateStripesPosition(index) {
+        switch(index) {
+            case 0:
+                moveStripesTo('0%', '0%', '0%');
+                break;
+            case 1:
+                moveStripesTo('20%', '25%', '30%');
+                break;
+            case 2:
+                moveStripesTo('40%', '45%', '50%');
+                break;
+            case 3:
+                moveStripesTo('65%', '65%', '70%');
+                break;
+            default:
+                break;
+        }
+    }
+    
+    // Fonction pour déplacer les bandes vers une nouvelle position avec transition CSS
+    function moveStripesTo(left1, left2, left3) {
+        stripe1.style.transition = 'left 0.5s ease-in-out';
+        stripe2.style.transition = 'left 0.5s ease-in-out';
+        stripe3.style.transition = 'left 0.5s ease-in-out';
+        
+        stripe1.style.left = left1;
+        stripe2.style.left = left2;
+        stripe3.style.left = left3;
+    }
+
+    // Fonction pour faire défiler la page vers une section spécifique
+    function scrollToSection(index) {
+        // Correction de l'index pour la boucle infinie
+        if (index >= sections.length) {
+            index = 0; // Si l'index dépasse le nombre de sections, retourne à la première section
+        } else if (index < 0) {
+            index = sections.length - 1; // Si l'index est négatif, retourne à la dernière section
+        }
+
+        isScrolling = true; // Indique qu'un défilement est en cours
+        
+        // Défilement vers la section spécifiée avec une animation fluide
+        sections[index].scrollIntoView({ behavior: 'smooth' });
+                
+        // Utilisation de setTimeout pour réinitialiser isScrolling après 1 seconde (temps d'animation estimé)
+        setTimeout(() => { 
+            isScrolling = false; 
+            currentSectionIndex = index; // Mise à jour de l'index de la section actuelle après le défilement
+        }, 500);
+        
+        // Met à jour la position des bandes verticales en fonction de la nouvelle section
+        updateStripesPosition(index);
+    }
+
+    // Ajout d'un écouteur d'événement pour le défilement de la souris
+    document.addEventListener('wheel', function (event) {
+        // Si un défilement est déjà en cours, ignorer les nouveaux événements de défilement
+        if (isScrolling) return;
+        
+        // Détection de la direction du défilement
+        if (event.deltaY > 0) {
+            // Défilement vers le bas
+            currentSectionIndex++;
+        } else {
+            // Défilement vers le haut
+            currentSectionIndex--;
+        }
+
+        // Appelle la fonction pour faire défiler vers la nouvelle section
+        scrollToSection(currentSectionIndex);
+    }, { passive: false }); // Le paramètre passive: false permet de prévenir le comportement par défaut du navigateur pour l'événement wheel
+
+    // Sélectionne tous les liens d'ancrage vers les sections
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    // Écoute les clics sur les liens d'ancrage
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Récupère l'ancre vers laquelle le lien pointe
+            const anchor = link.getAttribute('href');
+            
+            // Trouve l'index de la section correspondant à l'ancre
+            const index = Array.from(sections).findIndex(section => `#${section.id}` === anchor);
+            
+            // Si l'index est trouvé, fait défiler la page vers cette section
+            if (index !== -1) {
+                scrollToSection(index);
+            }
+        });
+    });
+
+    // Position initiale des bandes verticales au chargement de la page
+    updateStripesPosition(currentSectionIndex);
 });

@@ -9,10 +9,13 @@
 <body <?php body_class(); ?>>
 
 <header>
-<nav id="vertical-menu">
+    <nav id="vertical-menu">
         <a href="#presentation">Présentation</a>
         <a href="#competences">Compétences</a>
         <a href="#realisations">Réalisations</a>
         <a href="#contact">Contactez moi</a>
     </nav>
+    <div class="vertical-stripe stripe1"></div>
+    <div class="vertical-stripe stripe2"></div>
+    <div class="vertical-stripe stripe3"></div>
 </header> 

@@ -20,7 +20,7 @@ get_header();
     </div >
     <div class="container">
         <div class="text-block">
-            <h1>Hello world!</h1>            
+            <h1 id="animated-title">Hello world!</h1>            
             <p>
                 Je m'appelle <span class="highlight">Guillaume</span>, développeur web spécialisé 
                 <span class="highlight">WordPress</span>.<br> Passionné par la <span class="highlight">création</span>, 
@@ -168,8 +168,8 @@ get_header();
                 <div class="blocks">
                     <div class="left-block">
                         <?php if ($video) : ?>
-                            <video autoplay loop muted playsinline>
-                                <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+                            <video id="myVideo" loop muted playsinline>
+                                <source src="<?php echo esc_url($video); ?>" type="video/webm">
                                 Your browser does not support the video tag.
                             </video>
                         <?php else : ?>
@@ -179,7 +179,7 @@ get_header();
                     <div class="right-block">
                         <div class="info-block">
                             <h3 class="realisation-title"><?php the_title(); ?></h3>
-                            <p><?php echo get_the_date('F Y'); ?></p>
+                            <p><?php echo ucfirst(get_the_date('F Y')); ?></p>
                             <a href="<?php echo $link; ?>" class="icon" target="_blank">
                                 <img src="<?php echo get_template_directory_uri() . './assets/images/github-me.webp'; ?>" class="icon-svg" alt="Mon GitHub">
                             </a>
@@ -221,7 +221,7 @@ get_header();
         </div>
     </div>
     <div class="contact-bloc">
-        <h2>Contactez-moi pour vos Projets Web</h2>
+        <h2>Contactez-moi pour vos Projets</h2>
         <div class="contact-form">
             <?php echo do_shortcode('[contact-form-7 id="d9be59c" title="Form-contact"]'); ?> <!-- insertion du formulaire de demande de renseignements -->
         </div>
