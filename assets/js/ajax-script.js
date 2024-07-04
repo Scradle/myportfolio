@@ -1,6 +1,5 @@
 /*Changement de réalisation  dans section 3******************************************************************************/
 
-// Ajout d'un écouteur d'événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', function() {
     var portfolioRealisation = document.getElementById('portfolio-realisation');
     var portfolioItems = []; // Tableau pour stocker les informations des articles
@@ -84,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var leftBlock = portfolioRealisation.querySelector('.left-block');
         leftBlock.innerHTML = '';
 
+        // Masquer le contenu avant de le charger
+        portfolioRealisation.classList.add('hidden');
+
         if (item.video) {
             var videoElement = document.createElement('video');
             videoElement.autoplay = true;
@@ -95,11 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
             sourceElement.type = 'video/mp4';
             videoElement.appendChild(sourceElement);
             leftBlock.appendChild(videoElement);
+
+            // Attendre que la vidéo soit prête
+            videoElement.oncanplay = function() {
+                portfolioRealisation.classList.remove('hidden');
+            };
         } else {
             var imgElement = document.createElement('img');
             imgElement.src = item.screenshot;
             imgElement.alt = 'Screenshot';
             leftBlock.appendChild(imgElement);
+
+            // Attendre que l'image soit chargée
+            imgElement.onload = function() {
+                portfolioRealisation.classList.remove('hidden');
+            };
         }
 
         portfolioRealisation.querySelector('.info-block .realisation-title').textContent = item.title;

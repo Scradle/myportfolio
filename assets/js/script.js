@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*videos****************************************************************************************************************************************************************/
 
-// Sélectionnez la vidéo et définissez les options pour l'intersection observer
+// Sélectionne la vidéo et définir les options pour l'intersection observer
 const video = document.getElementById('myVideo');
 const options = {
     root: null, // utilise le viewport comme la zone d'observation
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
       span.className = "title";
 
       // Définir les délais d'animation pour le fade-in et glow
-      span.style.animationDelay = `${i * 0.25}s, 0s`;
+      span.style.animationDelay = `${i * 0.05}s, 0s`;
 
       // Ajouter le <span> au titre
       title.appendChild(span);
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Attend que le DOM soit entièrement chargé pour gérer les bandes
+// Attend que le DOM soit entièrement chargé pour gérer les stripes
 document.addEventListener('DOMContentLoaded', function () {
 
     // Sélection de toutes les sections de la page
@@ -259,16 +259,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateStripesPosition(index) {
         switch(index) {
             case 0:
-                moveStripesTo('0%', '0%', '0%');
+                moveStripesTo('65%', '65%', '70%');
                 break;
             case 1:
-                moveStripesTo('20%', '25%', '30%');
+                moveStripesTo('0%', '25%', '95%');
                 break;
             case 2:
                 moveStripesTo('40%', '45%', '50%');
                 break;
             case 3:
-                moveStripesTo('65%', '65%', '70%');
+                moveStripesTo('15%', '20%', '55%');
                 break;
             default:
                 break;

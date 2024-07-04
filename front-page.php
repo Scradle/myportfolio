@@ -23,7 +23,7 @@ get_header();
             <h1 id="animated-title">Hello world!</h1>            
             <p>
                 Je m'appelle <span class="highlight">Guillaume</span>, développeur web spécialisé 
-                <span class="highlight">WordPress</span>.<br> Passionné par la <span class="highlight">création</span>, 
+                <span class="highlight">WordPress</span>, habitant l'Oise et proche région parisienne. Passionné par la <span class="highlight">création</span>, 
                 l'<span class="highlight">exploration</span> et l'<span class="highlight">innovation</span>, 
                 j'ai choisi de me reconvertir dans le développement web pour donner vie à vos idées.<br> 
                 Mon expertise me permet de concevoir des sites <span class="highlight">performants</span>, 

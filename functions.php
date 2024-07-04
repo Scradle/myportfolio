@@ -42,7 +42,10 @@ function disabled_gutenberg_cpt( $use_block_editor, $post_type ) {
 add_filter( 'use_block_editor_for_post_type', 'disabled_gutenberg_cpt', 10, 2 );
 
 
-
+function theme_setup() {
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'theme_setup');
 /******************************************************************************************************************/
 
 // Création d'un custom post type pour les compétences

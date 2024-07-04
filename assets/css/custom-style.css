@@ -14,24 +14,24 @@
 }
 /*animation****************************************************************************************************************************************/
 @keyframes bg1 {
-  0% {
+  from {
     transform: translateY(0) rotate(0deg);
     opacity: 1;
     border-radius: 90%;
   }
-  100% {
+  to {
     transform: translateY(-100vh) rotate(720deg);
     opacity: 0;
     border-radius: 0;
   }
 }
 @keyframes bg3 {
-  0% {
+  from {
     transform: translateY(0) rotate(0deg);
     opacity: 1;
     border-radius: 0;
   }
-  100% {
+  to {
     transform: translateY(100vh) rotate(-720deg);
     opacity: 0;
     border-radius: 90%;
@@ -46,10 +46,10 @@
   }
 }
 @keyframes loop {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
@@ -83,6 +83,16 @@ body, html {
   padding: 0;
   overflow: hidden;
   height: 100%;
+}
+
+.section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /*header*********************************************************/
@@ -121,15 +131,28 @@ header .vertical-stripe {
   width: 5%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+}
+header .stripe1 {
+  left: 65%;
+}
+header .stripe2 {
+  left: 65%;
+}
+header .stripe3 {
+  left: 70%;
 }
 
-.section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+@media (orientation: portrait) {
+  #vertical-menu {
+    font-size: 1vh;
+  }
 }
-
+@media (orientation: landscape) and (max-height: 950px) {
+  #vertical-menu {
+    font-size: 1.5vh;
+  }
+}
 /*section 1******************************************************************************************************************************************/
 #presentation {
   display: flex;
@@ -257,11 +280,11 @@ header .vertical-stripe {
 #presentation .container .text-block h1 .title {
   display: inline-block;
   opacity: 0; /* Commencer avec une opacité de 0 pour l'effet fade-in */
-  animation: fadeIn 2s forwards, glow 4s infinite alternate;
+  animation: fadeIn 0.5s forwards, glow 4s infinite alternate;
 }
 #presentation .container .text-block p {
   font-family: "Philosopher";
-  font-size: 1.5em;
+  font-size: clamp(10px, 1vw, 25px);
   line-height: 1.5;
   text-align: center;
 }
@@ -272,7 +295,7 @@ header .vertical-stripe {
 #presentation .container .text-block .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 4vw;
   padding: 5%;
 }
 #presentation .container .text-block .contact-icons a {
@@ -282,7 +305,6 @@ header .vertical-stripe {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
   height: auto;
 }
 #presentation .container .text-block .contact-icons a:hover {
@@ -291,8 +313,8 @@ header .vertical-stripe {
 #presentation .container .text-block .contact-button {
   z-index: 5;
   font-family: "Philosopher";
-  padding: 15px 20px;
-  font-size: 1.2em;
+  padding: 1vw;
+  font-size: clamp(8px, 0.8vw, 20px);
   color: #4e54c8;
   background-color: #98ff98;
   border-radius: 5px;
@@ -310,16 +332,72 @@ header .vertical-stripe {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 70vh;
   width: 100%;
 }
 #presentation .container .image-block img {
-  height: auto;
-  width: 400px;
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
+@media (orientation: portrait) {
+  #presentation {
+    align-items: baseline;
+  }
+  #presentation .container {
+    flex-direction: column-reverse;
+    height: 80%;
+    width: 80%;
+  }
+  #presentation .container .text-block, #presentation .container .image-block {
+    height: 40%;
+  }
+  #presentation .container .text-block h1 {
+    font-size: 2em;
+  }
+  #presentation .container .text-block p {
+    font-size: clamp(10px, 1.5vh, 25px);
+  }
+  #presentation .container .text-block .contact-icons {
+    padding: 1%;
+  }
+  #presentation .container .text-block .contact-icons a {
+    transform: scale(0.8);
+  }
+  #presentation .container .text-block .contact-button {
+    font-size: clamp(10px, 1.5vh, 25px);
+    padding: 0.5vh;
+  }
+  #presentation .container .image-block {
+    padding-top: 10%;
+    height: 40%;
+    width: auto;
+  }
+}
+@media (orientation: landscape) and (max-height: 950px) {
+  #presentation .container {
+    height: 80%;
+  }
+  #presentation .container .text-block, #presentation .container .image-block {
+    height: 80%;
+  }
+  #presentation .container .text-block h1 {
+    font-size: 2em;
+  }
+  #presentation .container .text-block .contact-icons {
+    padding: 0;
+  }
+  #presentation .container .text-block .contact-icons a {
+    transform: scale(0.5);
+  }
+  #presentation .container .text-block .contact-button {
+    padding: 1vh;
+  }
+  #presentation .container .image-block {
+    height: 80%;
+    width: auto;
+  }
+}
 /*section 2************************************************************************************************************************/
 #competences {
   display: flex;
@@ -557,6 +635,69 @@ header .vertical-stripe {
   inset: 0;
 }
 
+@media (orientation: portrait) {
+  #competences {
+    flex-direction: column;
+  }
+  #competences .text-area {
+    width: 80vw;
+  }
+  #competences .text-area .logo-container img {
+    height: 10vh;
+  }
+  #competences .text-area .text-content .competence-title {
+    font-size: 2vh;
+  }
+  #competences .text-area .text-content .competence-description {
+    font-size: clamp(10px, 1.5vh, 25px);
+  }
+  #competences .text-area .text-content .base-text h2 {
+    font-size: 2vh;
+  }
+  #competences .text-area .text-content .base-text p {
+    font-size: clamp(10px, 1.5vh, 25px);
+  }
+  #competences .skill-list {
+    width: 80%;
+  }
+  #competences .skill-list .loop-slider .inner .skill {
+    padding: 1.5vw 1.5vh;
+  }
+  #competences .skill-list .loop-slider .inner .skill img {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (orientation: landscape) and (max-height: 950px) {
+  #competences .text-area {
+    width: 30%;
+  }
+  #competences .text-area .logo-container img {
+    height: 10vW;
+  }
+  #competences .text-area .text-content .competence-title {
+    font-size: 2vw;
+  }
+  #competences .text-area .text-content .competence-description {
+    font-size: clamp(10px, 1.5vw, 25px);
+  }
+  #competences .text-area .text-content .base-text h2 {
+    font-size: 2vw;
+  }
+  #competences .text-area .text-content .base-text p {
+    font-size: clamp(10px, 1.5vw, 25px);
+  }
+  #competences .skill-list {
+    width: 50%;
+  }
+  #competences .skill-list .loop-slider .inner .skill {
+    padding: 1.5vw 1.5vh;
+  }
+  #competences .skill-list .loop-slider .inner .skill img {
+    width: 70px;
+    height: 70px;
+  }
+}
 /*section 3*******************************************************************************************************************************/
 #realisations {
   display: flex;
@@ -704,6 +845,8 @@ header .vertical-stripe {
 }
 #realisations .bloc-realisation .blocks .left-block video {
   max-height: 100%;
+  animation: fadeIn 2s ease;
+  border: 2px solid #98ff98;
   /* Masquer la barre de contrôle */
 }
 #realisations .bloc-realisation .blocks .left-block video::-webkit-media-controls {
@@ -745,9 +888,9 @@ header .vertical-stripe {
   color: #98ff98;
   font-weight: bold;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(2) {
-  font-family: "ZenDots";
-  font-size: 1.2em;
+#realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
+  font-size: 1em;
+  color: #98ff98;
 }
 #realisations .bloc-realisation .blocks .right-block .info-block a {
   display: inline-flex;
@@ -778,6 +921,93 @@ header .vertical-stripe {
   opacity: 0.8;
 }
 
+@media (orientation: portrait) {
+  #realisations {
+    align-items: baseline;
+  }
+  #realisations .bloc-realisation {
+    overflow: visible;
+    gap: 1vh;
+  }
+  #realisations .bloc-realisation h2 {
+    font-size: 2vh;
+    padding-top: 5vh;
+    text-align: center;
+  }
+  #realisations .bloc-realisation .blocks {
+    flex-direction: column;
+    gap: 1vh;
+  }
+  #realisations .bloc-realisation .blocks .left-block {
+    height: 35%;
+  }
+  #realisations .bloc-realisation .blocks .right-block {
+    width: 90%;
+    gap: 0;
+    height: 50%;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title {
+    font-size: 2vh;
+    margin-bottom: 0;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block p {
+    font-size: clamp(10px, 1.5vh, 25px);
+    margin-bottom: 0;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
+    font-size: clamp(8px, 1vh, 20px);
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg {
+    transform: scale(0.5);
+  }
+  #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
+    transform: scale(0.5);
+  }
+}
+@media (orientation: landscape) and (max-height: 950px) {
+  #realisations .bloc-realisation {
+    overflow: visible;
+  }
+  #realisations .bloc-realisation h2 {
+    font-size: 2vw;
+  }
+  #realisations .bloc-realisation .blocks {
+    gap: 5%;
+  }
+  #realisations .bloc-realisation .blocks .left-block {
+    width: 40vw;
+  }
+  #realisations .bloc-realisation .blocks .left-block img, #realisations .bloc-realisation .blocks .left-block video {
+    width: 40vw;
+  }
+  #realisations .bloc-realisation .blocks .right-block {
+    width: 40vw;
+    gap: 0;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block {
+    width: 40vw;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title {
+    font-size: clamp(10px, 1.5vw, 25px);
+    margin: 0;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block p {
+    font-size: clamp(10px, 1vw, 25px);
+    margin: 0;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
+    font-size: clamp(8px, 1vw, 20px);
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block a {
+    height: 40px;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg {
+    transform: scale(0.5);
+  }
+  #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
+    transform: scale(0.5);
+  }
+}
 /*section 4*******************************************************************************************************************************/
 #contact {
   display: flex;
@@ -978,6 +1208,84 @@ header .vertical-stripe {
   display: none;
 }
 
+@media (orientation: portrait) {
+  #contact .contact-bloc {
+    width: 80vw;
+  }
+  #contact .contact-bloc h2 {
+    font-size: 2vh;
+    text-align: center;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
+    flex-direction: column;
+    height: 80%;
+    width: 90%;
+    gap: 1vh;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
+    width: 100%;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc label {
+    font-size: clamp(10px, 1.2vw, 25px);
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
+    font-size: clamp(10px, 2vh, 25px);
+    margin: 0;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email] {
+    height: 5vh;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
+    height: 30vh;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
+    font-size: clamp(10px, 1vh, 25px);
+    margin-top: 10px;
+  }
+}
+@media (orientation: landscape) and (max-height: 950px) {
+  #contact .contact-bloc {
+    width: 80vw;
+  }
+  #contact .contact-bloc h2 {
+    font-size: 2vw;
+    text-align: center;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
+    flex-direction: row;
+    height: 80%;
+    width: 80%;
+    gap: 10vh;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
+    width: 50%;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc label {
+    font-size: clamp(10px, 1.2vw, 25px);
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
+    font-size: clamp(10px, 2vw, 25px);
+    margin: 0;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email] {
+    height: 5vw;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
+    height: 15vw;
+  }
+  #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
+    font-size: clamp(10px, 0.8vw, 25px);
+    margin-top: 10px;
+  }
+}
 /*footer**********************************************************************************************************************************/
 footer {
   border-top: 1px solid #98ff98;
@@ -987,16 +1295,24 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 5vw;
   animation: slideBottomToTop 1s ease;
 }
-footer a, footer p {
+footer a {
   font-family: "Zendots";
   font-size: 1rem;
   color: white;
   text-decoration: none;
   text-align: center;
-}
-footer a {
   align-self: center;
+}
+
+@media (orientation: portrait) {
+  footer a {
+    font-size: 1vh;
+  }
+}
+@media (orientation: landscape) and (max-height: 950px) {
+  footer a {
+    font-size: 1vw;
+  }
 }
