@@ -259,7 +259,7 @@ header .stripe3 {
 }
 #presentation .container .text-block, #presentation .container .image-block {
   flex: 1;
-  min-width: 300px;
+  min-width: 260px;
   padding: 10px;
 }
 #presentation .container .text-block {
@@ -348,6 +348,7 @@ header .stripe3 {
     flex-direction: column-reverse;
     height: 80%;
     width: 80%;
+    align-items: center;
   }
   #presentation .container .text-block, #presentation .container .image-block {
     height: 40%;

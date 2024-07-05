@@ -267,7 +267,7 @@ header {
         background: transparent;
         .text-block, .image-block {
             flex: 1;
-            min-width: 300px;
+            min-width: 260px;
             padding: 10px;
         }
         .text-block {
@@ -357,6 +357,7 @@ header {
             flex-direction: column-reverse;
             height: 80%;
             width: 80%;
+            align-items: center;
             .text-block, .image-block {
                 height:40%;
             }

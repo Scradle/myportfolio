@@ -1,6 +1,6 @@
 /*scroll de section en section*****************************************************************************************************************************************/
 
-// Ajout d'un écouteur d'événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script
+// Attend que le DOM soit entièrement chargé pour démarrer le script
 document.addEventListener('DOMContentLoaded', function () {
 
     // Sélection de toutes les sections de la page
@@ -12,13 +12,55 @@ document.addEventListener('DOMContentLoaded', function () {
     // Indicateur pour savoir si une opération de défilement est en cours
     let isScrolling = false;
 
+    // Sélectionne les éléments des bandes verticales
+    const stripe1 = document.querySelector('.stripe1');
+    const stripe2 = document.querySelector('.stripe2');
+    const stripe3 = document.querySelector('.stripe3');
+
+    // Sélectionne les liens du menu de navigation vertical
+    let navLinks = document.querySelectorAll('#vertical-menu a');
+
+    // Sélectionne le bouton du call to action (CTA)
+    let contactButton = document.querySelector('.contact-button');
+
+    // Fonction pour mettre à jour la position des bandes verticales en fonction de l'index de section
+    function updateStripesPosition(index) {
+        switch(index) {
+            case 0:
+                moveStripesTo('65%', '65%', '70%');
+                break;
+            case 1:
+                moveStripesTo('0%', '25%', '95%');
+                break;
+            case 2:
+                moveStripesTo('40%', '45%', '50%');
+                break;
+            case 3:
+                moveStripesTo('15%', '20%', '55%');
+                break;
+            default:
+                break;
+        }
+    }
+    
+    // Fonction pour déplacer les bandes vers une nouvelle position avec transition CSS
+    function moveStripesTo(left1, left2, left3) {
+        stripe1.style.transition = 'left 0.5s ease-in-out';
+        stripe2.style.transition = 'left 0.5s ease-in-out';
+        stripe3.style.transition = 'left 0.5s ease-in-out';
+        
+        stripe1.style.left = left1;
+        stripe2.style.left = left2;
+        stripe3.style.left = left3;
+    }
+
     // Fonction pour faire défiler la page vers une section spécifique
     function scrollToSection(index) {
         // Correction de l'index pour la boucle infinie
         if (index >= sections.length) {
-            index = 0; // Si l'index dépasse le nombre de sections, retourne à la première section
+            index = 0; // Revenir à la première section si l'index dépasse la longueur des sections
         } else if (index < 0) {
-            index = sections.length - 1; // Si l'index est négatif, retourne à la dernière section
+            index = sections.length - 1; // Aller à la dernière section si l'index est négatif
         }
 
         isScrolling = true; // Indique qu'un défilement est en cours
@@ -26,11 +68,30 @@ document.addEventListener('DOMContentLoaded', function () {
         // Défilement vers la section spécifiée avec une animation fluide
         sections[index].scrollIntoView({ behavior: 'smooth' });
                 
-        // Utilisation de setTimeout pour réinitialiser isScrolling après 1 seconde (temps d'animation estimé)
+        // Utilisation de setTimeout pour réinitialiser isScrolling après 500ms (estimation du temps d'animation)
         setTimeout(() => { 
             isScrolling = false; 
-            currentSectionIndex = index; // Mise à jour de l'index de la section actuelle après le défilement
+            currentSectionIndex = index; // Mettre à jour l'index de la section actuelle après le défilement
         }, 500);
+        
+        // Mettre à jour la position des bandes verticales en fonction de la nouvelle section
+        updateStripesPosition(index);
+
+        // Mettre à jour les liens du menu de navigation
+        updateNavLinks(index);
+    }
+
+    // Fonction pour mettre à jour les liens du menu de navigation
+    function updateNavLinks(index) {
+        // Retire la classe 'active' de tous les liens
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Ajoute la classe 'active' au lien correspondant à la section actuelle
+        if (index !== undefined) {
+            navLinks[index].classList.add('active');
+        } else {
+            navLinks[currentSectionIndex].classList.add('active');
+        }
     }
 
     // Ajout d'un écouteur d'événement pour le défilement de la souris
@@ -47,79 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
             currentSectionIndex--;
         }
 
-        // Appelle la fonction pour faire défiler vers la nouvelle section
+        // Appeler la fonction pour faire défiler vers la nouvelle section
         scrollToSection(currentSectionIndex);
-    }, { passive: false }); // Le paramètre passive: false permet de prévenir le comportement par défaut du navigateur pour l'événement wheel
-});
-
-/*menu vertical****************************************************************************************************************************************************************/
-
-// Ajout d'un écouteur d'événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script
-document.addEventListener('DOMContentLoaded', function () {
-
-    // Sélection de toutes les sections de la page et du bouton du cta
-    let sections = document.querySelectorAll('.section');
-    let contactButton = document.querySelector('.contact-button');
-
-    // Sélection des liens du menu de navigation
-    let navLinks = document.querySelectorAll('#vertical-menu a');
-
-    // Index de la section actuellement visible
-    let currentSectionIndex = 0;
-
-    // Indicateur pour savoir si une opération de défilement est en cours
-    let isScrolling = false;
-
-    // Fonction pour faire défiler la page vers une section spécifique
-    function scrollToSection(index) {
-        // Correction de l'index pour la boucle infinie
-        if (index >= sections.length) {
-            index = 0; // Si l'index dépasse le nombre de sections, retourne à la première section
-        } else if (index < 0) {
-            index = sections.length - 1; // Si l'index est négatif, retourne à la dernière section
-        }
-
-        isScrolling = true; // Indique qu'un défilement est en cours
-
-        // Défilement vers la section spécifiée avec une animation fluide
-        sections[index].scrollIntoView({ behavior: 'smooth' });
-
-        // Utilisation de setTimeout pour réinitialiser isScrolling après 1 seconde (temps d'animation estimé)
-        setTimeout(() => {
-            isScrolling = false;
-            currentSectionIndex = index; // Mise à jour de l'index de la section actuelle après le défilement
-
-            // Met à jour les liens du menu de navigation
-            updateNavLinks();
-        }, 500);
-    }
-
-    // Fonction pour mettre à jour les liens du menu de navigation
-    function updateNavLinks() {
-        // Retire la classe 'active' de tous les liens
-        navLinks.forEach(link => link.classList.remove('active'));
-
-        // Ajoute la classe 'active' au lien correspondant à la section actuelle
-        navLinks[currentSectionIndex].classList.add('active');
-    }
-
-    // Ajout d'un écouteur d'événement pour le défilement de la souris
-    document.addEventListener('wheel', function (event) {
-        // Si un défilement est déjà en cours, ignorer les nouveaux événements de défilement
-        if (isScrolling) return;
-
-        // Détection de la direction du défilement
-        if (event.deltaY > 0) {
-            // Défilement vers le bas
-            currentSectionIndex++;
-        } else {
-            // Défilement vers le haut
-            currentSectionIndex--;
-        }
-
-        // Appelle la fonction pour faire défiler vers la nouvelle section
-        scrollToSection(currentSectionIndex);
-    }, { passive: false }); // Le paramètre passive: false permet de prévenir le comportement par défaut du navigateur pour l'événement wheel
+    }, { passive: false }); // Le paramètre passive: false empêche le comportement par défaut du navigateur pour l'événement wheel
 
     // Ajout d'un écouteur d'événement pour les clics sur les liens du menu de navigation
     navLinks.forEach((link, index) => {
@@ -130,16 +121,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Ajout d'un écouteur d'événement pour les clics sur le call to action
+    // Ajout d'un écouteur d'événement pour les clics sur le call to action (CTA)
     contactButton.addEventListener('click', function (event) {
         event.preventDefault();
-        currentSectionIndex = 3;
+        currentSectionIndex = 3; // Remplacez avec l'index de votre section CTA
         scrollToSection(currentSectionIndex);
     });
 
-    // Met à jour les liens du menu de navigation lors du chargement initial de la page
-    updateNavLinks();
+    // Sélectionne tous les liens d'ancrage vers les sections
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    // Écoute les clics sur les liens d'ancrage
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Récupère l'ancre vers laquelle le lien pointe
+            const anchor = link.getAttribute('href');
+            
+            // Trouve l'index de la section correspondant à l'ancre
+            const index = Array.from(sections).findIndex(section => `#${section.id}` === anchor);
+            
+            // Si l'index est trouvé, fait défiler la page vers cette section
+            if (index !== -1) {
+                scrollToSection(index);
+            }
+        });
+    });
+
+    // Position initiale des bandes verticales au chargement de la page
+    updateStripesPosition(currentSectionIndex);
 });
+
 
 /*boucles compétences****************************************************************************************************************************************************************/
 
@@ -238,117 +251,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Attend que le DOM soit entièrement chargé pour gérer les stripes
-document.addEventListener('DOMContentLoaded', function () {
-
-    // Sélection de toutes les sections de la page
-    let sections = document.querySelectorAll('.section');
-    
-    // Index de la section actuellement visible
-    let currentSectionIndex = 0;
-    
-    // Indicateur pour savoir si une opération de défilement est en cours
-    let isScrolling = false;
-
-    // Sélectionne les éléments des bandes verticales
-    const stripe1 = document.querySelector('.stripe1');
-    const stripe2 = document.querySelector('.stripe2');
-    const stripe3 = document.querySelector('.stripe3');
-
-    // Fonction pour mettre à jour la position des bandes verticales en fonction de l'index de section
-    function updateStripesPosition(index) {
-        switch(index) {
-            case 0:
-                moveStripesTo('65%', '65%', '70%');
-                break;
-            case 1:
-                moveStripesTo('0%', '25%', '95%');
-                break;
-            case 2:
-                moveStripesTo('40%', '45%', '50%');
-                break;
-            case 3:
-                moveStripesTo('15%', '20%', '55%');
-                break;
-            default:
-                break;
-        }
-    }
-    
-    // Fonction pour déplacer les bandes vers une nouvelle position avec transition CSS
-    function moveStripesTo(left1, left2, left3) {
-        stripe1.style.transition = 'left 0.5s ease-in-out';
-        stripe2.style.transition = 'left 0.5s ease-in-out';
-        stripe3.style.transition = 'left 0.5s ease-in-out';
-        
-        stripe1.style.left = left1;
-        stripe2.style.left = left2;
-        stripe3.style.left = left3;
-    }
-
-    // Fonction pour faire défiler la page vers une section spécifique
-    function scrollToSection(index) {
-        // Correction de l'index pour la boucle infinie
-        if (index >= sections.length) {
-            index = 0; // Si l'index dépasse le nombre de sections, retourne à la première section
-        } else if (index < 0) {
-            index = sections.length - 1; // Si l'index est négatif, retourne à la dernière section
-        }
-
-        isScrolling = true; // Indique qu'un défilement est en cours
-        
-        // Défilement vers la section spécifiée avec une animation fluide
-        sections[index].scrollIntoView({ behavior: 'smooth' });
-                
-        // Utilisation de setTimeout pour réinitialiser isScrolling après 1 seconde (temps d'animation estimé)
-        setTimeout(() => { 
-            isScrolling = false; 
-            currentSectionIndex = index; // Mise à jour de l'index de la section actuelle après le défilement
-        }, 500);
-        
-        // Met à jour la position des bandes verticales en fonction de la nouvelle section
-        updateStripesPosition(index);
-    }
-
-    // Ajout d'un écouteur d'événement pour le défilement de la souris
-    document.addEventListener('wheel', function (event) {
-        // Si un défilement est déjà en cours, ignorer les nouveaux événements de défilement
-        if (isScrolling) return;
-        
-        // Détection de la direction du défilement
-        if (event.deltaY > 0) {
-            // Défilement vers le bas
-            currentSectionIndex++;
-        } else {
-            // Défilement vers le haut
-            currentSectionIndex--;
-        }
-
-        // Appelle la fonction pour faire défiler vers la nouvelle section
-        scrollToSection(currentSectionIndex);
-    }, { passive: false }); // Le paramètre passive: false permet de prévenir le comportement par défaut du navigateur pour l'événement wheel
-
-    // Sélectionne tous les liens d'ancrage vers les sections
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    // Écoute les clics sur les liens d'ancrage
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            // Récupère l'ancre vers laquelle le lien pointe
-            const anchor = link.getAttribute('href');
-            
-            // Trouve l'index de la section correspondant à l'ancre
-            const index = Array.from(sections).findIndex(section => `#${section.id}` === anchor);
-            
-            // Si l'index est trouvé, fait défiler la page vers cette section
-            if (index !== -1) {
-                scrollToSection(index);
-            }
-        });
-    });
-
-    // Position initiale des bandes verticales au chargement de la page
-    updateStripesPosition(currentSectionIndex);
-});
