@@ -1,0 +1,295 @@
+/*section 4*******************************************************************************************************************************/
+
+#contact { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .background4 {
+        background: linear-gradient(to top, #4e54c8, #8f94fb);  
+        width: 100%;
+        height:100%;
+        z-index: -1;
+        position: absolute;
+        .circles4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+        }       
+        .circles4 span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: bg3 20s linear infinite;
+            top: -200px;            
+        }       
+        .circles4 span:nth-child(1) {
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }       
+        .circles4 span:nth-child(2) {
+            left: 25%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }       
+        .circles4 span:nth-child(3) {
+            left: 40%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }       
+        .circles4 span:nth-child(4) {
+            left: 70%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }       
+        .circles4 span:nth-child(5) {
+            left: 55%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }       
+        .circles4 span:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }        
+        .circles4 span:nth-child(7) {
+            left: 30%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }        
+        .circles4 span:nth-child(8) {
+            left: 45%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }        
+        .circles4 span:nth-child(9) {
+            left: 15%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }       
+        .circles4 span:nth-child(10) {
+            left: 90%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+    }
+    /*formulaire******************************************************************/
+    .contact-bloc {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        h2 {
+            font-size: 2em;
+            font-family: 'Zendots';
+            color: white;
+            animation: glow 4s ease-in-out infinite alternate;
+        }
+        .contact-form {    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            .wpcf7-form {
+                display: flex;flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                .form-bloc{
+                    display: flex;
+                    width: 100%;
+                    gap: 5vw;
+                    .left-block,
+                    .right-block {
+                        box-sizing: border-box;
+                        width: 48%;
+                        flex-direction: column;
+                    }            
+                    .left-block {
+                        display: flex;
+                        align-self: center;
+                    }           
+                    .right-block {
+                        display: flex;
+                        align-self: center;
+                    }                    
+                    label {
+                        color: white;
+                        font-family: 'Zendots';
+                    }
+                    input[type="text"],
+                    input[type="email"],
+                    textarea {
+                        box-sizing: border-box;
+                        border-radius: 6px;
+                        border: 1px solid white;
+                        color: white;
+                        resize: none;
+                        margin: 10px 0;
+                        font-family: 'Philosopher';
+                        font-size: 2rem;
+                        line-height: 1.5rem;
+                        background: #4e54c8;
+                        transition: border-color 0.3s ease;
+                    }           
+                    input[type="text"]:focus,
+                    input[type="email"]:focus,
+                    textarea:focus {
+                        border-color: white;
+                        outline: none;
+                    }            
+                    input[type="text"],
+                    input[type="email"] {
+                        height: 5rem;
+                        width: 100%;
+                    }           
+                    textarea {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                input[type="submit"] {
+                    color: #4e54c8;
+                    background-color: #98ff98;
+                    font-family: 'Zendots';
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    height: 3rem;
+                    transition: background-color 1s ease, color 1s ease;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 20px;
+                }        
+                input[type="submit"]:hover {
+                    color: white;
+                    background-color: #4e54c8;
+                }                 
+                .wpcf7-not-valid-tip {
+                    color: #98ff98;
+                    position: absolute;
+                }
+                .wpcf7-response-output {
+                    border: none;
+                    display: none;
+
+                }                
+            }
+        }
+    }
+}
+
+/*responsive*****************************************************************************************************/
+
+@media (orientation: portrait) { 
+    #contact { 
+        .contact-bloc {
+            width: 80vw;
+            h2 {
+                font-size: 2vh;
+                text-align: center;
+            }
+            .contact-form {    
+                .wpcf7-form {
+                    .form-bloc{
+                        flex-direction: column;
+                        height: 80%;
+                        width: 90%;
+                        gap: 1vh;
+                        .left-block,
+                        .right-block {
+                            width: 100%;
+                        }
+                        label {
+                            font-size: clamp(10px, 1.2vw, 25px);
+                        }   
+                        input[type="text"],
+                        input[type="email"],
+                        textarea {
+                            font-size: clamp(10px, 2vh, 25px);
+                            margin: 0;
+                        }
+                        input[type="text"],
+                        input[type="email"] {
+                            height: 5vh;
+                        }               
+                        textarea {
+                            height: 30vh;
+                        }
+                    }
+                    input[type="submit"] {
+                        font-size: clamp(10px, 1vh, 25px);
+                        margin-top: 10px;
+                    }           
+                }
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-height: 950px) { 
+    #contact { 
+        .contact-bloc {
+            width: 80vw;
+            h2 {
+                font-size: 2vw;
+                text-align: center;
+            }
+            .contact-form {    
+                .wpcf7-form {
+                    .form-bloc{
+                        flex-direction: row;
+                        height: 80%;
+                        width: 80%;
+                        gap: 10vh;
+                        .left-block,
+                        .right-block {
+                            width: 50%;
+                        }
+                        label {
+                            font-size: clamp(10px, 1.2vw, 25px);
+                        }    
+                        input[type="text"],
+                        input[type="email"],
+                        textarea {
+                            font-size: clamp(10px, 2vw, 25px);
+                            margin: 0;
+
+                        }
+                        input[type="text"],
+                        input[type="email"] {
+                            height: 5vw;
+                        }               
+                        textarea {
+                            height: 15vw;
+                        }
+                    }
+                    input[type="submit"] {
+                        font-size: clamp(10px, 0.8vw, 25px);
+                        margin-top: 10px;
+                    }           
+                }
+            }
+        }
+    }
+}

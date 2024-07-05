@@ -1,0 +1,105 @@
+/*Local fonts************************************************************************/
+
+@font-face {
+    font-family: 'ZenDots';
+    src: url('../fonts/ZenDots-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Philosopher';
+    src: url('../fonts/Philosopher-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*animation****************************************************************************************************************************************/
+
+@keyframes bg1 {
+    from{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 90%;
+    }
+    to{
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+        border-radius: 0;
+    }
+}
+
+@keyframes bg3 {
+    from{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    to{
+        transform: translateY(100vh) rotate(-720deg);
+        opacity: 0;
+        border-radius: 90%;
+    }
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 20px #bdbdbd;
+    }
+    to {
+      text-shadow: 0 0 30px #dedede, 0 0 10px #fcfcfc;
+    }
+}
+
+@keyframes loop {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+}
+
+@keyframes slideLeftToRight {
+    from {
+      transform: translateX(-100%) translateY(-50%);
+    }
+    to {
+      transform: translateX(0) translateY(-50%);
+    }
+}
+
+@keyframes slideBottomToTop {
+    from {
+      transform: translateY(100%) translateX(-50%);
+    }
+    to {
+      transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/*site*******************************************************************************************************************************************/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+.section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.hidden {
+    visibility: hidden;
+}

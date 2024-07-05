@@ -1,0 +1,330 @@
+/*section 2************************************************************************************************************************/
+
+#competences { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2vw;
+    .background2 {
+        position: absolute;
+        background: #4e54c8;  
+        width: 100%;
+        height:100%;
+        z-index: -1;
+        .circles2a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+        }    
+        .circles2a span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: bg1 20s linear infinite;
+            bottom: -200px;
+        }    
+        .circles2a span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }       
+        .circles2a span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }       
+        .circles2a span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }       
+        .circles2a span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }        
+        .circles2a span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        .circles2b {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+        }       
+        .circles2b span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: bg3 20s linear infinite;
+            top: -200px;
+        }       
+        .circles2b span:nth-child(1) {
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }        
+        .circles2b span:nth-child(2) {
+            left: 90%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }       
+        .circles2b span:nth-child(3) {
+            left: 75%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }       
+        .circles2b span:nth-child(4) {
+            left: 55%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }        
+        .circles2b span:nth-child(5) {
+            left: 35%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+    }
+    /*bloc text-skills***************************************************/
+    .text-area {
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        text-align: center;
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            img {
+                max-width: 250px; 
+                height: auto;
+                animation: fadeIn 1s ease-in-out forwards;
+            }
+        }
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .competence-title {
+                font-size: 1.5em;
+                line-height: 1.5;
+                margin: 0;
+                font-family: 'Zendots';
+                color: white;
+                animation: glow 4s ease-in-out infinite alternate;
+            }
+            .competence-description {
+                font-size: 1.5em;
+                line-height: 1.5;
+                margin: 1rem 0 0;
+                font-family: 'Philosopher';
+                color: white;
+            }
+            .base-text {
+                h2 {
+                    font-size: 2em;
+                    line-height: 1.5;
+                    margin: 0;
+                    padding: 3%;
+                    font-family: 'Zendots';
+                    color: white;
+                    animation: glow 4s ease-in-out infinite alternate;
+                }
+                p {
+                    font-size: 1.5em;
+                    line-height: 1.5;
+                    margin: 0;
+                    font-family: 'Philosopher';
+                    color: white;
+                }
+            }
+        }
+    }
+    /*bloc skills***************************************************/
+    .skill-list {
+        z-index: 1;
+        width: 50vw;
+        flex-shrink: 0;
+        flex-direction: column;
+        gap: 0.5rem 0.5rem;
+        position: relative;
+        padding: 1.5rem 0;
+        overflow:hidden;
+        .loop-slider {
+            .inner {
+                display: flex;
+                width: max-content;
+                animation: loop linear infinite;
+                z-index: 1; 
+                .skill {
+                    z-index: 2;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem 0.2rem;
+                    border-radius: 0.4rem;
+                    padding: 2.2rem 2.2rem;
+                    margin-right: 0.5rem; // Must use margin-right instead of gap for the loop to be smooth
+                    img {
+                        z-index: 3; 
+                        width: 150px; 
+                        height: 150px; 
+                        border-radius: 0.4rem;
+                        opacity: 0.6;
+                        object-fit: cover;
+                        filter: grayscale(100%);
+                        transition: transform 0.3s, filter 0.3s, opacity 0.3s; 
+                        cursor: pointer;
+                        &:hover {
+                            filter: grayscale(0%);
+                            transform: rotate(5deg);
+                            opacity: 1; 
+                        }
+                    }
+                }  
+            }
+        }
+        // Animations pour chaque slider
+        .slider-1 .inner {
+            animation-duration: 30s;
+            animation-direction: normal;
+        }    
+        .slider-2 .inner {
+        animation-duration: 45s;
+        animation-direction: reverse;
+        }
+        .slider-3 .inner {
+        animation-duration: 35s;
+        animation-direction: normal;
+        }
+        .slider-4 .inner {
+        animation-duration: 40s;
+        animation-direction: reverse;
+        }
+    }
+    .fade {
+        pointer-events: none;
+        background: linear-gradient(90deg, #4e54c8, transparent 30%, transparent 70%, #4e54c8);
+        position: absolute;
+        inset: 0;
+    }
+}
+
+/*responsive*****************************************************************************************************/
+
+@media (orientation: portrait) {
+    #competences {
+        flex-direction: column;
+        .text-area {
+            width: 80vw;
+            .logo-container {
+                img {
+                    height:10vh;
+                }
+            }
+            .text-content {
+                .competence-title {
+                    font-size: 2vh;
+                }
+                .competence-description {
+                    font-size: clamp(10px, 1.5vh, 25px);
+                }
+                .base-text {
+                    h2 {
+                        font-size: 2vh;
+                    }
+                    p {
+                        font-size: clamp(10px, 1.5vh, 25px);
+                    }
+                }
+            }
+        }
+        .skill-list {
+            width: 80%;
+            .loop-slider {
+                .inner {
+                    .skill {
+                        padding: 1.5vw 1.5vh;
+                        img {
+                            width: 70px; 
+                            height: 70px; 
+                            
+                        }
+                    }  
+                }
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-height: 950px) {
+    #competences {
+        .text-area {
+            width: 30%;
+            .logo-container {
+                img {
+                    height:10vW;
+                }
+            }
+            .text-content {                        
+                .competence-title {
+                    font-size: 2vw;
+                }       
+                .competence-description {
+                    font-size: clamp(10px, 1.5vw, 25px);
+                }        
+                .base-text {
+                    h2 {
+                        font-size: 2vw;
+                    }
+                    p {
+                        font-size: clamp(10px, 1.5vw, 25px);
+                    }
+                }
+            }
+        }
+        .skill-list {           
+            width: 50%;           
+            .loop-slider {
+                .inner {                       
+                    .skill {
+                        padding: 1.5vw 1.5vh;
+                        img {
+                            width: 70px; 
+                            height: 70px; 
+                        }
+                    }  
+                }
+            }
+        }
+    }
+}

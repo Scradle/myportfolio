@@ -143,6 +143,7 @@ header .stripe3 {
   left: 70%;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #vertical-menu {
     font-size: 1vh;
@@ -340,6 +341,7 @@ header .stripe3 {
      object-fit: contain;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #presentation {
     align-items: baseline;
@@ -636,6 +638,7 @@ header .stripe3 {
   inset: 0;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #competences {
     flex-direction: column;
@@ -922,6 +925,7 @@ header .stripe3 {
   opacity: 0.8;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #realisations {
     align-items: baseline;
@@ -1209,6 +1213,7 @@ header .stripe3 {
   display: none;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #contact .contact-bloc {
     width: 80vw;
@@ -1307,6 +1312,7 @@ footer a {
   align-self: center;
 }
 
+/*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   footer a {
     font-size: 1vh;
