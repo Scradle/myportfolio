@@ -86,36 +86,8 @@
         opacity: 1;
     }
 }
-
-@keyframes borderAnime {
-    0%, 100% {
-        border-radius: 200px; /* Forme initiale et finale: cercle */
-    }
-    25% {
-        border-radius: 50px; /* Forme: rectangle aux coins arrondis */
-    }
-    50% {
-        border-radius: 25%; /* Forme: ellipse */
-    }
-    75% {
-        border-radius: 10%; /* Forme: coins légèrement arrondis */
-    }
-}
  
-@keyframes oscillation {
-    0%, 100% {
-      transform: translate(0, 0); /* Position initiale et finale */
-    }
-    25% {
-      transform: translate(10px, -10px); /* Déplacement vers la droite */
-    }
-    50% {
-      transform: translate(-6px, 10px); /* Déplacement vers le bas */
-    }
-    75% {
-      transform: translate(-15px, 5px); /* Déplacement vers la gauche */
-    }
-}
+
 /*site*******************************************************************************************************************************************/
 
 body, html {

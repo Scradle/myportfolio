@@ -183,16 +183,16 @@
             img {
                 height: 100%;
                 object-fit: contain;
-                box-shadow: 0 0 10px rgba(152, 255, 152, 0.6);
+                box-shadow: 0 0 20px rgba(152, 255, 152, 0.6);
                 border: 2px solid #98ff98; 
                 position: absolute;
                 opacity: 0;
                 filter: brightness(1.2);
                 transition: opacity 0.5s ease-in-out;
+                border-radius: 1%;
                 &:nth-child(1) {
                     opacity: 1; 
                 }
-                animation: borderAnime 6s infinite ease-in-out, oscillation 3s infinite linear;;
 
                 &:nth-child(2):hover {
                     opacity: 1; 
