@@ -44,6 +44,7 @@ get_header();
         </div>
         <div class="image-block">
             <img src="<?php echo get_template_directory_uri() . './assets/images/logodev1.webp'; ?>" alt="illustration de la présentation">
+            <img src="<?php echo get_template_directory_uri() . './assets/images/logodev3.webp'; ?>" alt="illustration de la présentation">
         </div>
     </div>
 </section>
@@ -71,6 +72,7 @@ get_header();
         </div>
         <div class="text-content">
             <div class="base-text">
+                <img src="<?php echo get_template_directory_uri() . './assets/images/logodev2.webp'; ?>" alt="illustration de la présentation">
                 <h2>Mes Compétences en Développement Web</h2>
                 <p>Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
             </div>

@@ -77,6 +77,34 @@
     opacity: 1;
   }
 }
+@keyframes borderAnime {
+  0%, 100% {
+    border-radius: 200px; /* Forme initiale et finale: cercle */
+  }
+  25% {
+    border-radius: 50px; /* Forme: rectangle aux coins arrondis */
+  }
+  50% {
+    border-radius: 25%; /* Forme: ellipse */
+  }
+  75% {
+    border-radius: 10%; /* Forme: coins légèrement arrondis */
+  }
+}
+@keyframes oscillation {
+  0%, 100% {
+    transform: translate(0, 0); /* Position initiale et finale */
+  }
+  25% {
+    transform: translate(10px, -10px); /* Déplacement vers la droite */
+  }
+  50% {
+    transform: translate(-6px, 10px); /* Déplacement vers le bas */
+  }
+  75% {
+    transform: translate(-15px, 5px); /* Déplacement vers la gauche */
+  }
+}
 /*site*******************************************************************************************************************************************/
 body, html {
   margin: 0;
@@ -334,11 +362,27 @@ header .stripe3 {
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: relative;
+  animation: fadeIn 0.5s forwards;
 }
 #presentation .container .image-block img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  box-shadow: 0 0 10px rgba(152, 255, 152, 0.6);
+  border: 2px solid #98ff98;
+  position: absolute;
+  opacity: 0;
+  filter: brightness(1.2);
+  transition: opacity 0.5s ease-in-out;
+  animation: borderAnime 6s infinite ease-in-out, oscillation 3s infinite linear;
+}
+#presentation .container .image-block img:nth-child(1) {
+  opacity: 1;
+}
+#presentation .container .image-block img:nth-child(2):hover {
+  opacity: 1;
+  z-index: 1;
 }
 
 /*responsive*****************************************************************************************************/
@@ -555,6 +599,21 @@ header .stripe3 {
   margin: 1rem 0 0;
   font-family: "Philosopher";
   color: white;
+}
+#competences .text-area .text-content .base-text {
+  position: relative;
+}
+#competences .text-area .text-content .base-text img {
+  height: 15vh;
+  width: auto;
+  border: 2px solid #98ff98;
+  border-radius: 15px;
+  transform: scaleX(-1);
+  filter: brightness(1.2);
+  transition: transform 0.3s, filter 0.3s;
+}
+#competences .text-area .text-content .base-text img:hover {
+  transform: rotate(-5deg) scaleX(-1);
 }
 #competences .text-area .text-content .base-text h2 {
   font-size: 2em;

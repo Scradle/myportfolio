@@ -41,11 +41,13 @@ function disabled_gutenberg_cpt( $use_block_editor, $post_type ) {
 }
 add_filter( 'use_block_editor_for_post_type', 'disabled_gutenberg_cpt', 10, 2 );
 
-
+// Ajout du support pour la balise de titre
 function theme_setup() {
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'theme_setup');
+
+
 /******************************************************************************************************************/
 
 // Création d'un custom post type pour les compétences
@@ -87,9 +89,6 @@ function create_custom_competence_post() {
 }
 add_action( 'init', 'create_custom_competence_post' );
 
-
-
-
 /***********************************************************************************************************************/
 
 // Création d'un custom post type pour les réalisations
@@ -130,9 +129,6 @@ function create_custom_realisation_post() {
     register_post_type( 'realisation', $args );
 }
 add_action( 'init', 'create_custom_realisation_post' );
-
-
-
 
 /***********************************************************************************************************************/
 

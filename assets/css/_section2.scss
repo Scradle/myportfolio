@@ -151,6 +151,19 @@
                 color: white;
             }
             .base-text {
+                position: relative;
+                img{
+                    height: 15vh; 
+                    width: auto;
+                    border: 2px solid #98ff98; 
+                    border-radius: 15px;
+                    transform: scaleX(-1);
+                    filter: brightness(1.2);
+                    transition: transform 0.3s, filter 0.3s;
+                    &:hover {
+                        transform: rotate(-5deg) scaleX(-1); 
+                    }
+                }
                 h2 {
                     font-size: 2em;
                     line-height: 1.5;

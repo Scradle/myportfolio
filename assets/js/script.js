@@ -1,4 +1,4 @@
-/*scroll de section en section*****************************************************************************************************************************************/
+/*scroll de section en section avec gestion du menu et des stripes*****************************************************************************************************************************************/
 
 // Attend que le DOM soit entièrement chargé pour démarrer le script
 document.addEventListener('DOMContentLoaded', function () {
