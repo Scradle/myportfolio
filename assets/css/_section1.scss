@@ -113,8 +113,7 @@
             justify-content:center;
             color: white;
             h1 {
-                display: flex;
-                justify-content: center;
+                text-align: center;
                 font-family: 'ZenDots';
                 font-size: 4em;
                 margin: 0;
@@ -141,7 +140,6 @@
                 gap: 4vw;
                 padding: 5%;
                 a {
-                    transition: transform 1s ease, animation 1s ease;
                     .icon {
                         display: flex;
                         align-items: center;
@@ -149,7 +147,7 @@
                         height: auto;
                     }
                     &:hover {
-                        transform: scale(1.2);
+                        opacity: 0.6;
                     }
                 }
                 
@@ -180,8 +178,9 @@
             width: 100%;
             position: relative;
             animation: fadeIn 0.5s forwards;
-            img {
+            .photo-presentation {
                 height: 100%;
+                width: auto;
                 object-fit: contain;
                 box-shadow: 0 0 20px rgba(152, 255, 152, 0.6);
                 border: 2px solid #98ff98; 
@@ -228,6 +227,7 @@
                     a {
                         transform: scale(0.8);
                     }
+                    
                 }
                 .contact-button {
                     font-size: clamp(10px, 1.5vh, 25px);

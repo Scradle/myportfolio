@@ -271,8 +271,7 @@ header .stripe3 {
   color: white;
 }
 #presentation .container .text-block h1 {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   font-family: "ZenDots";
   font-size: 4em;
   margin: 0;
@@ -299,9 +298,6 @@ header .stripe3 {
   gap: 4vw;
   padding: 5%;
 }
-#presentation .container .text-block .contact-icons a {
-  transition: transform 1s ease, animation 1s ease;
-}
 #presentation .container .text-block .contact-icons a .icon {
   display: flex;
   align-items: center;
@@ -309,7 +305,7 @@ header .stripe3 {
   height: auto;
 }
 #presentation .container .text-block .contact-icons a:hover {
-  transform: scale(1.2);
+  opacity: 0.6;
 }
 #presentation .container .text-block .contact-button {
   z-index: 5;
@@ -337,8 +333,9 @@ header .stripe3 {
   position: relative;
   animation: fadeIn 0.5s forwards;
 }
-#presentation .container .image-block img {
+#presentation .container .image-block .photo-presentation {
   height: 100%;
+  width: auto;
   -o-object-fit: contain;
      object-fit: contain;
   box-shadow: 0 0 20px rgba(152, 255, 152, 0.6);
@@ -349,10 +346,10 @@ header .stripe3 {
   transition: opacity 0.5s ease-in-out;
   border-radius: 1%;
 }
-#presentation .container .image-block img:nth-child(1) {
+#presentation .container .image-block .photo-presentation:nth-child(1) {
   opacity: 1;
 }
-#presentation .container .image-block img:nth-child(2):hover {
+#presentation .container .image-block .photo-presentation:nth-child(2):hover {
   opacity: 1;
   z-index: 1;
 }
@@ -575,7 +572,7 @@ header .stripe3 {
 #competences .text-area .text-content .base-text {
   position: relative;
 }
-#competences .text-area .text-content .base-text img {
+#competences .text-area .text-content .base-text .photo-competences {
   height: 15vh;
   width: auto;
   border: 2px solid #98ff98;
@@ -584,7 +581,7 @@ header .stripe3 {
   filter: brightness(1.2);
   transition: transform 0.3s;
 }
-#competences .text-area .text-content .base-text img:hover {
+#competences .text-area .text-content .base-text .photo-competences:hover {
   transform: rotate(-5deg) scaleX(-1);
 }
 #competences .text-area .text-content .base-text h2 {
@@ -932,13 +929,12 @@ header .stripe3 {
   align-items: center;
   justify-content: center;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg {
-  transition: transform 1s ease, animation 1s ease;
+#realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
   width: 64px;
   height: auto;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg:hover {
-  transform: scale(1.2);
+#realisations .bloc-realisation .blocks .right-block .info-block a .icon2:hover {
+  opacity: 0.6;
 }
 #realisations .bloc-realisation .blocks .right-block .bloc-nav {
   width: 100%;
@@ -993,11 +989,11 @@ header .stripe3 {
   #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
     font-size: clamp(8px, 1vh, 20px);
   }
-  #realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg {
-    transform: scale(0.5);
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
+    transform: scale(0.7);
   }
   #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
-    transform: scale(0.5);
+    transform: scale(0.7);
   }
 }
 @media (orientation: landscape) and (max-height: 950px) {
@@ -1037,11 +1033,11 @@ header .stripe3 {
   #realisations .bloc-realisation .blocks .right-block .info-block a {
     height: 40px;
   }
-  #realisations .bloc-realisation .blocks .right-block .info-block a .icon-svg {
-    transform: scale(0.5);
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
+    transform: scale(0.7);
   }
   #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
-    transform: scale(0.5);
+    transform: scale(0.7);
   }
 }
 /*section 4*******************************************************************************************************************************/
@@ -1333,7 +1329,7 @@ footer {
   transform: translateX(-50%);
   display: flex;
   animation: slideBottomToTop 1s ease;
-  padding: 0px 20px;
+  padding: 10px 20px;
 }
 footer a {
   font-family: "Zendots";

@@ -220,7 +220,6 @@ observer.observe(video);
 
 /*animations****************************************************************************************************************************************************************/
 
-// Attendre que le contenu du DOM soit complètement chargé avant d'exécuter le script et afficher le titre
 document.addEventListener("DOMContentLoaded", () => {
     // Sélectionner l'élément du titre par son ID
     const title = document.getElementById("animated-title");
@@ -233,21 +232,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Boucle à travers chaque caractère du texte
     for (let i = 0; i < text.length; i++) {
-      // Créer un nouvel élément <span> pour chaque caractère
-      const span = document.createElement("span");
+        // Créer un nouvel élément <span> pour chaque caractère
+        const span = document.createElement("span");
 
-      // Définir le texte du <span> au caractère courant
-      span.innerText = text[i];
+        // Définir le texte du <span> au caractère courant
+        // Si le caractère est un espace, utiliser une espace insécable (&nbsp;)
+        if (text[i] === " ") {
+            span.innerHTML = "&nbsp;";
+        } else {
+            span.innerText = text[i];
+        }
 
-      // Ajouter la classe "title" au <span> pour appliquer les styles CSS
-      span.className = "title";
+        // Ajouter la classe "title" au <span> pour appliquer les styles CSS
+        span.className = "title";
 
-      // Définir les délais d'animation pour le fade-in et glow
-      span.style.animationDelay = `${i * 0.05}s, 0s`;
+        // Définir les délais d'animation pour le fade-in et glow
+        span.style.animationDelay = `${i * 0.05}s, 0s`;
 
-      // Ajouter le <span> au titre
-      title.appendChild(span);
+        // Ajouter le <span> au titre
+        title.appendChild(span);
     }
 });
+
 
 

@@ -34,17 +34,19 @@ get_header();
             </p>
             <div class="contact-icons">
                 <a href="https://www.linkedin.com/in/guillaume-dufour-9a4758316/" class="icon" target="_blank">
-                    <img src="<?php echo get_template_directory_uri() . './assets/images/linkedin-me.webp'; ?>" class="icon-svg" alt="Mon LinkedIn">
+                    <?php echo wp_get_attachment_image(168, 'full', false, array('class' => 'icon', 'alt' => 'lien vers mon linkedin')); ?>
                 </a>
                 <a href="https://github.com/Scradle" class="icon" target="_blank">
-                    <img src="<?php echo get_template_directory_uri() . './assets/images/github-me.webp'; ?>" class="icon-svg" alt="Mon GitHub">
+                    <?php echo wp_get_attachment_image(167, 'full', false, array('class' => 'icon', 'alt' => 'lien vers mon github')); ?>
                 </a>
             </div>
             <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
         </div>
         <div class="image-block">
-            <img src="<?php echo get_template_directory_uri() . './assets/images/logodev1.webp'; ?>" alt="illustration de la présentation">
-            <img src="<?php echo get_template_directory_uri() . './assets/images/logodev3.webp'; ?>" alt="illustration de la présentation">
+            <?php
+            echo wp_get_attachment_image(162, 'full', false, array('class' => 'photo-presentation', 'alt' => 'photo de guillaume'));
+            echo wp_get_attachment_image(164, 'full', false, array('class' => 'photo-presentation','alt' => 'photo de guillaume'));
+            ?>
         </div>
     </div>
 </section>
@@ -72,7 +74,7 @@ get_header();
         </div>
         <div class="text-content">
             <div class="base-text">
-                <img src="<?php echo get_template_directory_uri() . './assets/images/logodev2.webp'; ?>" alt="illustration de la présentation">
+                <?php echo wp_get_attachment_image(163, 'full', false, array('class' => 'photo-competences', 'alt' => 'photo de guillaume')); ?>
                 <h2>Mes Compétences en Développement Web</h2>
                 <p>Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
             </div>
@@ -182,15 +184,15 @@ get_header();
                         <div class="info-block">
                             <h3 class="realisation-title"><?php the_title(); ?></h3>
                             <p><?php echo ucfirst(get_the_date('F Y')); ?></p>
-                            <a href="<?php echo $link; ?>" class="icon" target="_blank">
-                                <img src="<?php echo get_template_directory_uri() . './assets/images/github-me.webp'; ?>" class="icon-svg" alt="Mon GitHub">
+                            <a href="<?php echo $link; ?>" class="icon2" target="_blank">
+                                <?php echo wp_get_attachment_image(167, 'full', false, array('class' => 'icon2', 'alt' => 'lien vers github du projet')); ?>
                             </a>
                             <p><?php echo $techno; ?></p>
                             <p><?php echo $objectif; ?></p>
                         </div>
                         <div class="bloc-nav">
-                            <div class="previous-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-left-solid.svg'; ?>" alt="Flêche de gauche"></div>
-                            <div class="next-btn"><img src="<?php echo get_template_directory_uri() . '/assets/images/circle-right-solid.svg'; ?>" alt="flêche de droite"></div>
+                            <div class="previous-btn"><?php echo wp_get_attachment_image(165, 'full', false, array('class' => 'previous-btn', 'alt' => 'flêche de gauche')); ?></div>
+                            <div class="next-btn"><?php echo wp_get_attachment_image(166, 'full', false, array('class' => 'next-btn', 'alt' => 'flêche de droite')); ?></div>
                         </div>
                     </div>
                 </div>
