@@ -123,6 +123,7 @@
             font-family: 'Zendots';
             color: white;
             animation: glow 4s ease-in-out infinite alternate;
+            text-align: center;
         }
         .blocks {
             display: flex;
@@ -229,10 +230,10 @@
         .bloc-realisation {
             overflow:visible;       
             gap: 1vh;
+            height: 90vh;
             h2 {
                 font-size: 2vh;
-                padding-top: 5vh;
-                text-align: center;
+                padding-top: 2vh;
             }
             .blocks {
                 flex-direction: column;                

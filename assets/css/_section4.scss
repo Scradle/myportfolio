@@ -103,6 +103,7 @@
             font-family: 'Zendots';
             color: white;
             animation: glow 4s ease-in-out infinite alternate;
+            text-align: center;
         }
         .contact-form {    
             display: flex;
@@ -207,7 +208,6 @@
             width: 80vw;
             h2 {
                 font-size: 2vh;
-                text-align: center;
             }
             .contact-form {    
                 .wpcf7-form {
@@ -253,7 +253,6 @@
             width: 80vw;
             h2 {
                 font-size: 2vw;
-                text-align: center;
             }
             .contact-form {    
                 .wpcf7-form {

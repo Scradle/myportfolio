@@ -151,7 +151,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Position initiale des bandes verticales au chargement de la page
     updateStripesPosition(currentSectionIndex);
+    
+    // Mise à jour initiale des liens du menu de navigation
+    updateNavLinks(currentSectionIndex);
 });
+
 
 
 /*boucles compétences****************************************************************************************************************************************************************/

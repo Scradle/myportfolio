@@ -1,4 +1,12 @@
 <?php
+// Load Composer dependencies.
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Initialize Timber.
+Timber\Timber::init();
+
+/******************************************************************************************************************/
+
 // Theme paths
 define('THEME_URI', get_template_directory_uri());
 define('THEME_DIR', get_template_directory());
@@ -6,9 +14,6 @@ define('THEME_DIR', get_template_directory());
 // Assets Version, if some trouble with the cache, update the version
 $assets_version = wp_get_theme()['Version'];
 define('ASSETS_VERSION', $assets_version);
-
-// Ajoutez cette ligne pour activer le support des balises de titre
-add_theme_support('title-tag');
 
 // Enregistrer les scripts et les styles
 function theme_enqueue_scripts() {

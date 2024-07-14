@@ -9,36 +9,29 @@ footer {
     transform: translateX(-50%);
     display: flex;
     animation: slideBottomToTop 1s ease;
-    padding: 10px 20px;
-    a {
+    padding: 5px 5% 0 5%;
+    justify-content: center;
+    gap: 20px;
+    p {
         font-family: 'Zendots';
-        font-size: 1rem;
+        white-space: nowrap;
+        font-size: 1em;
         color: white;
         text-decoration: none;
         text-align: center;
         align-self: center;
-        position: relative;
+    }
+    a {
+        font-family: 'Philosopher';
+        white-space: nowrap;
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        align-self: center;
         transition: color .3s ease-in-out;
         &:hover {
-            color: #4e54c8;
-        }
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #98ff98;
-        z-index: -1;
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform 0.3s ease;
-    }    
-    &:hover {
-        &::before {
-          transform: scaleX(1);
+            color: #98ff98;
         }
     }
 }
@@ -47,16 +40,16 @@ footer {
 
 @media (orientation: portrait) {
     footer {       
-        a {
-            font-size: 1vh;            
+        a,p {
+            font-size: 1.5vw;            
         }        
     }
 }
 
 @media (orientation: landscape) and (max-height: 950px) {
     footer {        
-        a {
-            font-size: 1vw;           
+        a,p {
+            font-size: 1.5vh;           
         }        
     }
 }

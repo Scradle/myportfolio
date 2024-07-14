@@ -295,7 +295,7 @@ header .stripe3 {
 #presentation .container .text-block .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 4vw;
+  gap: 10%;
   padding: 5%;
 }
 #presentation .container .text-block .contact-icons a .icon {
@@ -357,16 +357,14 @@ header .stripe3 {
 /*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #presentation {
-    align-items: baseline;
+    align-items: center;
   }
   #presentation .container {
     flex-direction: column-reverse;
     height: 80%;
     width: 80%;
     align-items: center;
-  }
-  #presentation .container .text-block, #presentation .container .image-block {
-    height: 40%;
+    padding-bottom: 10%;
   }
   #presentation .container .text-block h1 {
     font-size: 2em;
@@ -374,20 +372,12 @@ header .stripe3 {
   #presentation .container .text-block p {
     font-size: clamp(10px, 1.5vh, 25px);
   }
-  #presentation .container .text-block .contact-icons {
-    padding: 1%;
-  }
   #presentation .container .text-block .contact-icons a {
     transform: scale(0.8);
   }
   #presentation .container .text-block .contact-button {
     font-size: clamp(10px, 1.5vh, 25px);
     padding: 0.5vh;
-  }
-  #presentation .container .image-block {
-    padding-top: 10%;
-    height: 40%;
-    width: auto;
   }
 }
 @media (orientation: landscape) and (max-height: 950px) {
@@ -673,6 +663,7 @@ header .stripe3 {
   }
   #competences .text-area {
     width: 80vw;
+    padding: 0;
   }
   #competences .text-area .logo-container img {
     height: 10vh;
@@ -856,6 +847,7 @@ header .stripe3 {
   font-family: "Zendots";
   color: white;
   animation: glow 4s ease-in-out infinite alternate;
+  text-align: center;
 }
 #realisations .bloc-realisation .blocks {
   display: flex;
@@ -960,11 +952,11 @@ header .stripe3 {
   #realisations .bloc-realisation {
     overflow: visible;
     gap: 1vh;
+    height: 90vh;
   }
   #realisations .bloc-realisation h2 {
     font-size: 2vh;
-    padding-top: 5vh;
-    text-align: center;
+    padding-top: 2vh;
   }
   #realisations .bloc-realisation .blocks {
     flex-direction: column;
@@ -1146,6 +1138,7 @@ header .stripe3 {
   font-family: "Zendots";
   color: white;
   animation: glow 4s ease-in-out infinite alternate;
+  text-align: center;
 }
 #contact .contact-bloc .contact-form {
   display: flex;
@@ -1247,7 +1240,6 @@ header .stripe3 {
   }
   #contact .contact-bloc h2 {
     font-size: 2vh;
-    text-align: center;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
     flex-direction: column;
@@ -1286,7 +1278,6 @@ header .stripe3 {
   }
   #contact .contact-bloc h2 {
     font-size: 2vw;
-    text-align: center;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
     flex-direction: row;
@@ -1329,46 +1320,41 @@ footer {
   transform: translateX(-50%);
   display: flex;
   animation: slideBottomToTop 1s ease;
-  padding: 10px 20px;
+  padding: 5px 5% 0 5%;
+  justify-content: center;
+  gap: 20px;
 }
-footer a {
+footer p {
   font-family: "Zendots";
-  font-size: 1rem;
+  white-space: nowrap;
+  font-size: 1em;
   color: white;
   text-decoration: none;
   text-align: center;
   align-self: center;
-  position: relative;
+}
+footer a {
+  font-family: "Philosopher";
+  white-space: nowrap;
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  align-self: center;
   transition: color 0.3s ease-in-out;
 }
 footer a:hover {
-  color: #4e54c8;
-}
-footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #98ff98;
-  z-index: -1;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-footer:hover::before {
-  transform: scaleX(1);
+  color: #98ff98;
 }
 
 /*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
-  footer a {
-    font-size: 1vh;
+  footer a, footer p {
+    font-size: 1.5vw;
   }
 }
 @media (orientation: landscape) and (max-height: 950px) {
-  footer a {
-    font-size: 1vw;
+  footer a, footer p {
+    font-size: 1.5vh;
   }
 }
