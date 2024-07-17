@@ -17,8 +17,11 @@ header {
             writing-mode: vertical-rl; // Écrit le texte en vertical, orienté vers la gauche
             transform: rotate(180deg); // Rotation pour ajuster l'orientation du texte
             padding: 10px; 
-            border: 2px solid white; 
+            border-top: 2px solid white; 
+            border-right: 2px solid white;
+            border-left: 2px solid white;
             background-color: transparent;
+            margin-top: -1px; /* Compense la bordure pour fusionner avec l'élément précédent */
             transition: background-color 0.4s ease, color 0.4s ease;
             &:hover {
                 color:#98ff98;
@@ -26,6 +29,10 @@ header {
             &.active {
                 color:#4e54c8;
                 background-color: white;
+            }
+            &:first-child {
+                margin-top: 0; /* Enlève la marge pour le premier élément */
+                border-bottom: 2px solid white;
             }
         }
     }
@@ -48,6 +55,7 @@ header {
         left:70%;
     }
 }
+
 
 /*responsive*****************************************************************************************************/
 

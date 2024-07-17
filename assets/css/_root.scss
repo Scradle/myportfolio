@@ -2,14 +2,14 @@
 
 @font-face {
     font-family: 'ZenDots';
-    src: url('../fonts/ZenDots-Regular.ttf') format('truetype');
+    src: local('ZenDots'), url('../fonts/ZenDots-Regular.woff') format('woff'), url('../fonts/ZenDots-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Philosopher';
-    src: url('../fonts/Philosopher-Regular.ttf') format('truetype');
+    src: local('Philosopher'), url('../fonts/Philosopher-Regular.woff') format('woff'), url('../fonts/Philosopher-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }

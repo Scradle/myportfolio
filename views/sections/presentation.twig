@@ -1,0 +1,38 @@
+<section id="presentation" class="section">
+    <div class="background1">
+        <div class="circles">
+            {% for _ in range(1, 10) %}
+                <span></span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-block">
+            <h1 id="animated-title">Hello world!</h1>
+            <p>
+                Je m'appelle <span class="highlight">Guillaume</span>, développeur web spécialisé
+                <span class="highlight">WordPress</span>, habitant l'Oise et proche région parisienne. Passionné par la <span class="highlight">création</span>,
+                l'<span class="highlight">exploration</span> et l'<span class="highlight">innovation</span>,
+                j'ai choisi de me reconvertir dans le développement web pour donner vie à vos idées.<br>
+                Mon expertise me permet de concevoir des sites <span class="highlight">performants</span>,
+                <span class="highlight">élégants</span> et <span class="highlight">sur-mesure</span>.<br>
+                Chaque projet est pour moi une nouvelle aventure, où je mets à profit ma <span class="highlight">créativité</span>
+                et ma <span class="highlight">curiosité</span> pour repousser les limites du
+                <span class="highlight">design</span> et du développement web.
+            </p>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/guillaume-dufour-9a4758316/" class="icon" target="_blank">
+                    {{ function('wp_get_attachment_image', image_ids.linkedin, 'full', false, {'class': 'icon', 'alt': 'lien vers mon linkedin'}) }}
+                </a>
+                <a href="https://github.com/Scradle" class="icon" target="_blank">
+                    {{ function('wp_get_attachment_image', image_ids.github, 'full', false, {'class': 'icon', 'alt': 'lien vers mon github'}) }}
+                </a>
+            </div>
+            <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
+        </div>
+        <div class="image-block">
+            {{ function('wp_get_attachment_image', image_ids.photo1, 'full', false, {'class': 'photo-presentation', 'alt': 'photo de guillaume'}) }}
+            {{ function('wp_get_attachment_image', image_ids.photo2, 'full', false, {'class': 'photo-presentation', 'alt': 'photo de guillaume'}) }}
+        </div>
+    </div>
+</section>

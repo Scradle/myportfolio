@@ -1,0 +1,47 @@
+<section id="competences" class="section">
+    <div class="background2">
+        <div class="circles2a">
+            {% for _ in range(1, 5) %}
+                <span></span>
+            {% endfor %}
+        </div>
+        <div class="circles2b">
+            {% for _ in range(1, 5) %}
+                <span></span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="text-area">
+        <div class="logo-container">
+            {% for competence in competences %}
+                {{ function('wp_get_attachment_image', competence.meta('logo'), 'full', false, {'class': 'photo-competences', 'alt': 'photo de guillaume', 'loading' : 'lazy'}) }}
+            {% endfor %}
+        </div>
+        <div class="text-content">
+            <div class="base-text">
+                {{ function('wp_get_attachment_image', image_ids.photo_competences, 'full', false, {'class': 'photo-competences', 'alt': 'photo de guillaume', 'loading' : 'lazy'}) }}
+                <h2>Mes Compétences en Développement Web</h2>
+                <p>Je vous invite à cliquer sur les logos représentant les divers environnements, langages de programmation et logiciels que j'utilise dans mon workflow quotidien. Chaque logo est un élément clé de mon processus de travail et reflète les compétences que j'ai développées au fil du temps.</p>
+            </div>
+            <h3 class="competence-title"></h3>
+            <p class="competence-description"></p>
+        </div>
+    </div>
+
+    <div class="skill-list">
+        {% for i in range(0, 3) %}
+            <div class="loop-slider slider-{{ i + 1 }}">
+                <!-- 4 sliders créés et remplis dynamiquement -->
+                <div class="inner">
+                    {% for competence in competences %}
+                        <div class="skill" data-title="{{ competence.title }}" data-logo="{{ competence.meta('logo') }}" data-description="{{ competence.meta('description') }}">
+                            <img src="{{ competence.meta('logo') }}" alt="logo de {{ competence.title }}" loading="lazy">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <div class="fade"></div>
+    </div>
+</section>

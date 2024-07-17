@@ -1,0 +1,49 @@
+<section id="realisations" class="section">
+    <div class="background3">
+        <div class="circles3a">
+            {% for _ in range(1, 5) %}
+                <span></span>
+            {% endfor %}
+        </div>
+        <div class="circles3b">
+            {% for _ in range(1, 5) %}
+                <span></span>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if realisation %}
+        <div class="bloc-realisation" id="portfolio-realisation" data-current-post-id="{{ realisation.ID }}">
+            <h2>Mes Projets et Réalisations</h2>
+            <div class="blocks">
+                <div class="left-block">
+                    {% if realisation.meta('video') %}
+                        <video id="myVideo" loop muted playsinline>
+                            <source src="{{ realisation.meta('video') }}" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% else %}
+                        <img src="{{ realisation.meta('screenshot') }}" alt="Screenshot">
+                    {% endif %}
+                </div>
+                <div class="right-block">
+                    <div class="info-block">
+                        <h3 class="realisation-title">{{ realisation.title }}</h3>
+                        <p>{{ realisation.date|date('F Y')|capitalize }}</p>
+                        <a href="{{ realisation.meta('link') }}" class="icon2" target="_blank">
+                            {{ function('wp_get_attachment_image', image_ids.contact_form_icon, 'full', false, {'class': 'icon2', 'alt': 'lien vers github du projet'}) }}
+                        </a>
+                        <p>{{ realisation.meta('techno') }}</p>
+                        <p>{{ realisation.meta('objectif') }}</p>
+                    </div>
+                    <div class="bloc-nav">
+                        <div class="previous-btn">{{ function('wp_get_attachment_image', image_ids.previous_arrow, 'full', false, {'class': 'previous-btn', 'alt': 'flêche de gauche'}) }}</div>
+                        <div class="next-btn">{{ function('wp_get_attachment_image', image_ids.next_arrow, 'full', false, {'class': 'next-btn', 'alt': 'flêche de droite'}) }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Aucune réalisation trouvée</p>
+    {% endif %}
+</section>

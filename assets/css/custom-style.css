@@ -2,13 +2,13 @@
 /*Local fonts************************************************************************/
 @font-face {
   font-family: "ZenDots";
-  src: url("../fonts/ZenDots-Regular.ttf") format("truetype");
+  src: local("ZenDots"), url("../fonts/ZenDots-Regular.woff") format("woff"), url("../fonts/ZenDots-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Philosopher";
-  src: url("../fonts/Philosopher-Regular.ttf") format("truetype");
+  src: local("Philosopher"), url("../fonts/Philosopher-Regular.woff") format("woff"), url("../fonts/Philosopher-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -113,8 +113,11 @@ header #vertical-menu a {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   padding: 10px;
-  border: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
   background-color: transparent;
+  margin-top: -1px; /* Compense la bordure pour fusionner avec l'élément précédent */
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 header #vertical-menu a:hover {
@@ -123,6 +126,10 @@ header #vertical-menu a:hover {
 header #vertical-menu a.active {
   color: #4e54c8;
   background-color: white;
+}
+header #vertical-menu a:first-child {
+  margin-top: 0; /* Enlève la marge pour le premier élément */
+  border-bottom: 2px solid white;
 }
 header .vertical-stripe {
   position: absolute;
@@ -311,7 +318,7 @@ header .stripe3 {
   z-index: 5;
   font-family: "Philosopher";
   padding: 1vw;
-  font-size: clamp(8px, 0.8vw, 20px);
+  font-size: clamp(8px, 1vw, 20px);
   color: #4e54c8;
   background-color: #98ff98;
   border-radius: 5px;
@@ -331,7 +338,7 @@ header .stripe3 {
   justify-content: center;
   width: 100%;
   position: relative;
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn 2s forwards;
 }
 #presentation .container .image-block .photo-presentation {
   height: 100%;
@@ -1156,7 +1163,8 @@ header .stripe3 {
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
   display: flex;
   width: 100%;
-  gap: 5vw;
+  gap: 10vw;
+  padding: 2vh 10vw;
 }
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
@@ -1190,6 +1198,7 @@ header .stripe3 {
   line-height: 1.5rem;
   background: #4e54c8;
   transition: border-color 0.3s ease;
+  padding: 5%;
 }
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text]:focus,
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email]:focus,
@@ -1203,7 +1212,7 @@ header .stripe3 {
   width: 100%;
 }
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-  height: 100%;
+  height: 14rem;
   width: 100%;
 }
 #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
@@ -1246,6 +1255,7 @@ header .stripe3 {
     height: 80%;
     width: 90%;
     gap: 1vh;
+    padding: 2vw 10vh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {

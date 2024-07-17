@@ -5,6 +5,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Initialize Timber.
 Timber\Timber::init();
 
+
+// Ajoute une fonction personnalisée à Timber pour appeler do_shortcode.
+add_filter( 'timber/twig', function( \Twig\Environment $twig ) {
+    $twig->addFunction( new \Twig\TwigFunction( 'do_shortcode', 'do_shortcode' ) );
+    return $twig;
+} );
+
 /******************************************************************************************************************/
 
 // Theme paths
@@ -27,7 +34,7 @@ function theme_enqueue_scripts() {
 
     // Enregistrer les styles
     wp_enqueue_style( 'style', THEME_URI."/style.css" , array(), ASSETS_VERSION );
-    wp_enqueue_style( 'custom-style', THEME_URI . '/assets/css/custom-style.css', array(), ASSETS_VERSION );
+    wp_enqueue_style( 'custom-style', THEME_URI . '/assets/css/custom-style.min.css', array(), ASSETS_VERSION );
 
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
