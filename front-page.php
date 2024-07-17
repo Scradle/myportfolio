@@ -15,8 +15,33 @@ $args_competences = array(
     'post_type' => 'competence',
     'posts_per_page' => -1
 );
-$competences = Timber::get_posts($args_competences);
-$context['competences'] = $competences;
+$competences_query = new WP_Query($args_competences);
+
+$competences = array();
+// Tableau avec toutes les compétences et leurs champs acf
+if ($competences_query->have_posts()) {
+    while ($competences_query->have_posts()) {
+        $competences_query->the_post();
+        $logo = get_field('logo'); 
+        $description = get_field('description'); 
+        $competences[] = array(
+            'title' => get_the_title(),
+            'logo' => $logo,
+            'description' => $description,
+        );
+    }
+    wp_reset_postdata();
+}
+
+// Créez plusieurs copies mélangées des compétences
+$shuffled_competences_sets = array();
+for ($i = 0; $i < 4; $i++) {
+    $shuffled_competences = $competences;
+    shuffle($shuffled_competences);
+    $shuffled_competences_sets[] = $shuffled_competences;
+}
+
+$context['shuffled_competences_sets'] = $shuffled_competences_sets;
 
 // Récupération de la dernière réalisation
 $args_realisation = array(
@@ -41,3 +66,4 @@ $context['image_ids'] = array(
 );
 
 Timber::render('front-page.twig', $context);
+

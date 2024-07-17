@@ -30,13 +30,13 @@
     </div>
 
     <div class="skill-list">
-        {% for i in range(0, 3) %}
+        {% for i in 0..3 %}
             <div class="loop-slider slider-{{ i + 1 }}">
                 <!-- 4 sliders créés et remplis dynamiquement -->
                 <div class="inner">
-                    {% for competence in competences %}
-                        <div class="skill" data-title="{{ competence.title }}" data-logo="{{ competence.meta('logo') }}" data-description="{{ competence.meta('description') }}">
-                            <img src="{{ competence.meta('logo') }}" alt="logo de {{ competence.title }}" loading="lazy">
+                    {% for competence in shuffled_competences_sets[i] %}
+                        <div class="skill" data-title="{{ competence.title }}" data-logo="{{ competence.logo }}" data-description="{{ competence.description }}">
+                            <img src="{{ competence.logo }}" alt="logo de {{ competence.title }}" loading="lazy">
                         </div>
                     {% endfor %}
                 </div>
