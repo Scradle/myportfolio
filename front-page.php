@@ -62,7 +62,8 @@ $context['image_ids'] = array(
     'photo_competences' => 163,
     'previous_arrow' => 165,
     'next_arrow' => 166,
-    'contact_form_icon' => 167,
+    'git_icon' => 167,
+    'web_icon' => 191,
 );
 
 Timber::render('front-page.twig', $context);

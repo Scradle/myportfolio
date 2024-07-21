@@ -162,7 +162,8 @@ function fetch_portfolio_items() {
             // Récupérer les champs ACF ou autres champs nécessaires
             $screenshot = get_field('screenshot');
             $video = get_field('video'); 
-            $link = get_field('link');
+            $web = get_field('web');
+            $git = get_field('git');
             $techno = get_field('techno');
             $objectif = get_field('objectif');
             $item = array(
@@ -171,7 +172,8 @@ function fetch_portfolio_items() {
                 'date' => ucfirst(get_the_date('F Y')),
                 'screenshot' => $screenshot,
                 'video' => $video,
-                'link' => $link,
+                'web' => $web,
+                'git' => $git,
                 'techno' => $techno,
                 'objectif' => $objectif,
             );

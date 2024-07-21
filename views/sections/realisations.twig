@@ -30,9 +30,14 @@
                     <div class="info-block">
                         <h3 class="realisation-title">{{ realisation.title }}</h3>
                         <p>{{ realisation.date|date('F Y')|capitalize }}</p>
-                        <a href="{{ realisation.meta('link') }}" class="icon2" target="_blank">
-                            {{ function('wp_get_attachment_image', image_ids.contact_form_icon, 'full', false, {'class': 'icon2', 'alt': 'lien vers github du projet'}) }}
-                        </a>
+                        <div class="link-bloc">
+                            <a href="{{ realisation.meta('web') }}" class="icon3" target="_blank">
+                                {{ function('wp_get_attachment_image', image_ids.web_icon, 'full', false, {'class': 'icon3', 'alt': 'lien vers le site du projet'}) }}
+                            </a>
+                            <a href="{{ realisation.meta('git') }}" class="icon2" target="_blank">
+                                {{ function('wp_get_attachment_image', image_ids.git_icon, 'full', false, {'class': 'icon2', 'alt': 'lien vers github du projet'}) }}
+                            </a>
+                        </div>
                         <p>{{ realisation.meta('techno') }}</p>
                         <p>{{ realisation.meta('objectif') }}</p>
                     </div>

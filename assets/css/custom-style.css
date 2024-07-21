@@ -923,16 +923,33 @@ header .stripe3 {
   font-size: 1em;
   color: #98ff98;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block a {
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc {
+  gap: 2vw;
+  justify-content: center;
+  display: flex;
+}
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a .icon2 {
   width: 64px;
   height: auto;
 }
-#realisations .bloc-realisation .blocks .right-block .info-block a .icon2:hover {
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a .icon2:hover {
+  opacity: 0.6;
+}
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a .icon3 {
+  width: 64px;
+  height: auto;
+}
+#realisations .bloc-realisation .blocks .right-block .info-block .link-bloc a .icon3:hover {
   opacity: 0.6;
 }
 #realisations .bloc-realisation .blocks .right-block .bloc-nav {
@@ -1212,7 +1229,7 @@ header .stripe3 {
   width: 100%;
 }
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-  height: 14rem;
+  height: 17rem;
   width: 100%;
 }
 #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {

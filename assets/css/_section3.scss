@@ -172,7 +172,7 @@
                         font-family: 'ZenDots';
                         color: white;
                         animation: glow 4s ease-in-out infinite alternate;
-                    }                   
+                    }                  
                     p {
                         font-size: 1.5em;
                         color: white;
@@ -188,18 +188,34 @@
                         font-size: 1em;
                         color: #98ff98;
                     }
-                    a {
-                        display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                        .icon2 {                        
-                            width: 64px;
-                            height: auto;
-                            &:hover {
-                                opacity: 0.6;
+                    .link-bloc {
+                        gap: 2vw;
+                        justify-content: center;
+                        display: flex;
+                        a {
+                            display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                            .icon2 {                        
+                                width: 64px;
+                                height: auto;
+                                &:hover {
+                                    opacity: 0.6;
+                                }
                             }
                         }
-                        
+                        a {
+                            display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                            .icon3 {                        
+                                width: 64px;
+                                height: auto;
+                                &:hover {
+                                    opacity: 0.6;
+                                }
+                            }
+                        }
                     }
                 }       
                 .bloc-nav {

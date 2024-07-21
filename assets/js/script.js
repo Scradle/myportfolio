@@ -23,6 +23,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sélectionne le bouton du call to action (CTA)
     let contactButton = document.querySelector('.contact-button');
 
+    // Fonction throttle pour limiter la fréquence d'exécution
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
     // Fonction pour mettre à jour la position des bandes verticales en fonction de l'index de section
     function updateStripesPosition(index) {
         switch(index) {
@@ -94,11 +108,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Ajout d'un écouteur d'événement pour le défilement de la souris
-    document.addEventListener('wheel', function (event) {
+    // Ajout d'un écouteur d'événement pour le défilement de la souris (utilisation de throttle)
+    document.addEventListener('wheel', throttle(function(event) {
         // Si un défilement est déjà en cours, ignorer les nouveaux événements de défilement
         if (isScrolling) return;
-        
+
         // Détection de la direction du défilement
         if (event.deltaY > 0) {
             // Défilement vers le bas
@@ -110,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Appeler la fonction pour faire défiler vers la nouvelle section
         scrollToSection(currentSectionIndex);
-    }, { passive: false }); // Le paramètre passive: false empêche le comportement par défaut du navigateur pour l'événement wheel
+    }, 700)); // Limite de throttle
 
     // Ajout d'un écouteur d'événement pour les clics sur les liens du menu de navigation
     navLinks.forEach((link, index) => {
@@ -155,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mise à jour initiale des liens du menu de navigation
     updateNavLinks(currentSectionIndex);
 });
+
 
 
 
@@ -222,7 +237,7 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(video);
 
 
-/*animations****************************************************************************************************************************************************************/
+/*animation du titre****************************************************************************************************************************************************************/
 
 document.addEventListener("DOMContentLoaded", () => {
     // Sélectionner l'élément du titre par son ID

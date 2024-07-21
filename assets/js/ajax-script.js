@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         portfolioRealisation.querySelector('.info-block .realisation-title').textContent = item.title;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(1)').textContent = item.date;
-        portfolioRealisation.querySelector('.info-block a.icon2').href = item.link;
+        portfolioRealisation.querySelector('.info-block a.icon3').href = item.web;
+        portfolioRealisation.querySelector('.info-block a.icon2').href = item.git;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(2)').textContent = item.techno;
         portfolioRealisation.querySelector('.info-block p:nth-of-type(3)').textContent = item.objectif;
     }
