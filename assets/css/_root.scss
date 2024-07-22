@@ -104,3 +104,19 @@ body, html {
 .hidden {
     visibility: hidden;
 }
+.tooltip {
+    display: none; /* Initialement caché */
+    position: absolute;
+    background-color: #98ff98;
+    color: #4e54c8; 
+    padding: 5px; 
+    border-radius: 5px; 
+    white-space: nowrap; 
+    z-index: 1000; 
+    opacity: 0; /* Initialement transparent */
+    transition: opacity 0.3s ease-in-out;
+    font-family: 'Philosopher'; 
+    font-size: 20px; 
+    text-align: center;
+    pointer-events: none; /* Empêche le tooltip de recevoir des événements */ 
+}

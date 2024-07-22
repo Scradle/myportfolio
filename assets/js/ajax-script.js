@@ -41,12 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var currentIndex = findIndexById(currentPostId);
         var newIndex;
 
-        if (direction === 'next') {
+        if (direction === 'previous') {
             newIndex = currentIndex + 1;
             if (newIndex >= totalItems) {
                 newIndex = 0; // Revenir au premier article
             }
-        } else if (direction === 'previous') {
+        } else if (direction === 'next') {
             newIndex = currentIndex - 1;
             if (newIndex < 0) {
                 newIndex = totalItems - 1; // Aller au dernier article

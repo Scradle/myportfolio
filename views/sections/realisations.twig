@@ -32,10 +32,10 @@
                         <p>{{ realisation.date|date('F Y')|capitalize }}</p>
                         <div class="link-bloc">
                             <a href="{{ realisation.meta('web') }}" class="icon3" target="_blank">
-                                {{ function('wp_get_attachment_image', image_ids.web_icon, 'full', false, {'class': 'icon3', 'alt': 'lien vers le site du projet'}) }}
+                                {{ function('wp_get_attachment_image', image_ids.web_icon, 'full', false, {'class': 'icon3 hover-image', 'alt': 'Lien vers le site'}) }}
                             </a>
                             <a href="{{ realisation.meta('git') }}" class="icon2" target="_blank">
-                                {{ function('wp_get_attachment_image', image_ids.git_icon, 'full', false, {'class': 'icon2', 'alt': 'lien vers github du projet'}) }}
+                                {{ function('wp_get_attachment_image', image_ids.git_icon, 'full', false, {'class': 'icon2 hover-image', 'alt': 'Lien vers le github du site'}) }}
                             </a>
                         </div>
                         <p>{{ realisation.meta('techno') }}</p>

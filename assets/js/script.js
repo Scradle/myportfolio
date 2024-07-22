@@ -239,6 +239,7 @@ observer.observe(video);
 
 /*animation du titre****************************************************************************************************************************************************************/
 
+// Attend que le DOM soit entièrement chargé pour démarrer le script
 document.addEventListener("DOMContentLoaded", () => {
     // Sélectionner l'élément du titre par son ID
     const title = document.getElementById("animated-title");
@@ -274,4 +275,60 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/*gestion des alt****************************************************************************************************************************************************************/
 
+// Attend que le DOM soit entièrement chargé pour démarrer le script
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne toutes les images ayant la classe 'hover-image'
+    var images = document.querySelectorAll('.hover-image');
+
+    // Parcourt chaque image sélectionnée
+    images.forEach(function(image) {
+        // Ajoute un écouteur d'événement pour l'événement 'mouseover' (quand la souris survole l'image)
+        image.addEventListener('mouseover', function(event) {
+            // Crée un nouvel élément 'div' pour le tooltip
+            var tooltip = document.createElement('div');
+            // Attribue la classe 'tooltip' au nouvel élément 'div'
+            tooltip.className = 'tooltip';
+            // Définit le texte du tooltip en utilisant l'attribut 'alt' de l'image
+            tooltip.textContent = image.alt;
+            // Ajoute le tooltip au corps du document
+            document.body.appendChild(tooltip);
+
+            // Récupère les dimensions et la position de l'image
+            var rect = image.getBoundingClientRect();
+            // Positionne le tooltip au-dessus de l'image et le centre horizontalement
+            tooltip.style.left = rect.left + (rect.width - tooltip.offsetWidth) / 2 + 'px';
+            tooltip.style.top = rect.top - tooltip.offsetHeight + 'px';
+
+            // Utilisez un léger délai pour déclencher l'effet de fade-in
+            setTimeout(function() {
+                // Assurez-vous que le tooltip est affiché
+                tooltip.style.display = 'block';
+                // Déclenchez l'effet de fade-in en réglant l'opacité
+                tooltip.style.opacity = 0.8;
+            }, 10); // 10ms pour que le navigateur prenne en compte le display: block
+        });
+
+        // Ajoute un écouteur d'événement pour l'événement 'mousemove' (quand la souris se déplace sur l'image)
+        image.addEventListener('mousemove', function(event) {
+            // Sélectionne le tooltip
+            var tooltip = document.querySelector('.tooltip');
+            if (tooltip) {
+                // Positionne le tooltip par rapport à la position de la souris, avec un décalage
+                tooltip.style.left = event.pageX + 10 + 'px';
+                tooltip.style.top = event.pageY - 40 + 'px';
+            }
+        });
+
+        // Ajoute un écouteur d'événement pour l'événement 'mouseout' (quand la souris quitte l'image)
+        image.addEventListener('mouseout', function() {
+            // Sélectionne le tooltip
+            var tooltip = document.querySelector('.tooltip');
+            if (tooltip) {
+                // Supprime le tooltip immédiatement sans effet de fade-out
+                tooltip.remove();
+            }
+        });
+    });
+});
