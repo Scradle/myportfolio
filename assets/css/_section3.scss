@@ -278,6 +278,11 @@
                                  transform: scale(0.7);
                             }
                         }
+                        a {
+                            .icon3 {
+                                 transform: scale(0.7);
+                            }
+                        }
                     }
                     .bloc-nav {
                         .previous-btn, .next-btn {                           
@@ -324,6 +329,12 @@
                         a {
                             height: 40px;
                             .icon2 {
+                                 transform: scale(0.7);
+                            }                            
+                        }
+                        a {
+                            height: 40px;
+                            .icon3 {
                                  transform: scale(0.7);
                             }                            
                         }

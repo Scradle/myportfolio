@@ -107,7 +107,7 @@ body, html {
   opacity: 0; /* Initialement transparent */
   transition: opacity 0.3s ease-in-out;
   font-family: "Philosopher";
-  font-size: 20px;
+  font-size: 12px;
   text-align: center;
   pointer-events: none; /* Empêche le tooltip de recevoir des événements */
 }
@@ -1025,6 +1025,9 @@ header .stripe3 {
   #realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
     transform: scale(0.7);
   }
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon3 {
+    transform: scale(0.7);
+  }
   #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
     transform: scale(0.7);
   }
@@ -1067,6 +1070,12 @@ header .stripe3 {
     height: 40px;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
+    transform: scale(0.7);
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block a {
+    height: 40px;
+  }
+  #realisations .bloc-realisation .blocks .right-block .info-block a .icon3 {
     transform: scale(0.7);
   }
   #realisations .bloc-realisation .blocks .right-block .bloc-nav .previous-btn, #realisations .bloc-realisation .blocks .right-block .bloc-nav .next-btn {
