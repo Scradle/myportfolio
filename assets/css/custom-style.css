@@ -327,6 +327,7 @@ header .stripe3 {
   align-items: center;
   justify-content: center;
   height: auto;
+  width: 64px;
 }
 #presentation .container .text-block .contact-icons a:hover {
   opacity: 0.6;
