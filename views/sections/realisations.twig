@@ -32,18 +32,22 @@
                         <p>{{ realisation.date|date('F Y')|capitalize }}</p>
                         <div class="link-bloc">
                             <a href="{{ realisation.meta('web') }}" class="icon3" target="_blank">
-                                {{ function('wp_get_attachment_image', image_ids.web_icon, 'full', false, {'class': 'icon3 hover-image', 'alt': 'Lien vers le site'}) }}
+                                <img src="{{image_ids.web_icon}}" class= "icon3 hover-image" alt= "Lien vers le site">
                             </a>
                             <a href="{{ realisation.meta('git') }}" class="icon2" target="_blank">
-                                {{ function('wp_get_attachment_image', image_ids.git_icon, 'full', false, {'class': 'icon2 hover-image', 'alt': 'Lien vers le github du site'}) }}
+                                <img src="{{image_ids.git_icon}}" class= "icon2 hover-image" alt= "Lien vers le github du site">
                             </a>
                         </div>
                         <p>{{ realisation.meta('techno') }}</p>
                         <p>{{ realisation.meta('objectif') }}</p>
                     </div>
                     <div class="bloc-nav">
-                        <div class="previous-btn">{{ function('wp_get_attachment_image', image_ids.previous_arrow, 'full', false, {'class': 'previous-btn', 'alt': 'flêche de gauche'}) }}</div>
-                        <div class="next-btn">{{ function('wp_get_attachment_image', image_ids.next_arrow, 'full', false, {'class': 'next-btn', 'alt': 'flêche de droite'}) }}</div>
+                        <div class="previous-btn">
+                            <img src="{{image_ids.previous_arrow}}" class="previous-btn" alt= "flêche de gauche">
+                        </div>
+                        <div class="next-btn">
+                            <img src="{{image_ids.next_arrow}}" class= "next-btn" alt= "flêche de droite">
+                        </div>
                     </div>
                 </div>
             </div>

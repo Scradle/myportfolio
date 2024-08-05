@@ -20,7 +20,7 @@
     border-radius: 90%;
   }
   to {
-    transform: translateY(-100vh) rotate(720deg);
+    transform: translateY(-100dvh) rotate(720deg);
     opacity: 0;
     border-radius: 0;
   }
@@ -32,7 +32,7 @@
     border-radius: 0;
   }
   to {
-    transform: translateY(100vh) rotate(-720deg);
+    transform: translateY(100dvh) rotate(-720deg);
     opacity: 0;
     border-radius: 90%;
   }
@@ -87,7 +87,7 @@ body, html {
 
 .section {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -197,7 +197,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #presentation .background1 .circles span {
   position: absolute;
@@ -308,7 +308,7 @@ header .stripe3 {
 }
 #presentation .container .text-block p {
   font-family: "Philosopher";
-  font-size: clamp(10px, 1vw, 25px);
+  font-size: clamp(10px, 1dvw, 25px);
   line-height: 1.5;
   text-align: center;
 }
@@ -334,8 +334,8 @@ header .stripe3 {
 #presentation .container .text-block .contact-button {
   z-index: 5;
   font-family: "Philosopher";
-  padding: 1vw;
-  font-size: clamp(8px, 1vw, 20px);
+  padding: 1dvw;
+  font-size: clamp(8px, 1dvw, 20px);
   color: #4e54c8;
   background-color: #98ff98;
   border-radius: 5px;
@@ -394,14 +394,14 @@ header .stripe3 {
     font-size: 2em;
   }
   #presentation .container .text-block p {
-    font-size: clamp(10px, 1.5vh, 25px);
+    font-size: clamp(10px, 1.5dvh, 25px);
   }
   #presentation .container .text-block .contact-icons a {
     transform: scale(0.8);
   }
   #presentation .container .text-block .contact-button {
-    font-size: clamp(10px, 1.5vh, 25px);
-    padding: 0.5vh;
+    font-size: clamp(10px, 1.5dvh, 25px);
+    padding: 0.5dvh;
   }
 }
 @media (orientation: landscape) and (max-height: 950px) {
@@ -421,7 +421,7 @@ header .stripe3 {
     transform: scale(0.5);
   }
   #presentation .container .text-block .contact-button {
-    padding: 1vh;
+    padding: 1dvh;
   }
   #presentation .container .image-block {
     height: 80%;
@@ -434,7 +434,7 @@ header .stripe3 {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 2vw;
+  gap: 2dvw;
   /*bloc text-skills***************************************************/
   /*bloc skills***************************************************/
 }
@@ -450,7 +450,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #competences .background2 .circles2a span {
   position: absolute;
@@ -499,7 +499,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #competences .background2 .circles2b span {
   position: absolute;
@@ -544,7 +544,7 @@ header .stripe3 {
   animation-delay: 0s;
 }
 #competences .text-area {
-  width: 30vw;
+  width: 30dvw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -587,7 +587,7 @@ header .stripe3 {
   position: relative;
 }
 #competences .text-area .text-content .base-text .photo-competences {
-  height: 15vh;
+  height: 15dvh;
   width: auto;
   border: 2px solid #98ff98;
   border-radius: 1%;
@@ -616,7 +616,7 @@ header .stripe3 {
 }
 #competences .skill-list {
   z-index: 1;
-  width: 50vw;
+  width: 50dvw;
   flex-shrink: 0;
   flex-direction: column;
   gap: 0.5rem 0.5rem;
@@ -686,29 +686,29 @@ header .stripe3 {
     flex-direction: column;
   }
   #competences .text-area {
-    width: 80vw;
+    width: 80dvw;
     padding: 0;
   }
   #competences .text-area .logo-container img {
-    height: 10vh;
+    height: 10dvh;
   }
   #competences .text-area .text-content .competence-title {
-    font-size: 2vh;
+    font-size: 2dvh;
   }
   #competences .text-area .text-content .competence-description {
-    font-size: clamp(10px, 1.5vh, 25px);
+    font-size: clamp(10px, 1.5dvh, 25px);
   }
   #competences .text-area .text-content .base-text h2 {
-    font-size: 2vh;
+    font-size: 2dvh;
   }
   #competences .text-area .text-content .base-text p {
-    font-size: clamp(10px, 1.5vh, 25px);
+    font-size: clamp(10px, 1.5dvh, 25px);
   }
   #competences .skill-list {
     width: 80%;
   }
   #competences .skill-list .loop-slider .inner .skill {
-    padding: 1.5vw 1.5vh;
+    padding: 1.5dvw 1.5dvh;
   }
   #competences .skill-list .loop-slider .inner .skill img {
     width: 70px;
@@ -720,25 +720,25 @@ header .stripe3 {
     width: 30%;
   }
   #competences .text-area .logo-container img {
-    height: 10vW;
+    height: 10dvw;
   }
   #competences .text-area .text-content .competence-title {
-    font-size: 2vw;
+    font-size: 2dvw;
   }
   #competences .text-area .text-content .competence-description {
-    font-size: clamp(10px, 1.5vw, 25px);
+    font-size: clamp(10px, 1.5dvw, 25px);
   }
   #competences .text-area .text-content .base-text h2 {
-    font-size: 2vw;
+    font-size: 2dvw;
   }
   #competences .text-area .text-content .base-text p {
-    font-size: clamp(10px, 1.5vw, 25px);
+    font-size: clamp(10px, 1.5dvw, 25px);
   }
   #competences .skill-list {
     width: 50%;
   }
   #competences .skill-list .loop-slider .inner .skill {
-    padding: 1.5vw 1.5vh;
+    padding: 1.5dvw 1.5dvh;
   }
   #competences .skill-list .loop-slider .inner .skill img {
     width: 70px;
@@ -764,7 +764,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #realisations .background3 .circles3a span {
   position: absolute;
@@ -813,7 +813,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #realisations .background3 .circles3b span {
   position: absolute;
@@ -860,11 +860,11 @@ header .stripe3 {
 #realisations .bloc-realisation {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 80dvh;
   overflow: hidden;
   z-index: 2;
-  width: 80vw;
-  gap: 2vw;
+  width: 80dvw;
+  gap: 2dvw;
 }
 #realisations .bloc-realisation h2 {
   font-size: 2em;
@@ -911,8 +911,8 @@ header .stripe3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
-  gap: 2vh;
+  width: 40dvw;
+  gap: 2dvh;
 }
 #realisations .bloc-realisation .blocks .right-block .info-block {
   width: 100%;
@@ -941,7 +941,7 @@ header .stripe3 {
   color: #98ff98;
 }
 #realisations .bloc-realisation .blocks .right-block .info-block .link-bloc {
-  gap: 2vw;
+  gap: 2dvw;
   justify-content: center;
   display: flex;
 }
@@ -992,16 +992,16 @@ header .stripe3 {
   }
   #realisations .bloc-realisation {
     overflow: visible;
-    gap: 1vh;
-    height: 90vh;
+    gap: 1dvh;
+    height: 90dvh;
   }
   #realisations .bloc-realisation h2 {
-    font-size: 2vh;
-    padding-top: 2vh;
+    font-size: 2dvh;
+    padding-top: 2dvh;
   }
   #realisations .bloc-realisation .blocks {
     flex-direction: column;
-    gap: 1vh;
+    gap: 1dvh;
   }
   #realisations .bloc-realisation .blocks .left-block {
     height: 35%;
@@ -1012,15 +1012,15 @@ header .stripe3 {
     height: 50%;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title {
-    font-size: 2vh;
+    font-size: 2dvh;
     margin-bottom: 0;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block p {
-    font-size: clamp(10px, 1.5vh, 25px);
+    font-size: clamp(10px, 1.5dvh, 25px);
     margin-bottom: 0;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
-    font-size: clamp(8px, 1vh, 20px);
+    font-size: clamp(8px, 1dvh, 20px);
   }
   #realisations .bloc-realisation .blocks .right-block .info-block a .icon2 {
     transform: scale(0.7);
@@ -1037,34 +1037,34 @@ header .stripe3 {
     overflow: visible;
   }
   #realisations .bloc-realisation h2 {
-    font-size: 2vw;
+    font-size: 2dvw;
   }
   #realisations .bloc-realisation .blocks {
     gap: 5%;
   }
   #realisations .bloc-realisation .blocks .left-block {
-    width: 40vw;
+    width: 40dvw;
   }
   #realisations .bloc-realisation .blocks .left-block img, #realisations .bloc-realisation .blocks .left-block video {
-    width: 40vw;
+    width: 40dvw;
   }
   #realisations .bloc-realisation .blocks .right-block {
-    width: 40vw;
+    width: 40dvw;
     gap: 0;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block {
-    width: 40vw;
+    width: 40dvw;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block .realisation-title {
-    font-size: clamp(10px, 1.5vw, 25px);
+    font-size: clamp(10px, 1.5dvw, 25px);
     margin: 0;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block p {
-    font-size: clamp(10px, 1vw, 25px);
+    font-size: clamp(10px, 1dvw, 25px);
     margin: 0;
   }
   #realisations .bloc-realisation .blocks .right-block .info-block p:nth-of-type(3) {
-    font-size: clamp(8px, 1vw, 20px);
+    font-size: clamp(8px, 1dvw, 20px);
   }
   #realisations .bloc-realisation .blocks .right-block .info-block a {
     height: 40px;
@@ -1101,7 +1101,7 @@ header .stripe3 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 #contact .background4 .circles4 span {
   position: absolute;
@@ -1206,8 +1206,8 @@ header .stripe3 {
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
   display: flex;
   width: 100%;
-  gap: 10vw;
-  padding: 2vh 10vw;
+  gap: 10dvw;
+  padding: 2dvh 10dvw;
 }
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
 #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
@@ -1288,78 +1288,78 @@ header .stripe3 {
 /*responsive*****************************************************************************************************/
 @media (orientation: portrait) {
   #contact .contact-bloc {
-    width: 80vw;
+    width: 80dvw;
   }
   #contact .contact-bloc h2 {
-    font-size: 2vh;
+    font-size: 2dvh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
     flex-direction: column;
     height: 80%;
     width: 90%;
-    gap: 1vh;
-    padding: 2vw 10vh;
+    gap: 1dvh;
+    padding: 2dvw 10dvh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
     width: 100%;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc label {
-    font-size: clamp(10px, 1.2vw, 25px);
+    font-size: clamp(10px, 1.2dvw, 25px);
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-    font-size: clamp(10px, 2vh, 25px);
+    font-size: clamp(10px, 2dvh, 25px);
     margin: 0;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email] {
-    height: 5vh;
+    height: 5dvh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-    height: 30vh;
+    height: 30dvh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
-    font-size: clamp(10px, 1vh, 25px);
+    font-size: clamp(10px, 1dvh, 25px);
     margin-top: 10px;
   }
 }
 @media (orientation: landscape) and (max-height: 950px) {
   #contact .contact-bloc {
-    width: 80vw;
+    width: 80dvw;
   }
   #contact .contact-bloc h2 {
-    font-size: 2vw;
+    font-size: 2dvw;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc {
     flex-direction: row;
     height: 80%;
     width: 80%;
-    gap: 10vh;
+    gap: 10dvh;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .left-block,
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc .right-block {
     width: 50%;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc label {
-    font-size: clamp(10px, 1.2vw, 25px);
+    font-size: clamp(10px, 1.2dvw, 25px);
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-    font-size: clamp(10px, 2vw, 25px);
+    font-size: clamp(10px, 2dvw, 25px);
     margin: 0;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=text],
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc input[type=email] {
-    height: 5vw;
+    height: 5dvw;
   }
   #contact .contact-bloc .contact-form .wpcf7-form .form-bloc textarea {
-    height: 15vw;
+    height: 15dvw;
   }
   #contact .contact-bloc .contact-form .wpcf7-form input[type=submit] {
-    font-size: clamp(10px, 0.8vw, 25px);
+    font-size: clamp(10px, 0.8dvw, 25px);
     margin-top: 10px;
   }
 }

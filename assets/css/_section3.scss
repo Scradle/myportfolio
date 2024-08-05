@@ -15,7 +15,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
         }
         .circles3a span {
             position: absolute;
@@ -64,7 +64,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
         }    
         .circles3b span {
             position: absolute;
@@ -113,11 +113,11 @@
     .bloc-realisation {
         display: flex;
         flex-direction: column;
-        height: 80vh;
+        height: 80dvh;
         overflow: hidden;
         z-index: 2;
-        width: 80vw;
-        gap: 2vw;
+        width: 80dvw;
+        gap: 2dvw;
         h2 {
             font-size: 2em;
             font-family: 'Zendots';
@@ -161,8 +161,8 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                width: 40vw;
-                gap: 2vh;       
+                width: 40dvw;
+                gap: 2dvh;       
                 .info-block {
                     width: 100%;
                     text-align: center;
@@ -189,7 +189,7 @@
                         color: #98ff98;
                     }
                     .link-bloc {
-                        gap: 2vw;
+                        gap: 2dvw;
                         justify-content: center;
                         display: flex;
                         a {
@@ -245,15 +245,15 @@
         align-items: baseline; 
         .bloc-realisation {
             overflow:visible;       
-            gap: 1vh;
-            height: 90vh;
+            gap: 1dvh;
+            height: 90dvh;
             h2 {
-                font-size: 2vh;
-                padding-top: 2vh;
+                font-size: 2dvh;
+                padding-top: 2dvh;
             }
             .blocks {
                 flex-direction: column;                
-                gap: 1vh;  
+                gap: 1dvh;  
                 .left-block{
                     height: 35%;
                 } 
@@ -263,15 +263,15 @@
                     height: 50%;
                     .info-block {                       
                         .realisation-title {
-                            font-size: 2vh;
+                            font-size: 2dvh;
                             margin-bottom: 0;
                         }                        
                         p {
-                            font-size: clamp(10px, 1.5vh, 25px);
+                            font-size: clamp(10px, 1.5dvh, 25px);
                             margin-bottom: 0;
                         }
                         p:nth-of-type(3) {
-                            font-size: clamp(8px, 1vh, 20px);
+                            font-size: clamp(8px, 1dvh, 20px);
                         }
                         a {
                             .icon2 {
@@ -300,31 +300,31 @@
         .bloc-realisation {
             overflow:visible;
             h2 {
-                font-size: 2vw;                
+                font-size: 2dvw;                
             }
             .blocks {                               
                 gap: 5%;
                 .left-block {
-                    width:40vw;                   
+                    width:40dvw;                   
                     img, video {
-                        width:40vw;
+                        width:40dvw;
                     }
                 }            
                 .right-block {
-                    width: 40vw;
+                    width: 40dvw;
                     gap:0;
                     .info-block {
-                        width: 40vw;
+                        width: 40dvw;
                         .realisation-title {
-                            font-size: clamp(10px, 1.5vw, 25px);
+                            font-size: clamp(10px, 1.5dvw, 25px);
                             margin: 0;
                         }                       
                         p {
-                            font-size: clamp(10px, 1.0vw, 25px);
+                            font-size: clamp(10px, 1.0dvw, 25px);
                             margin: 0;
                         }
                         p:nth-of-type(3) {
-                            font-size: clamp(8px, 1vw, 20px);
+                            font-size: clamp(8px, 1dvw, 20px);
                         }
                         a {
                             height: 40px;

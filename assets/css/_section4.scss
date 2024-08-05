@@ -15,7 +15,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
         }       
         .circles4 span {
             position: absolute;
@@ -118,8 +118,8 @@
                 .form-bloc{
                     display: flex;
                     width: 100%;
-                    gap: 10vw;
-                    padding: 2vh 10vw;
+                    gap: 10dvw;
+                    padding: 2dvh 10dvw;
                     .left-block,
                     .right-block {
                         box-sizing: border-box;
@@ -207,9 +207,9 @@
 @media (orientation: portrait) { 
     #contact { 
         .contact-bloc {
-            width: 80vw;
+            width: 80dvw;
             h2 {
-                font-size: 2vh;
+                font-size: 2dvh;
             }
             .contact-form {    
                 .wpcf7-form {
@@ -217,31 +217,31 @@
                         flex-direction: column;
                         height: 80%;
                         width: 90%;
-                        gap: 1vh;
-                        padding: 2vw 10vh;
+                        gap: 1dvh;
+                        padding: 2dvw 10dvh;
                         .left-block,
                         .right-block {
                             width: 100%;
                         }
                         label {
-                            font-size: clamp(10px, 1.2vw, 25px);
+                            font-size: clamp(10px, 1.2dvw, 25px);
                         }   
                         input[type="text"],
                         input[type="email"],
                         textarea {
-                            font-size: clamp(10px, 2vh, 25px);
+                            font-size: clamp(10px, 2dvh, 25px);
                             margin: 0;
                         }
                         input[type="text"],
                         input[type="email"] {
-                            height: 5vh;
+                            height: 5dvh;
                         }               
                         textarea {
-                            height: 30vh;
+                            height: 30dvh;
                         }
                     }
                     input[type="submit"] {
-                        font-size: clamp(10px, 1vh, 25px);
+                        font-size: clamp(10px, 1dvh, 25px);
                         margin-top: 10px;
                     }           
                 }
@@ -253,9 +253,9 @@
 @media (orientation: landscape) and (max-height: 950px) { 
     #contact { 
         .contact-bloc {
-            width: 80vw;
+            width: 80dvw;
             h2 {
-                font-size: 2vw;
+                font-size: 2dvw;
             }
             .contact-form {    
                 .wpcf7-form {
@@ -263,31 +263,31 @@
                         flex-direction: row;
                         height: 80%;
                         width: 80%;
-                        gap: 10vh;
+                        gap: 10dvh;
                         .left-block,
                         .right-block {
                             width: 50%;
                         }
                         label {
-                            font-size: clamp(10px, 1.2vw, 25px);
+                            font-size: clamp(10px, 1.2dvw, 25px);
                         }    
                         input[type="text"],
                         input[type="email"],
                         textarea {
-                            font-size: clamp(10px, 2vw, 25px);
+                            font-size: clamp(10px, 2dvw, 25px);
                             margin: 0;
 
                         }
                         input[type="text"],
                         input[type="email"] {
-                            height: 5vw;
+                            height: 5dvw;
                         }               
                         textarea {
-                            height: 15vw;
+                            height: 15dvw;
                         }
                     }
                     input[type="submit"] {
-                        font-size: clamp(10px, 0.8vw, 25px);
+                        font-size: clamp(10px, 0.8dvw, 25px);
                         margin-top: 10px;
                     }           
                 }

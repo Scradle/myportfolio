@@ -23,7 +23,7 @@
         border-radius: 90%;
     }
     to{
-        transform: translateY(-100vh) rotate(720deg);
+        transform: translateY(-100dvh) rotate(720deg);
         opacity: 0;
         border-radius: 0;
     }
@@ -36,7 +36,7 @@
         border-radius: 0;
     }
     to{
-        transform: translateY(100vh) rotate(-720deg);
+        transform: translateY(100dvh) rotate(-720deg);
         opacity: 0;
         border-radius: 90%;
     }
@@ -98,7 +98,7 @@ body, html {
 }
 .section {
     position: relative;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 }
 .hidden {

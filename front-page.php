@@ -55,16 +55,17 @@ $context['realisation'] = $realisations ? $realisations[0] : null;
 
 // Variables pour les images (définies en dur)
 $context['image_ids'] = array(
-    'linkedin' => 168,
-    'github' => 167,
-    'photo1' => 162,
-    'photo2' => 164,
-    'photo_competences' => 163,
-    'previous_arrow' => 165,
-    'next_arrow' => 166,
-    'git_icon' => 167,
-    'web_icon' => 191,
+    'linkedin' => esc_url(get_template_directory_uri() . '/assets/images/linkedin-me.webp'),
+    'github' => esc_url(get_template_directory_uri() . '/assets/images/github-me.webp'),
+    'photo1' => esc_url(get_template_directory_uri() . '/assets/images/logodev1.webp'),
+    'photo2' => esc_url(get_template_directory_uri() . '/assets/images/logodev3.webp'),
+    'photo_competences' => esc_url(get_template_directory_uri() . '/assets/images/logodev2.webp'),
+    'previous_arrow' => esc_url(get_template_directory_uri() . '/assets/images/circle-left-solid.webp'), 
+    'next_arrow' => esc_url(get_template_directory_uri() . '/assets/images/circle-right-solid.webp'),
+    'git_icon' => esc_url(get_template_directory_uri() . '/assets/images/github-me.webp'),
+    'web_icon' => esc_url(get_template_directory_uri() . '/assets/images/lien-hypertexte96.webp'),
 );
+
 
 Timber::render('front-page.twig', $context);
 

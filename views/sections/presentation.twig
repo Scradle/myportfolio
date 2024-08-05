@@ -22,17 +22,16 @@
             </p>
             <div class="contact-icons">
                 <a href="https://www.linkedin.com/in/guillaume-dufour-9a4758316/" class="icon" target="_blank">
-                    {{ function('wp_get_attachment_image', image_ids.linkedin, 'full', false, {'class': 'icon hover-image', 'alt': 'lien vers mon linkedin'}) }}
+                    <img src="{{ image_ids.linkedin}}" class= "icon hover-image" alt= "lien vers mon linkedin">
                 </a>
                 <a href="https://github.com/Scradle" class="icon" target="_blank">
-                    {{ function('wp_get_attachment_image', image_ids.github, 'full', false, {'class': 'icon hover-image', 'alt': 'lien vers mon github'}) }}
+                    <img src="{{image_ids.github}}" class= "icon hover-image" alt= "lien vers mon github">
                 </a>
             </div>
             <a href="#" class="contact-button">Ensemble, faisons de votre présence en ligne une expérience inoubliable.</a>
         </div>
         <div class="image-block">
-            {{ function('wp_get_attachment_image', image_ids.photo1, 'full', false, {'class': 'photo-presentation', 'alt': 'photo de guillaume'}) }}
-            {{ function('wp_get_attachment_image', image_ids.photo2, 'full', false, {'class': 'photo-presentation hover-image', 'alt': 'Bienvenue sur mon portfolio!'}) }}
+            <img src="{{ image_ids.photo1 }}" class="photo-presentation" alt="photo de guillaume">
+            <img src="{{ image_ids.photo2 }}" class="photo-presentation hover-image" alt="Bienvenue sur mon portfolio!">        </div>
         </div>
-    </div>
 </section>

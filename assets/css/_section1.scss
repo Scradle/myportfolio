@@ -15,7 +15,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
         }  
         .circles span {
             position: absolute;
@@ -126,7 +126,7 @@
             }
             p {
                 font-family: 'Philosopher';
-                font-size: clamp(10px, 1vw, 25px);
+                font-size: clamp(10px, 1dvw, 25px);
                 line-height: 1.5;
                 text-align: center;
             }
@@ -155,8 +155,8 @@
             .contact-button {
                 z-index: 5;
                 font-family: 'Philosopher';
-                padding: 1vw;
-                font-size: clamp(8px, 1vw, 20px);
+                padding: 1dvw;
+                font-size: clamp(8px, 1dvw, 20px);
                 color: #4e54c8;
                 background-color: #98ff98;
                 border-radius: 5px;
@@ -218,7 +218,7 @@
                     font-size: 2em;
                 }
                 p {
-                    font-size: clamp(10px, 1.5vh, 25px);
+                    font-size: clamp(10px, 1.5dvh, 25px);
                 }
                 .contact-icons {
                     a {
@@ -227,8 +227,8 @@
                     
                 }
                 .contact-button {
-                    font-size: clamp(10px, 1.5vh, 25px);
-                    padding: 0.5vh;
+                    font-size: clamp(10px, 1.5dvh, 25px);
+                    padding: 0.5dvh;
                 }
             }
         }
@@ -253,7 +253,7 @@
                     } 
                 }
                 .contact-button {
-                    padding: 1vh;
+                    padding: 1dvh;
                 }
             }
             .image-block {
