@@ -29,7 +29,7 @@
                 <div class="right-block">
                     <div class="info-block">
                         <h3 class="realisation-title">{{ realisation.title }}</h3>
-                        <p>{{ realisation.date|date('F Y')|capitalize }}</p>
+                        <p>{{ realisation.date|date('Y')}}</p>
                         <div class="link-bloc">
                             <a href="{{ realisation.meta('web') }}" class="icon3" target="_blank">
                                 <img src="{{image_ids.web_icon}}" class= "icon3 hover-image" alt= "Lien vers le site">

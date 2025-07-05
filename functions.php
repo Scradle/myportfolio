@@ -169,7 +169,7 @@ function fetch_portfolio_items() {
             $item = array(
                 'id' => get_the_ID(),
                 'title' => get_the_title(),
-                'date' => ucfirst(get_the_date('F Y')),
+                'date' => ucfirst(get_the_date('Y')),
                 'screenshot' => $screenshot,
                 'video' => $video,
                 'web' => $web,

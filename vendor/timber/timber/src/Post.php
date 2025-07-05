@@ -543,16 +543,18 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      * @example
      * ```twig
      * <section id="job-feed">
-     * {% for post in job %}
-     *     <div class="job">
-     *         <h2>{{ post.title }}</h2>
-     *         <p>{{ post.terms({
-     *             taxonomy: 'category',
-     *             orderby: 'name',
-     *             order: 'ASC'
-     *         })|join(', ') }}</p>
-     *     </div>
-     * {% endfor %}
+     * {% if jobs is not empty %}
+     *   {% for post in jobs %}
+     *       <div class="job">
+     *           <h2>{{ post.title }}</h2>
+     *           <p>{{ post.terms({
+     *               taxonomy: 'category',
+     *               orderby: 'name',
+     *               order: 'ASC'
+     *           })|join(', ') }}</p>
+     *       </div>
+     *   {% endfor %}
+     * {% endif %}
      * </section>
      * ```
      * ```html
@@ -985,7 +987,7 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      * @api
      * @example
      * ```twig
-     * {% if post.children %}
+     * {% if post.children is not empty %}
      *     Here are the child pages:
      *     {% for child in post.children %}
      *         <a href="{{ child.link }}">{{ child.title }}</a>
@@ -1059,7 +1061,7 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      *                             on what’s stored in your comments table.
      * @param string $status       Could be 'pending', etc.
      * @see CommentThread for an example with nested comments
-     * @return bool|\Timber\CommentThread
+     * @return bool|CommentThread
      *
      * @example
      *
@@ -1476,7 +1478,7 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      * {# Uses time format set in Settings → General #}
      * Published at {{ post.time }}
      * OR
-     * Published at {{ post.time|time('G:i') }}
+     * Published at {{ post.time('G:i') }}
      * ```
      *
      * ```html
@@ -1522,9 +1524,9 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      * @example
      * ```twig
      * {# Uses time format set in Settings → General #}
-     * Published at {{ post.time }}
+     * Published at {{ post.modified_time }}
      * OR
-     * Published at {{ post.time|time('G:i') }}
+     * Published at {{ post.modified_time('G:i') }}
      * ```
      *
      * ```html
@@ -1813,7 +1815,7 @@ class Post extends CoreEntity implements DatedInterface, Setupable, Stringable
      * ```twig
      * Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
      * ```
-     * @return bool|\Timber\Post
+     * @return bool|Post
      */
     public function parent()
     {
